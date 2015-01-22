@@ -10,7 +10,6 @@ import java.sql.Date;
 @Entity
 public class Guest implements Serializable{
     private static final long serialVersionUID = 1L;
-
     @Id
     @GeneratedValue(generator="my_entity_seq_gen")
     @SequenceGenerator(name="my_entity_seq_gen", sequenceName="GUEST_ID_GENERATOR")
