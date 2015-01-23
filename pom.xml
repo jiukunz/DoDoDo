@@ -8,14 +8,6 @@
     <name>spring-jpa-tomcat Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
-    <repositories>
-        <repository>
-            <id>objectdb</id>
-            <name>ObjectDB Repository</name>
-            <url>http://m2.objectdb.com</url>
-        </repository>
-    </repositories>
-
     <properties>
         <spring.version>3.2.13.RELEASE</spring.version>
     </properties>
@@ -126,9 +118,25 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>3.1</version>
-                <configuration>
+                <configuration/>
+            </plugin>
 
-                </configuration>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <id>prepare-db</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>./prepare_db.sh</executable>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

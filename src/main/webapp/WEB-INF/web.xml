@@ -5,14 +5,15 @@
          http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
     <display-name>Web Application</display-name>
-    <filter>
-        <filter-name>RequestLoggingFilter</filter-name> <!-- mandatory -->
-        <filter-class>com.thoughtworks.spring.jpa.tomcat.filters.RequestLoggingFilter</filter-class> <!-- mandatory -->
-    </filter>
-    <filter-mapping>
-        <filter-name>RequestLoggingFilter</filter-name> <!-- mandatory -->
-        <servlet-name>spring</servlet-name>
-    </filter-mapping>
+
+    <!--<filter>-->
+        <!--<filter-name>RequestLoggingFilter</filter-name> &lt;!&ndash; mandatory &ndash;&gt;-->
+        <!--<filter-class>com.thoughtworks.spring.jpa.tomcat.filters.RequestLoggingFilter</filter-class> &lt;!&ndash; mandatory &ndash;&gt;-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>RequestLoggingFilter</filter-name> &lt;!&ndash; mandatory &ndash;&gt;-->
+        <!--<servlet-name>spring</servlet-name>-->
+    <!--</filter-mapping>-->
 
     <servlet>
         <servlet-name>spring</servlet-name>
