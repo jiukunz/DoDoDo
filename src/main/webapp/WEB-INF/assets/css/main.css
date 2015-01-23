@@ -1,0 +1,42 @@
+body {
+    background: url("../img/tumblr.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.form-signin {
+    width: 280px;
+    margin: 60px auto 10px;
+}
+
+.signin-heading {
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 1px 2px #111;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+}
+
+input[type="text"] {
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+    border-radius: 6px 6px 0 0;
+}
+
+input[type="password"] {
+    border-top: none;
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+    border-radius: 0 0 6px 6px;
+}
+
+button {
+    margin-top: 20px;
+}

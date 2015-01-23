@@ -16,13 +16,13 @@ public class LoginController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String showLoginPage () {
-        return "views/login";
+        return "login";
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public String login (@RequestParam(value = "username", required = true) String username,
                          @RequestParam(value = "password", required = true) String password) {
-
+        loginService.validateUser(username, password);
         return "";
     }
 }
