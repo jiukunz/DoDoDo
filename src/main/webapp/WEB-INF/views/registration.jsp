@@ -10,13 +10,12 @@
     <h2>Sign up with Email</h2>
     <div class="register-group">
         <form class="register-form col-lg-4 col-lg-offset-4" method="post" action="/register" commandName="userForm">
-            <input class="form-control" type="text" placeholder="First name" name="firstName" required/>
+            <input class="form-control first-name" type="text" placeholder="First name" name="firstName" required/>
+            <label class=""></label>
             <input class="form-control" type="text" placeholder="Last name" name="lastName" required/>
             <input class="form-control" type="email" placeholder="Email Address" name="email" required/>
             <input class="form-control" type="password" placeholder="Password" name="password" required/>
             <input class="form-control" type="password" placeholder="Confirm Password" name="confirmPassword" required/>
-            <div class="help-block with-errors"></div>
-            <p class="has-error">${confirmError}</p>
             <button class="btn btn-primary form-control" type="submit">Sign Up</button>
         </form>
     </div>
