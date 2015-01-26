@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 @Component
 public class UserDao {
@@ -15,5 +16,12 @@ public class UserDao {
     @Transactional
     public void persist(User user) {
         em.persist(user);
+    }
+
+    public User selectUserByUsername(String username) {
+        TypedQuery<User> query = em.createQuery(
+                "SELECT u FROM User u where u.email=:username", User.class);
+        query.setParameter("username",username);
+        return query.getSingleResult();
     }
 }

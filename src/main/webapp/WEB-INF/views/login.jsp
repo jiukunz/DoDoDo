@@ -10,12 +10,13 @@
 <body>
 <div class="container">
     <form class="form-signin" method="post">
-        <h1 class="signin-heading">Please Login</h1>
+        <h1 class="signin-heading">Login to Globe Images</h1>
         <input class="form-control" name="username" type="text" placeholder="Username"/>
         <input class="form-control" name="password" type="password" placeholder="Password"/>
-        <div class="form-control has-error">${error}</div>
+        <div class="">${error}</div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-        <a class="btn btn-lg btn-primary btn-block" href="register">Sign in</a>
+        <a class="" href="">Forgot Password</a>
+        <a class="" href="register">Sign in</a>
     </form>
 </div>
 </body>

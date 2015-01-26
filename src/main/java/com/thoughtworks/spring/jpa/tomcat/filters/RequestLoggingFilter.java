@@ -17,6 +17,7 @@ public class RequestLoggingFilter implements Filter {
 
     public static final String LOGIN_STATUS = "LOGIN_STATUS";
     public static final String LOGIN = "/login";
+    public static final String REGISTER = "/register";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -29,7 +30,7 @@ public class RequestLoggingFilter implements Filter {
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         HttpSession session = httpServletRequest.getSession();
         if (session != null) {
-            if (!Objects.equals(httpServletRequest.getRequestURI(), LOGIN)) {
+            if (!Objects.equals(httpServletRequest.getRequestURI(), LOGIN) && !Objects.equals(httpServletRequest.getRequestURI(), REGISTER)) {
                 String status = (String)session.getAttribute(LOGIN_STATUS);
                 if (Strings.isNullOrEmpty(status)) {
                     httpServletResponse.sendRedirect(LOGIN);
