@@ -14,8 +14,6 @@ public class User implements Serializable{
     private Long id;
     private String email;
     private String password;
-    @Column()
-    private String confirmPassword;
     private String firstName;
     private String lastName;
     private Timestamp createDate;
