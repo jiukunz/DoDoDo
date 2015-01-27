@@ -22,6 +22,9 @@ public class UserDao {
         TypedQuery<User> query = em.createQuery(
                 "SELECT u FROM User u where u.email=:username", User.class);
         query.setParameter("username",username);
-        return query.getSingleResult();
+        if (query.getResultList().size()>0) {
+            return query.getSingleResult();
+        }
+        return null;
     }
 }

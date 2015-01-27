@@ -18,6 +18,6 @@ public class LoginService {
     PasswordEncoding passwordEncoding;
 
     public boolean validateUser(String username, String password) throws NoSuchAlgorithmException {
-        return Objects.equals(userDao.selectUserByUsername(username).getPassword(), passwordEncoding.encode2hex(password));
+        return userDao.selectUserByUsername(username) != null && Objects.equals(userDao.selectUserByUsername(username).getPassword(), passwordEncoding.encode2hex(password));
     }
 }
