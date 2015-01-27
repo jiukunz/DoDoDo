@@ -1,5 +1,6 @@
 package com.thoughtworks.spring.jpa.tomcat.services;
 
+import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
@@ -12,7 +13,8 @@ public class PictureService {
     @Autowired
     private PictureDao pictureDao;
 
-    public void getPictureInformation(int pictureId){
-        pictureDao.parsePictureById(pictureId);
+    public String getPictureInformation(int pictureId){
+        Picture picture =  pictureDao.parsePictureById(pictureId);
+        return picture.getPictureName();
     }
 }

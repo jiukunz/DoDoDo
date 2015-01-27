@@ -26,7 +26,8 @@ public class PictureController {
 
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     public @ResponseBody String getPictureInformation(@RequestParam String imageName){
-        pictureService.getPictureInformation(1);
-        return imageName;
+        String pictureName = pictureService.getPictureInformation(10001);
+//        return imageName;
+        return pictureName;
     }
 }
