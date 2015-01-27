@@ -1,23 +1,23 @@
 package com.thoughtworks.spring.jpa.tomcat.controllers.views;
 
 import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class UserForm {
-    @NotEmpty
+    @NotNull
     @Email
     private String email;
-    @NotEmpty
+    @NotNull
     @Size(min = 5)
     private String password;
-    @NotEmpty
+    @NotNull
     @Size(min = 5)
     private String confirmPassword;
-    @NotEmpty
+    @NotNull
     private String firstName;
-    @NotEmpty
+    @NotNull
     private String lastName;
 
     public String getEmail() {

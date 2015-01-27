@@ -3,6 +3,7 @@ package com.thoughtworks.spring.jpa.tomcat.services;
 import com.thoughtworks.spring.jpa.tomcat.controllers.views.UserForm;
 import com.thoughtworks.spring.jpa.tomcat.dao.UserDao;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
+import com.thoughtworks.spring.jpa.tomcat.exceptions.EmailNotUniqueException;
 import com.thoughtworks.spring.jpa.tomcat.helpers.PasswordEncoding;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +19,13 @@ public class RegisterService {
     @Autowired
     PasswordEncoding passwordEncoding;
 
-    public void register(UserForm userForm) throws NoSuchAlgorithmException {
+    public void register(UserForm userForm) throws NoSuchAlgorithmException, EmailNotUniqueException {
         User newUser = createUser(userForm);
-        userDao.persist(newUser);
+        if (userDao.selectUserByEmail(userForm.getEmail()) == null) {
+            userDao.persist(newUser);
+        } else {
+            throw new EmailNotUniqueException("This email address has been registered.");
+        }
     }
 
     private User createUser(UserForm user) throws NoSuchAlgorithmException {

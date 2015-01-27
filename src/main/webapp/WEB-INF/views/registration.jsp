@@ -10,25 +10,24 @@
     <h2>Sign up with Email</h2>
     <div class="register-group">
         <form class="register-form col-lg-4 col-lg-offset-4" method="post" action="/register" commandName="userForm">
-            <input class="form-control first-name" type="text" placeholder="First name" name="firstName" required/>
-            <label id="firstName-error" class="error" for="firstName"></label>
-            <input class="form-control" type="text" placeholder="Last name" name="lastName" required/>
-            <label id="lastName-error" class="error" for="lastName"></label>
-            <input class="form-control" type="email" placeholder="Email Address" name="email" required/>
-            <label id="email-error" class="error" for="email"></label>
+            <p class="error">${error}</p>
+            <input class="form-control first-name" type="text" placeholder="First name" name="firstName" required value="${userForm.firstName}"/>
+            <span id="firstName-error" class="error"></span>
+            <input class="form-control" type="text" placeholder="Last name" name="lastName" required value="${userForm.lastName}"/>
+            <span id="lastName-error" class="error"></span>
+            <input class="form-control" type="email" placeholder="Email Address" name="email" required value="${userForm.email}"/>
+            <span id="email-error" class="error"></span>
             <input class="form-control password" type="password" placeholder="Password" name="password" required/>
-            <label id="password-error" class="error" for="password"></label>
+            <span id="password-error" class="error"></span>
             <input class="form-control" type="password" placeholder="Confirm Password" name="confirmPassword" required/>
-            <label id="confirmPassword-error" class="error" for="ConfirmPassword"></label>
+            <span id="confirmPassword-error" class="error"></span>
             <button class="btn btn-primary form-control" type="submit">Sign Up</button>
         </form>
     </div>
 </div>
-</body>
 <script src="/assets/js/jquery.js"></script>
 <script src="/assets/js/jquery.validate.min.js"></script>
 <script>
-
     $(document).ready(function(){
         $('.register-form').validate({
             rules:{
@@ -65,4 +64,5 @@
         });
     });
 </script>
+</body>
 </html>

@@ -19,13 +19,13 @@ public class UserDao {
         em.persist(user);
     }
 
-    public User selectUserByUsername(String username) {
+    public User selectUserByEmail(String email) {
         TypedQuery<User> query = em.createQuery(
-                "SELECT u FROM User u where u.email=:username", User.class);
-        query.setParameter("username",username);
+                "SELECT u FROM User u where u.email=:email", User.class);
+        query.setParameter("email", email);
 
         List<User> resultList = query.getResultList();
-        if (resultList.size()>0) {
+        if (resultList.size() > 0) {
             return resultList.get(0);
         }
         return null;
