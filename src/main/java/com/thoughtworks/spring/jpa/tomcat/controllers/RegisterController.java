@@ -1,6 +1,8 @@
 package com.thoughtworks.spring.jpa.tomcat.controllers;
 
+import com.thoughtworks.spring.jpa.tomcat.controllers.Mappers.UserMapper;
 import com.thoughtworks.spring.jpa.tomcat.controllers.views.UserForm;
+import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import com.thoughtworks.spring.jpa.tomcat.exceptions.EmailNotUniqueException;
 import com.thoughtworks.spring.jpa.tomcat.services.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class RegisterController {
     @Autowired
     RegisterService registerService;
 
+    @Autowired
+    UserMapper userMapper;
+
     @RequestMapping(method = RequestMethod.GET)
     public String viewRegistration(Map<String, Object> model) {
         UserForm userForm = new UserForm();
@@ -41,7 +46,8 @@ public class RegisterController {
         }
 
         try {
-            registerService.register(userForm);
+            User user = userMapper.Mapper(userForm);
+            registerService.register(user);
         }catch (EmailNotUniqueException e){
             model.addAttribute("error", e.getMessage());
             return "registration";
