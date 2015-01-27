@@ -16,7 +16,7 @@
         <div class="">${error}</div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
         <a class="" href="">Forgot Password</a>
-        <a class="" href="register">Sign in</a>
+        <a class="" href="register">Sign up</a>
     </form>
 </div>
 </body>

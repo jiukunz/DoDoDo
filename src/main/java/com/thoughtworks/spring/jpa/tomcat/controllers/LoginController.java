@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 @Controller
 @RequestMapping(value = "/login")
@@ -28,11 +31,12 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.POST)
     public String login (@RequestParam(value = "username", required = true) String username,
                          @RequestParam(value = "password", required = true) String password,
-                         HttpServletRequest httpServletRequest, Model model) {
+                         HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Model model) throws NoSuchAlgorithmException, IOException {
         HttpSession httpSession = httpServletRequest.getSession();
         if (loginService.validateUser(username, password)) {
-            httpSession.setAttribute("loginStatus", LOGIN);
-            return "homePage";//TODO: add a homePage
+            httpSession.setAttribute("LOGIN_STATUS", LOGIN);
+            httpServletResponse.sendRedirect("/home");
+            return "home";//TODO: add a homePage
         }
         else {
             httpSession.setAttribute("loginStatus", LOGOUT);
