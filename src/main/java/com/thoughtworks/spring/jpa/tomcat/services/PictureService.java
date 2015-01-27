@@ -13,8 +13,8 @@ public class PictureService {
     @Autowired
     private PictureDao pictureDao;
 
-    public String getPictureInformation(int pictureId){
+    public Picture getPictureInformation(int pictureId){
         Picture picture =  pictureDao.parsePictureById(pictureId);
-        return picture.getPictureName();
+        return picture;
     }
 }

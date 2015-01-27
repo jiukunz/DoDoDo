@@ -23,7 +23,10 @@ ${message}
   </div>
 
   <div id="pictureContent" style="display: none">
-      <img class="biggerImage" src="" />
+      <%--<div class="imageContent">--%>
+          <img class="biggerImage" src="/assets/img/loadingAnimation.gif" />
+      <%--</div>--%>
+
       <div class = "pictureInformation">
         商品名:<p></p>
         商品价格:<p></p>
@@ -38,13 +41,12 @@ ${message}
   <script type="text/javascript">
     $(document).ready(function(){
       $(".smallImage").on("click", function(){
-        //缩略图click之后，发送ajax请求
         $.ajax('/picture/data',{
           success: function(response){
-            $(".biggerImage").attr("src", "/assets/img/tw1.jpg");
-//            alert(response);
+//              alert(response);
+            $(".biggerImage").attr("src", "/assets/img/"+response+".jpg");
           },
-          data: {"imageName": "tw1.jpg"}
+          data: {"pictureId": 2}
         });
 
       });

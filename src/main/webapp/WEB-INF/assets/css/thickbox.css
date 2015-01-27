@@ -35,6 +35,7 @@
 .anchor li img{padding:20px; width:150px; height:150px;}
 
 #TB_ajaxContent img{
+    min-height: 20px;
     width:400px;
     height:250px;
 }
