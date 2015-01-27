@@ -1,5 +1,7 @@
 package com.thoughtworks.spring.jpa.tomcat.controllers;
 
+import com.thoughtworks.spring.jpa.tomcat.services.PictureService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/picture")
 public class PictureController {
+    @Autowired
+    private PictureService pictureService;
+
     @RequestMapping( method = RequestMethod.GET)
     public String showPicture(Model model){
         model.addAttribute("message", "hello");
@@ -21,7 +26,7 @@ public class PictureController {
 
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     public @ResponseBody String getPictureInformation(@RequestParam String imageName){
-
+        pictureService.getPictureInformation(1);
         return imageName;
     }
 }
