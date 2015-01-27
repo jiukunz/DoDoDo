@@ -8,12 +8,12 @@ body {
 
 .form-control{
     margin-top: 20px;
-}
+ }
 
-.has-error{
+.error{
     text-align: left;
+    float: left;
     color: red;
-    margin-bottom: 20px;
 }
 
 

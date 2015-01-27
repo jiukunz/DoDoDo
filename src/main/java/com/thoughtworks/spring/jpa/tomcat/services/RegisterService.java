@@ -1,5 +1,6 @@
 package com.thoughtworks.spring.jpa.tomcat.services;
 
+import com.thoughtworks.spring.jpa.tomcat.controllers.views.UserForm;
 import com.thoughtworks.spring.jpa.tomcat.dao.UserDao;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import com.thoughtworks.spring.jpa.tomcat.helpers.PasswordEncoding;
@@ -17,12 +18,21 @@ public class RegisterService {
     @Autowired
     PasswordEncoding passwordEncoding;
 
-    public void register(User user) throws NoSuchAlgorithmException {
-        java.util.Date date = new java.util.Date();
-        user.setCreateDate(new Timestamp(date.getTime()));
-        user.setModifyDate(new Timestamp(date.getTime()));
+    public void register(UserForm userForm) throws NoSuchAlgorithmException {
+        User newUser = createUser(userForm);
+        userDao.persist(newUser);
+    }
 
-        user.setPassword(passwordEncoding.encode2hex(user.getPassword()));
-        userDao.persist(user);
+    private User createUser(UserForm user) throws NoSuchAlgorithmException {
+        User newUser = new User();
+        newUser.setFirstName(user.getFirstName());
+        newUser.setLastName(user.getLastName());
+        newUser.setEmail(user.getEmail());
+        newUser.setPassword(passwordEncoding.encode2hex(user.getPassword()));
+
+        java.util.Date date = new java.util.Date();
+        newUser.setCreateDate(new Timestamp(date.getTime()));
+        newUser.setModifyDate(new Timestamp(date.getTime()));
+        return newUser;
     }
 }
