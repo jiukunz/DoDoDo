@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.util.List;
 
 @Component
 public class UserDao {
@@ -22,8 +23,10 @@ public class UserDao {
         TypedQuery<User> query = em.createQuery(
                 "SELECT u FROM User u where u.email=:username", User.class);
         query.setParameter("username",username);
-        if (query.getResultList().size()>0) {
-            return query.getSingleResult();
+
+        List<User> resultList = query.getResultList();
+        if (resultList.size()>0) {
+            return resultList.get(0);
         }
         return null;
     }
