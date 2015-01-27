@@ -1,0 +1,1 @@
+ALTER TABLE User_Basic ADD UNIQUE (email);
