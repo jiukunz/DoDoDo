@@ -38,3 +38,10 @@
     width:400px;
     height:250px;
 }
+
+.pictureInformation{
+    display: inline;
+}
+.pictureInformation p{
+    display: inline;
+}

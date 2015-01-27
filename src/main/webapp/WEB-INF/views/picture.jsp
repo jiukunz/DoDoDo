@@ -11,42 +11,57 @@
   <title>Picture</title>
   <link rel="stylesheet" href="/assets/css/thickbox.css" />
 
-  <script type="text/javascript">
-    function loadPicture(){
-
-    }
-  </script>
-
 </head>
 <body>
 
 
   <div class="anchor">
-    <a class="thickbox" onclick="loadPicture()" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent"><img src="/assets/img/smalltw1.jpg"/></a>
-
-
-
     <ul>
-      <li><a class="thickbox" rel="gallery-plants" href="/assets/img/tw1.jpg" ><img src="/assets/img/smalltw1.jpg" /></a></li>
-      <li><a class="thickbox" rel="gallery-plants" href="/assets/img/tw2.png" ><img src="/assets/img/smalltw2.jpg" /></a></li>
-      <li><a class="thickbox" rel="gallery-plants" href="/assets/img/tw3.png" ><img src="/assets/img/smalltw3.jpg" /></a></li>
+      <li><a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">
+        <img class="smallImage" src="/assets/img/smalltw1.jpg"/></a>
+      </li>
+      <li>
+        <a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">
+          <img class="smallImage" src="/assets/img/smalltw2.jpg"/>
+        </a>
+      </li>
     </ul>
 
   </div>
 
   <div id="pictureContent" style="display: none">
-      <img src="/assets/img/tw1.jpg" />
-      <p style="display: inline">这是一张图片</p>
+      <img class="biggerImage" src="" />
+      <div class = "pictureInformation">
+        商品名:<p></p>
+        商品价格:<p></p>
+        <button type="button">Add Cart</button>
+      </div>
+
   </div>
 
 
-  </div>
+  <script type="text/javascript" src="/assets/js/jquery.js"></script>
+  <script type="text/javascript" src="/assets/js/thickbox.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".smallImage").on("click", function(){
+//        alert($(this)[0].src);
 
+        //缩略图click之后，发送ajax请求
+//        $.ajax('/views/a.jsp',{
+//          success: function(response){
+//            $(".biggerImage").attr("src", "/assets/img/tw1.jpg");
+//          },
+//          data: {"imageName": $(this)[0].src}
+//        });
+
+        $(".biggerImage").attr("src", "/assets/img/tw1.jpg");
+
+
+      });
+    });
+
+  </script>
 
 </body>
-
-<script type="text/javascript" src="/assets/js/jquery-1.2.6.pack.js"></script>
-<script type="text/javascript" src="/assets/js/thickbox.js"></script>
-
-
 </html>
