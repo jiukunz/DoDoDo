@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: qnxu
-  Date: 1/27/15
-  Time: 9:39 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,7 +6,7 @@
 
 </head>
 <body>
-
+${message}
 
   <div class="anchor">
     <ul>
@@ -45,18 +38,14 @@
   <script type="text/javascript">
     $(document).ready(function(){
       $(".smallImage").on("click", function(){
-//        alert($(this)[0].src);
-
         //缩略图click之后，发送ajax请求
-//        $.ajax('/views/a.jsp',{
-//          success: function(response){
-//            $(".biggerImage").attr("src", "/assets/img/tw1.jpg");
-//          },
-//          data: {"imageName": $(this)[0].src}
-//        });
-
-        $(".biggerImage").attr("src", "/assets/img/tw1.jpg");
-
+        $.ajax('/picture/data',{
+          success: function(response){
+            $(".biggerImage").attr("src", "/assets/img/tw1.jpg");
+//            alert(response);
+          },
+          data: {"imageName": "tw1.jpg"}
+        });
 
       });
     });
