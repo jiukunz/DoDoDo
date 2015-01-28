@@ -1,3 +1,50 @@
-body {
-  color: #ffff00;
+html, body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+
+.content {
+  margin: 80px auto 80px;
+  width: 400px;
+}
+
+.login-header {
+  position: relative;
+  padding-left: 39px;
+  margin-bottom: 20px;
+}
+.login-header .logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 39px;
+  height: 39px;
+  background-color: red;
+}
+.login-header h1 {
+  text-align: center;
+  text-shadow: 0 1px 1px #111;
+}
+
+.form-login {
+  border: 2px solid #ccc;
+  padding: 20px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.form-login .signin-heading {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.form-login .form-control {
+  font-size: 1rem;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.form-login button {
+  margin-top: 30px;
+  margin-bottom: 15px;
 }

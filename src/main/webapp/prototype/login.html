@@ -8,28 +8,23 @@
 </head>
 <body>
 
-<div class="container">
+<main class="container content">
+    <header class="login-header">
+        <i class="logo"></i>
+        <h1>Globe Images</h1>
+    </header>
 
-    <h3>'Allo, 'Allo!2343asdf</h3>
+    <form class="form-login clearfix" method="post">
+        <h3 class="signin-heading">Login to Globe Images</h3>
+        <input class="form-control" name="username" type="text" placeholder="Email"/>
+        <input class="form-control" name="password" type="password" placeholder="Password"/>
+        <!--<div class="">${error}</div>-->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
 
-    <div class="jumbotron">
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <a class="btn btn-lg btn-success" href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a>
-    </div>
+        <a class="pull-left forgot" href="">Forgot Password</a>
+        <a class="pull-right signup" href="register">Sign up</a>
+    </form>
 
-    <div class="row">
-        <div class="col-lg-6">
-            <h3>You now have</h3>
-            <ul>
-                <li>HTML5</li>
-                <li>Sass</li>
-                <li>jQuery</li>
-                <li>Bootstrap</li>
-                <li>Modernizr</li>
-            </ul>
-        </div>
-    </div>
-
-</div>
+</main>
 </body>
 </html>

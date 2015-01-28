@@ -28,7 +28,7 @@ gulp.task('serve', ['connect'], function () {
 
 
 gulp.task('styles', function () {
-    return gulp.src('src/main/webapp/assets/sass/**/*.scss')
+    return gulp.src('src/main/webapp/assets/sass/*.scss')
         .pipe($.compass({
             css: 'src/main/webapp/assets/css',
             sass: 'src/main/webapp/assets/sass',
@@ -42,7 +42,7 @@ gulp.task('styles', function () {
 
 
 gulp.task('scripts', function () {
-    return gulp.src('src/main/webapp/assets/js/**/*.js')
+    return gulp.src(['src/main/webapp/assets/js/**/*.js', '!src/main/webapp/assets/js/libs/**/*.js'])
         .pipe($.jshint())
         .pipe($.jshint.reporter(require('jshint-stylish')))
         .pipe($.size());
