@@ -1,0 +1,9 @@
+<html>
+<body>
+<h3>Hi ${userName}, welcome to the Globe Images!</h3>
+
+<div>
+    Please confirm Your email address by click <a href="http://localhost:9090/active?code=${code}">Confirm</a>.
+</div>
+</body>
+</html>
