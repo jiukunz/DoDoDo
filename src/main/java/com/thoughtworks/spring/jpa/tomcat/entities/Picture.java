@@ -3,6 +3,8 @@ package com.thoughtworks.spring.jpa.tomcat.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by qnxu on 1/27/15.
@@ -36,11 +38,11 @@ public class Picture implements Serializable{
     public void setPictureDescription(String pictureDescription){
         this.description = pictureDescription;
     }
-    public ArrayList<String> getPictureDetailInformation(){
-        ArrayList<String> pictureInformation = new ArrayList<String>();
-        pictureInformation.add(name);
-        pictureInformation.add(description);
-
-        return pictureInformation;
-    }
+//    public Map<String, String> getPictureInformation(){
+//        Map<String, String> pictureInformation = new HashMap<>();
+//        pictureInformation.put("name", name);
+//        pictureInformation.put("description", description);
+//
+//        return pictureInformation;
+//    }
 }

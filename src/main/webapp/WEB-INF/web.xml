@@ -11,7 +11,7 @@
         <filter-class>com.thoughtworks.spring.jpa.tomcat.filters.RequestLoggingFilter</filter-class> <!-- mandatory -->
         <init-param>
             <param-name>noFilterUrls</param-name>
-            <param-value>/login,/register</param-value>
+            <param-value>/login,/register,/picture,/picture/data</param-value>
         </init-param>
     </filter>
     <filter-mapping>

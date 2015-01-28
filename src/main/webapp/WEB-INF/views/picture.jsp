@@ -6,16 +6,15 @@
 
 </head>
 <body>
-${message}
 
   <div class="anchor">
     <ul>
       <li><a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">
-        <img class="smallImage" src="/assets/img/smalltw1.jpg"/></a>
+        <img class="smallImage" alt="1"  src="/assets/img/smalltw1.jpg"/></a>
       </li>
       <li>
         <a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">
-          <img class="smallImage" src="/assets/img/smalltw2.jpg"/>
+          <img class="smallImage" alt="2" src="/assets/img/smalltw2.jpg"/>
         </a>
       </li>
     </ul>
@@ -23,13 +22,14 @@ ${message}
   </div>
 
   <div id="pictureContent" style="display: none">
+      <%--<img class="loading" src="/assets/img/loadingAnimation.gif" />--%>
       <%--<div class="imageContent">--%>
-          <img class="biggerImage" src="/assets/img/loadingAnimation.gif" />
+      <img class="biggerImage" src="/assets/img/picture1.jpg" />
       <%--</div>--%>
 
-      <div class = "pictureInformation">
-        商品名:<p></p>
-        商品价格:<p></p>
+      <div class="pictureInformation">
+          商品名:<p class="pictureName"></p>
+          商品价格:<p class="picturePrice"></p>
         <button type="button">Add Cart</button>
       </div>
 
@@ -44,9 +44,9 @@ ${message}
         $.ajax('/picture/data',{
           success: function(response){
 //              alert(response);
-            $(".biggerImage").attr("src", "/assets/img/"+response+".jpg");
+              $(".pictureName").text(response);
           },
-          data: {"pictureId": 2}
+          data: {"pictureId": this.alt}
         });
 
       });
