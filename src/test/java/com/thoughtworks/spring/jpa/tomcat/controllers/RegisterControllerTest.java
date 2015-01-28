@@ -1,6 +1,6 @@
 package com.thoughtworks.spring.jpa.tomcat.controllers;
 
-import com.thoughtworks.spring.jpa.tomcat.controllers.Mappers.UserMapper;
+import com.thoughtworks.spring.jpa.tomcat.controllers.mappers.UserMapper;
 import com.thoughtworks.spring.jpa.tomcat.controllers.views.UserForm;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import com.thoughtworks.spring.jpa.tomcat.exceptions.EmailNotUniqueException;
@@ -17,9 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 public class RegisterControllerTest {
