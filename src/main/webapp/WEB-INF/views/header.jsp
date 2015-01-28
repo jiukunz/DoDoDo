@@ -1,16 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: tshen
-  Date: 1/28/15
-  Time: 11:36 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" trimDirectiveWhitespaces="true" %>
+<div class="container">
+    <div class="header">
+        <div class="header-right">
+            <img class="logo" src="../../assets/img/logo.jpeg">
+            <span>Globe Images</span>
+        </div>
+        <div class="header-left"></div>
+    </div>
+</div>
