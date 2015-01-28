@@ -3,9 +3,13 @@
 <html>
 <head>
     <title><tiles:insertAttribute name="title"/></title>
+    <script type='text/javascript' charset='utf-8' src="/assets/js/libs/jquery.min.js"></script>
+    <tiles:insertAttribute name="css"/>
 </head>
 <body>
 <tiles:insertAttribute name="header"/>
 <tiles:insertAttribute name="body"/>
+
+<tiles:insertAttribute name="script"/>
 </body>
 </html>
