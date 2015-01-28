@@ -30,7 +30,6 @@ public class RegisterControllerTest {
     private UserMapper userMapper;
     private BindingResult result;
     private Model model;
-    
 
     @Before
     public void setUp() throws Exception {
