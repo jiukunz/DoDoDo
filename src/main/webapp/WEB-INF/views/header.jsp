@@ -13,11 +13,11 @@
         </div>
         <div class="header-left">
             <ul>
-                <li><span></span><span>Home</span></li>
-                <li><span></span><span>My Picture</span></li>
-                <li><span></span><span>Upload</span></li>
-                <li><span></span><span>Shopping car</span></li>
-                <li><span></span><span>User</span></li>
+                <li><span></span><a>Home</a></li>
+                <li><span></span><a>My Picture</a></li>
+                <li><span></span><a>Upload</a></li>
+                <li><span></span><a>Shopping car</a></li>
+                <li><span></span><a>User</a></li>
             </ul>
         </div>
 
