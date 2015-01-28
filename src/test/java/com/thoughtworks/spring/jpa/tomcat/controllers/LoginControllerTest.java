@@ -40,19 +40,19 @@ public class LoginControllerTest {
     public void shouldReturnLoginWhenLoginInvalidate() throws Exception {
         when(loginService.validateUser(username, password)).thenReturn(false);
 
-        String actual = loginController.login(username, password, httpSession, model);
-        String expect = "login";
+        String actualUrl = loginController.login(username, password, httpSession, model);
+        String expectUrl = "login";
 
-        assertThat(actual, is(expect));
+        assertThat(actualUrl, is(expectUrl));
     }
 
     @Test
     public void shouldReturnHomeWhenLoginValidate() throws Exception {
         when(loginService.validateUser(username, password)).thenReturn(true);
 
-        String actual = loginController.login(username, password, httpSession, model);
-        String expect = "home";
+        String actualUrl = loginController.login(username, password, httpSession, model);
+        String expectUrl = "redirect:/home";
 
-        assertThat(actual, is(expect));
+        assertThat(actualUrl, is(expectUrl));
     }
 }

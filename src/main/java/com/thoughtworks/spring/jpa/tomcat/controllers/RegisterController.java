@@ -1,6 +1,6 @@
 package com.thoughtworks.spring.jpa.tomcat.controllers;
 
-import com.thoughtworks.spring.jpa.tomcat.controllers.Mappers.UserMapper;
+import com.thoughtworks.spring.jpa.tomcat.controllers.mappers.UserMapper;
 import com.thoughtworks.spring.jpa.tomcat.controllers.views.UserForm;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import com.thoughtworks.spring.jpa.tomcat.exceptions.EmailNotUniqueException;
