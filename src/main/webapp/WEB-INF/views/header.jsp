@@ -2,9 +2,24 @@
 <div class="container">
     <div class="header">
         <div class="header-right">
-            <img class="logo" src="../../assets/img/logo.jpeg">
-            <span>Globe Images</span>
+            <ul>
+                <li>
+                    <img class="logo" src="../../assets/img/logo.jpeg">
+                </li>
+                <li>
+                    <span>Globe Images</span>
+                </li>
+            </ul>
         </div>
-        <div class="header-left"></div>
+        <div class="header-left">
+            <ul>
+                <li><span></span><a>Home</a></li>
+                <li><span></span><a>My Picture</a></li>
+                <li><span></span><a>Upload</a></li>
+                <li><span></span><a>Shopping car</a></li>
+                <li><span></span><a>User</a></li>
+            </ul>
+        </div>
+
     </div>
 </div>

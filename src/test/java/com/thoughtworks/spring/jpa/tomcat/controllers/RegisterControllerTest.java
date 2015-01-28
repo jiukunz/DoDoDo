@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.context.MessageSource;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
@@ -28,6 +29,9 @@ public class RegisterControllerTest {
     RegisterService registerService;
     @Mock
     private UserMapper userMapper;
+    @Mock
+    MessageSource messageSource;
+    
     private BindingResult result;
     private Model model;
 

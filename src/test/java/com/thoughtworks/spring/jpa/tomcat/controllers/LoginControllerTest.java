@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.context.MessageSource;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpSession;
@@ -21,6 +22,8 @@ public class LoginControllerTest {
     private LoginController loginController;
     @Mock
     private LoginService loginService;
+    @Mock
+    MessageSource messageSource;
 
     private String username;
     private String password;
