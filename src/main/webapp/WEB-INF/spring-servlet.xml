@@ -21,6 +21,10 @@
     <context:property-placeholder location="/WEB-INF/flyway.properties"
                                   xmlns:context="http://www.springframework.org/schema/context"/>
 
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"></property>
+    </bean>
+
     <!-- Add JPA support -->
     <bean id="emf" class=
             "org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

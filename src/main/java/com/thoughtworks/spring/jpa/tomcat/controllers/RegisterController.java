@@ -6,6 +6,7 @@ import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import com.thoughtworks.spring.jpa.tomcat.exceptions.EmailNotUniqueException;
 import com.thoughtworks.spring.jpa.tomcat.services.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 import java.security.NoSuchAlgorithmException;
+import java.util.Locale;
 
 @Controller
 @RequestMapping(value = "/register")
@@ -25,6 +27,9 @@ public class RegisterController {
 
     @Autowired
     UserMapper userMapper;
+
+    @Autowired
+    MessageSource messageSource;
 
     @RequestMapping(method = RequestMethod.GET)
     public String viewRegistration() {
@@ -37,7 +42,7 @@ public class RegisterController {
                                       Model model) throws NoSuchAlgorithmException {
 
         if (result.hasErrors() || !userForm.getPassword().equals(userForm.getConfirmPassword())){
-            model.addAttribute("error", "Registration unsuccessful, please checkout your information.");
+            model.addAttribute("error", messageSource.getMessage("register.register_failed",null, Locale.US));
             model.addAttribute("userForm", userForm);
             return "registration";
         }
