@@ -24,17 +24,13 @@ public class PictureController {
     private PictureService pictureService;
 
     @RequestMapping( method = RequestMethod.GET)
-    public String showPicture(){
+    public String showPicturePage(){
         return "picture";
     }
 
     @RequestMapping(value = "/data", method = RequestMethod.GET)
     public @ResponseBody Map<String,String> getPictureInformation(@RequestParam int pictureId){
-        Picture picture = pictureService.getPictureInformation(pictureId);
-
-        Map<String,String> pictureInformation = new HashMap<String,String>();
-        pictureInformation.put("name",picture.getPictureName());
-        pictureInformation.put("description",picture.getPictureDescription());
+        Map<String,String> pictureInformation = pictureService.getPictureInformation(pictureId);
 
         return pictureInformation;
     }
