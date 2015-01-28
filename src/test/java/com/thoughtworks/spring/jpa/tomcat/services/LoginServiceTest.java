@@ -1,9 +1,9 @@
-package serviceTests;
+package com.thoughtworks.spring.jpa.tomcat.services;
 
+import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.dao.UserDao;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import com.thoughtworks.spring.jpa.tomcat.helpers.PasswordEncoding;
-import com.thoughtworks.spring.jpa.tomcat.services.LoginService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -24,6 +24,7 @@ public class LoginServiceTest {
     private String email;
     private String password;
     private User user;
+    Optional<User> optionalUser;
 
     @Before
     public void setUp() throws Exception {
@@ -31,12 +32,13 @@ public class LoginServiceTest {
         email = "username";
         password = "123456";
         user = new User();
+        optionalUser = Optional.of(user);
     }
 
     @Test
     public void shouldReturnTrueWhenUserIsCorrect() throws Exception {
         user.setPassword(password);
-        when(userDao.selectUserByUsername(email)).thenReturn(user);
+        when(userDao.selectUserByEmail(email)).thenReturn(optionalUser);
         when(passwordEncoding.encode2hex(password)).thenReturn(password);
         Boolean actual = loginService.validateUser(email, password);
         Boolean expect = true;
@@ -47,7 +49,7 @@ public class LoginServiceTest {
     @Test
     public void shouldReturnFalseWhenUserIsIncorrect() throws Exception {
         user.setPassword(password);
-        when(userDao.selectUserByUsername(email)).thenReturn(user);
+        when(userDao.selectUserByEmail(email)).thenReturn(optionalUser);
         when(passwordEncoding.encode2hex(password)).thenReturn(password);
         String incorrectPassword = "111111";
         Boolean actual = loginService.validateUser(email, incorrectPassword);

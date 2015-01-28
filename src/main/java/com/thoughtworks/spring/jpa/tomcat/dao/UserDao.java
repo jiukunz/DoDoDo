@@ -1,5 +1,6 @@
 package com.thoughtworks.spring.jpa.tomcat.dao;
 
+import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,15 +20,16 @@ public class UserDao {
         em.persist(user);
     }
 
-    public User selectUserByEmail(String email) {
+    public Optional<User> selectUserByEmail(String email) {
         TypedQuery<User> query = em.createQuery(
                 "SELECT u FROM User u where u.email=:email", User.class);
         query.setParameter("email", email);
 
         List<User> resultList = query.getResultList();
         if (resultList.size() > 0) {
-            return resultList.get(0);
+            return Optional.of(resultList.get(0));
         }
-        return null;
+
+        return Optional.absent();
     }
 }

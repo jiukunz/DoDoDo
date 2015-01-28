@@ -1,4 +1,4 @@
-package com.thoughtworks.spring.jpa.tomcat.controllers.Mappers;
+package com.thoughtworks.spring.jpa.tomcat.controllers.mappers;
 
 import com.thoughtworks.spring.jpa.tomcat.controllers.views.UserForm;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
@@ -11,7 +11,6 @@ import java.sql.Timestamp;
 
 @Component
 public class UserMapper {
-
     @Autowired
     PasswordEncoding passwordEncoding;
 

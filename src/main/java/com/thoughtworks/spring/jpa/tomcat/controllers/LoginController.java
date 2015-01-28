@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -18,8 +16,8 @@ import java.security.NoSuchAlgorithmException;
 @RequestMapping(value = "/login")
 public class LoginController {
 
-    public static final String LOGIN = "login";
-    public static final String LOGOUT = "logout";
+    private static final String LOGIN = "login";
+    private static final String LOGOUT = "logout";
     @Autowired
     LoginService loginService;
 
@@ -31,12 +29,10 @@ public class LoginController {
     @RequestMapping(method = RequestMethod.POST)
     public String login (@RequestParam(value = "username", required = true) String username,
                          @RequestParam(value = "password", required = true) String password,
-                         HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Model model) throws NoSuchAlgorithmException, IOException {
-        HttpSession httpSession = httpServletRequest.getSession();
+                         HttpSession httpSession, Model model) throws NoSuchAlgorithmException, IOException {
         if (loginService.validateUser(username, password)) {
             httpSession.setAttribute("LOGIN_STATUS", LOGIN);
-            httpServletResponse.sendRedirect("/home");
-            return "home";//TODO: add a homePage
+            return "redirect:/home";//TODO: add a homePage
         }
         else {
             httpSession.setAttribute("loginStatus", LOGOUT);
