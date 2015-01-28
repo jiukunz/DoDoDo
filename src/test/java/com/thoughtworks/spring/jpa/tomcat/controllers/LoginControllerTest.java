@@ -1,6 +1,5 @@
-package controllerTests;
+package com.thoughtworks.spring.jpa.tomcat.controllers;
 
-import com.thoughtworks.spring.jpa.tomcat.controllers.LoginController;
 import com.thoughtworks.spring.jpa.tomcat.services.LoginService;
 import org.junit.Before;
 import org.junit.Test;
