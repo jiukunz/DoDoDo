@@ -31,7 +31,7 @@ gulp.task('styles', function () {
     return gulp.src('src/main/webapp/assets/sass/**/*.scss')
         .pipe($.sass({errLogToConsole: true}))
         .pipe($.autoprefixer('last 1 version'))
-        .pipe(gulp.dest('src/main/webapp/assets/styles'))
+        .pipe(gulp.dest('src/main/webapp/assets/css'))
         .pipe(reload({stream:true}))
 //        .pipe($.notify("Compilation complete."))
         ;
