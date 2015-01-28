@@ -1,4 +1,4 @@
-package com.thoughtworks.spring.jpa.tomcat.services;
+package com.thoughtworks.spring.jpa.tomcat.services.impl;
 
 import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.dao.UserDao;
@@ -17,10 +17,12 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-public class RegisterServiceTest {
-
+public class RegisterServiceImplTest {
     @InjectMocks
-    RegisterService registerService;
+    RegisterServiceImpl registerService;
+
+    @Mock
+    EmailServiceImpl emailService;
 
     @Mock
     UserDao userDao;
@@ -36,6 +38,7 @@ public class RegisterServiceTest {
         when(userDao.selectUserByEmail(anyString())).thenReturn(Optional.<User>absent());
         registerService.register(user);
         verify(userDao).persist(user);
+        verify(emailService).sendConfirmEmail(user);
     }
 
     @Test(expected = EmailNotUniqueException.class)

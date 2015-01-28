@@ -1,6 +1,7 @@
-package com.thoughtworks.spring.jpa.tomcat.services;
+package com.thoughtworks.spring.jpa.tomcat.services.impl;
 
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
+import com.thoughtworks.spring.jpa.tomcat.services.EmailService;
 import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -17,7 +18,7 @@ import java.util.Map;
  * Created by dwwang on 1/28/15.
  */
 @Service
-public class EmailServiceImpl implements EmailService{
+public class EmailServiceImpl implements EmailService {
     private static final String FROM = "admin@dododo.com";
     private static final String REGISTRATION_CONFIRMATION_VM = "registration-confirmation.vm";
     @Autowired
