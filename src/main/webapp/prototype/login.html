@@ -8,16 +8,20 @@
 </head>
 <body>
 
-<main class="container content">
+<main class="content">
     <header class="login-header">
         <i class="logo"></i>
         <h1>Globe Images</h1>
     </header>
 
-    <form class="form-login clearfix" method="post">
+    <form class="form-login clearfix" method="post" role="form">
         <h3 class="signin-heading">Login to Globe Images</h3>
-        <input class="form-control" name="username" type="text" placeholder="Email"/>
-        <input class="form-control" name="password" type="password" placeholder="Password"/>
+        <div class="form-group">
+            <input class="form-control" name="username" type="text" placeholder="Email"/>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" type="password" placeholder="Password"/>
+        </div>
         <!--<div class="">${error}</div>-->
         <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
 
