@@ -29,12 +29,14 @@ gulp.task('serve', ['connect'], function () {
 
 gulp.task('styles', function () {
     return gulp.src('src/main/webapp/assets/sass/**/*.scss')
-        .pipe($.sass({errLogToConsole: true}))
-        .pipe($.autoprefixer('last 1 version'))
+        .pipe($.compass({
+            css: 'src/main/webapp/assets/css',
+            sass: 'src/main/webapp/assets/sass',
+            img: 'src/main/webapp/assets/img'
+        }))
+        //.pipe($.autoprefixer('last 1 version'))
         .pipe(gulp.dest('src/main/webapp/assets/css'))
-        .pipe(reload({stream:true}))
-//        .pipe($.notify("Compilation complete."))
-        ;
+        .pipe(reload({stream:true}));
 });
 
 
@@ -48,7 +50,7 @@ gulp.task('scripts', function () {
 
 
 
-gulp.task('watch', ['connect', 'serve'], function () {
+gulp.task('watch', ['connect', 'serve', 'styles'], function () {
     var server = $.livereload();
 
     gulp.watch('src/main/webapp/assets/sass/**/*.scss', ['styles']);
