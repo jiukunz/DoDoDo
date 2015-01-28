@@ -32,4 +32,16 @@ public class UserDao {
 
         return Optional.absent();
     }
+
+    @Transactional
+    public boolean active(String id) {
+        Long pk=Long.parseLong(id);
+        User user = em.find(User.class, pk);
+        if(user!=null){
+            user.setStatus("active");
+            em.merge(user);
+            return true;
+        }
+        return false;
+    }
 }
