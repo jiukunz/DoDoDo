@@ -4,11 +4,13 @@ import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
 import com.thoughtworks.spring.jpa.tomcat.services.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,21 +29,13 @@ public class PictureController {
     }
 
     @RequestMapping(value = "/data", method = RequestMethod.GET)
-    public @ResponseBody String getPictureName(@RequestParam int pictureId){
+    public @ResponseBody Map<String,String> getPictureInformation(@RequestParam int pictureId){
         Picture picture = pictureService.getPictureInformation(pictureId);
 
-        return picture.getPictureName();
+        Map<String,String> pictureInformation = new HashMap<String,String>();
+        pictureInformation.put("name",picture.getPictureName());
+        pictureInformation.put("description",picture.getPictureDescription());
+
+        return pictureInformation;
     }
-//
-//    @RequestMapping(value = "/data", method = RequestMethod.GET)
-//    public @ResponseBody
-//    Map<String, String> getPictureInformation(@RequestParam int pictureId){
-//        Picture picture = pictureService.getPictureInformation(pictureId);
-//
-//        Map<String, String> pictureInformation = new HashMap<>();
-//        pictureInformation.put("name", picture.getPictureName());
-//        pictureInformation.put("description", picture.getPictureDescription());
-//
-//        return pictureInformation;
-//    }
 }

@@ -29,7 +29,7 @@
 
       <div class="pictureInformation">
           商品名:<p class="pictureName"></p>
-          商品价格:<p class="picturePrice"></p>
+          商品描述:<p class="pictureDescription"></p>
         <button type="button">Add Cart</button>
       </div>
 
@@ -43,8 +43,8 @@
       $(".smallImage").on("click", function(){
         $.ajax('/picture/data',{
           success: function(response){
-//              alert(response);
-              $(".pictureName").text(response);
+              $(".pictureName").text(response.name);
+              $(".pictureDescription").text(response.description);
           },
           data: {"pictureId": this.alt}
         });
