@@ -17,7 +17,7 @@ public class PictureService {
     private PictureDao pictureDao;
 
     public Map<String, String> getPictureInformation(int pictureId){
-        Picture picture =  pictureDao.parsePictureById(pictureId);
+        Picture picture =  pictureDao.parsePictureById(pictureId).get();
 
         Map<String, String> pictureInformation = new HashMap<>();
         pictureInformation.put("name",picture.getPictureName());

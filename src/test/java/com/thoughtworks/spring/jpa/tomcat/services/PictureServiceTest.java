@@ -1,5 +1,6 @@
 package com.thoughtworks.spring.jpa.tomcat.services;
 
+import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
 import org.junit.Before;
@@ -25,6 +26,7 @@ public class PictureServiceTest {
     @Mock
     private PictureDao pictureDao;
 
+    private Optional<Picture> optionalPicture;
     private Picture picture;
     private int pictureId;
 
@@ -35,11 +37,12 @@ public class PictureServiceTest {
         picture = new Picture();
         picture.setPictureName("picture2");
         picture.setPictureDescription("Another picture");
+        optionalPicture = Optional.of(picture);
     }
 
     @Test
     public void shouldReturnPictureInformationWhenInputId(){
-        when(pictureDao.parsePictureById(pictureId)).thenReturn(picture);
+        when(pictureDao.parsePictureById(pictureId)).thenReturn(optionalPicture);
         Map<String, String> pictureInformation = pictureService.getPictureInformation(pictureId);
         Map<String, String> expectInformation = new HashMap<String, String>(){
             {
