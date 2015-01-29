@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Globle Images</title>
+    <link rel="stylesheet" href="/assets/css/libs/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/css/home.css"/>
+</head>
+<body>
+<header class="" th:fragment="header">
+    <div class="header-right">
+        <ul>
+            <li>
+                <img class="logo" src="/assets/img/logo.jpeg"/>
+            </li>
+            <li>
+                <span>Globe Images</span>
+            </li>
+        </ul>
+    </div>
+    <div class="header-left">
+        <ul>
+            <li><span></span><a>Home</a></li>
+            <li><span></span><a>My Picture</a></li>
+            <li><span></span><a>Upload</a></li>
+            <li><span></span><a>Shopping car</a></li>
+            <li class="popbox">
+                <span></span>
+                <a class='open' href='#'>User</a>
+                <div class='collapse'>
+                    <div class='box'>
+                        <button>Edit Profile</button>
+                        <button id="logout">Logout</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+</body>
+</html>

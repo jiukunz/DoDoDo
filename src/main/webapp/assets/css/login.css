@@ -16,6 +16,12 @@ html, body {
   color: #d9534f;
 }
 
+.logo {
+  background-image: url("../img/logo.jpeg");
+  width: 39px;
+  height: 39px;
+}
+
 .content {
   margin: 80px auto 80px;
   width: 400px;

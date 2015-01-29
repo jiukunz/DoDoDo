@@ -15,3 +15,9 @@ html, body {
 .error{
     color: $color-danger;
 }
+
+.logo {
+    background-image: url("../img/logo.jpeg");
+    width: 39px;
+    height: 39px;
+}

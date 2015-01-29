@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Globle Images</title>
+    <link rel="stylesheet" href="/assets/css/libs/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/css/home.css"/>
+</head>
+<body>
+<header class="header clearfix">
+    <div class="login-header pull-left">
+        <i class="logo"></i>
+        <h1>Globe Images</h1>
+    </div>
+
+    <div class="pull-right">
+        <ul>
+            <li><span></span><a>Home</a></li>
+            <li><span></span><a>My Picture</a></li>
+            <li><span></span><a>Upload</a></li>
+            <li><span></span><a>Shopping car</a></li>
+            <li class="popbox">
+                <span></span>
+                <a class='open' href='#'>User</a>
+                <div class='collapse'>
+                    <div class='box'>
+                        <button>Edit Profile</button>
+                        <button id="logout">Logout</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+<main class="">
+    <h1>It's home page.</h1>
+</main>
+
+<script src='/assets/js/popbox.js'></script>
+<script src='/assets/js/headerHelpers.js'></script>
+</body>
+</html>

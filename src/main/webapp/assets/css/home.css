@@ -1,0 +1,27 @@
+html, body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #222222;
+}
+
+.info {
+  color: #5bc0de;
+}
+
+.warning {
+  color: #f0ad4e;
+}
+
+.error {
+  color: #d9534f;
+}
+
+.logo {
+  background-image: url("../img/logo.jpeg");
+  width: 39px;
+  height: 39px;
+}
+
+.header {
+  height: 80px;
+}
