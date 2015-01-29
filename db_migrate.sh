@@ -1,0 +1,1 @@
+mvn compile flyway:clean flyway:migrate -Dflyway.configFile=./src/main/webapp/WEB-INF/flyway.properties
