@@ -17,9 +17,23 @@
                 <li><span></span><a>My Picture</a></li>
                 <li><span></span><a>Upload</a></li>
                 <li><span></span><a>Shopping car</a></li>
-                <li><span></span><a>User</a></li>
+                <li class="popbox"><span></span><a class='open' href='#'>User</a>
+
+                    <div class='collapse'>
+                        <div class='box'>
+                            <button>Edit Profile</button>
+                            <button>Logout</button>
+
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
 
     </div>
+    <script type='text/javascript' charset='utf-8'>
+        $(document).ready(function () {
+            $('.popbox').popbox();
+        });
+    </script>
 </div>
