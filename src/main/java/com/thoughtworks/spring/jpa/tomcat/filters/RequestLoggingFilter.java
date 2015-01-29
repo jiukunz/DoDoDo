@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Objects;
 
 public class RequestLoggingFilter implements Filter {
 
@@ -29,12 +30,12 @@ public class RequestLoggingFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
-        HttpSession session = httpServletRequest.getSession();
+            HttpSession session = httpServletRequest.getSession();
         if (session != null) {
             Iterable<String> noFilterUrl = Splitter.on(",").split(noFilterUrls);
             if (!Iterables.contains(noFilterUrl,httpServletRequest.getRequestURI())) {
                 String status = (String)session.getAttribute(LOGIN_STATUS);
-                if (Strings.isNullOrEmpty(status)) {
+                if (Strings.isNullOrEmpty(status) || !Objects.equals(status, "login")) {
                     httpServletResponse.sendRedirect(LOGIN);
                     return;
                 }

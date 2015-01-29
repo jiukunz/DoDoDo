@@ -15,7 +15,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 
 @Controller
-@RequestMapping(value = "/login")
 public class LoginController {
 
     private static final String LOGIN = "login";
@@ -25,12 +24,12 @@ public class LoginController {
     @Autowired
     private MessageSource messageSource;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLoginPage () {
         return "login";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login (@RequestParam(value = "username", required = true) String username,
                          @RequestParam(value = "password", required = true) String password,
                          HttpSession httpSession, Model model) throws NoSuchAlgorithmException, IOException {
@@ -39,9 +38,16 @@ public class LoginController {
             return "redirect:/home";//TODO: add a homePage
         }
         else {
-            httpSession.setAttribute("loginStatus", LOGOUT);
+            httpSession.setAttribute("LOGIN_STATUS", LOGOUT);
             model.addAttribute("error", messageSource.getMessage("login.login_failed",null, Locale.US));
             return "login";
         }
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public String postLogout (@RequestParam(value = "status", required = true) String status, HttpSession httpSession)
+    {
+        httpSession.setAttribute("LOGIN_STATUS", status);
+        return "redirect:/login";
     }
 }

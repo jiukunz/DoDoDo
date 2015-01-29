@@ -1,5 +1,4 @@
 (function(){
-
   $.fn.popbox = function(options){
     var settings = $.extend({
       selector      : this.selector,
