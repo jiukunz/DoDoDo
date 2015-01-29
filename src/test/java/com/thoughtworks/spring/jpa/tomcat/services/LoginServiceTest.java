@@ -38,9 +38,8 @@ public class LoginServiceTest {
     @Test
     public void shouldReturnTrueWhenUserIsCorrect() throws Exception {
         user.setPassword(password);
-        when(userDao.selectUserByEmail(email)).thenReturn(optionalUser);
         when(passwordEncoding.encode2hex(password)).thenReturn(password);
-        Boolean actual = loginService.validateUser(email, password);
+        Boolean actual = loginService.validateUser(password, optionalUser);
         Boolean expect = true;
 
         assertThat(actual, is(expect));
@@ -49,10 +48,9 @@ public class LoginServiceTest {
     @Test
     public void shouldReturnFalseWhenUserIsIncorrect() throws Exception {
         user.setPassword(password);
-        when(userDao.selectUserByEmail(email)).thenReturn(optionalUser);
         when(passwordEncoding.encode2hex(password)).thenReturn(password);
         String incorrectPassword = "111111";
-        Boolean actual = loginService.validateUser(email, incorrectPassword);
+        Boolean actual = loginService.validateUser(incorrectPassword, optionalUser);
         Boolean expect = false;
 
         assertThat(actual, is(expect));

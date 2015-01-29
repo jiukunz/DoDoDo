@@ -1,5 +1,7 @@
 package com.thoughtworks.spring.jpa.tomcat.controllers;
 
+import com.google.common.base.Optional;
+import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import com.thoughtworks.spring.jpa.tomcat.services.LoginService;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +31,8 @@ public class LoginControllerTest {
     private String password;
     private Model model;
     private HttpSession httpSession;
+    private Optional<User> optionalUser;
+    private User user;
 
     @Before
     public void setUp() throws Exception {
@@ -37,11 +41,15 @@ public class LoginControllerTest {
         password = "password";
         httpSession = mock(HttpSession.class);
         model = mock(Model.class);
+        user = new User();
+        user.setPassword(password);
+        user.setId(1L);
+        optionalUser = Optional.of(user);
     }
 
     @Test
     public void shouldReturnLoginWhenLoginInvalidate() throws Exception {
-        when(loginService.validateUser(username, password)).thenReturn(false);
+        when(loginService.validateUser(password, optionalUser)).thenReturn(false);
 
         String actualUrl = loginController.login(username, password, httpSession, model);
         String expectUrl = "login";
@@ -51,7 +59,8 @@ public class LoginControllerTest {
 
     @Test
     public void shouldReturnHomeWhenLoginValidate() throws Exception {
-        when(loginService.validateUser(username, password)).thenReturn(true);
+        when(loginService.getByEmail(username)).thenReturn(optionalUser);
+        when(loginService.validateUser(password, optionalUser)).thenReturn(true);
 
         String actualUrl = loginController.login(username, password, httpSession, model);
         String expectUrl = "redirect:/home";

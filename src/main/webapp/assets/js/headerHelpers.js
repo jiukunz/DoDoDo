@@ -1,6 +1,10 @@
 $(function () {
     $('.popbox').popbox();
     $('#logout').click(function () {
-        $.post( "/logout", { status: "logout" })
+        $.post( "/logout", function(data){
+             if(console){
+                 console.log(data);
+             }
+        });
     });
 });

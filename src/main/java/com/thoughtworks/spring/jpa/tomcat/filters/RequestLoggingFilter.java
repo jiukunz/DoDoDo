@@ -4,17 +4,16 @@ package com.thoughtworks.spring.jpa.tomcat.filters;
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.Iterables;
+import com.thoughtworks.spring.jpa.tomcat.commons.Constants;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Objects;
 
 public class RequestLoggingFilter implements Filter {
 
-    public static final String LOGIN_STATUS = "LOGIN_STATUS";
     public static final String NO_FILTER_URLS = "noFilterUrls";
     public static final String LOGIN = "/login";
     private String noFilterUrls;
@@ -34,8 +33,8 @@ public class RequestLoggingFilter implements Filter {
         if (session != null) {
             Iterable<String> noFilterUrl = Splitter.on(",").split(noFilterUrls);
             if (!Iterables.contains(noFilterUrl,httpServletRequest.getRequestURI())) {
-                String status = (String)session.getAttribute(LOGIN_STATUS);
-                if (Strings.isNullOrEmpty(status) || !Objects.equals(status, "login")) {
+                String status = (String)session.getAttribute(Constants.LOGIN_KEY);
+                if (Strings.isNullOrEmpty(status)) {
                     httpServletResponse.sendRedirect(LOGIN);
                     return;
                 }

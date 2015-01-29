@@ -1,6 +1,8 @@
 package com.thoughtworks.spring.jpa.tomcat.services;
 
+import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.dao.UserDao;
+import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import com.thoughtworks.spring.jpa.tomcat.helpers.PasswordEncoding;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,7 +19,11 @@ public class LoginService {
     @Autowired
     PasswordEncoding passwordEncoding;
 
-    public boolean validateUser(String username, String password) throws NoSuchAlgorithmException {
-        return userDao.selectUserByEmail(username).isPresent() && Objects.equals(userDao.selectUserByEmail(username).get().getPassword(), passwordEncoding.encode2hex(password));
+    public boolean validateUser(String password, Optional<User> userOptional) throws NoSuchAlgorithmException {
+        return userOptional.isPresent() && Objects.equals(userOptional.get().getPassword(), passwordEncoding.encode2hex(password));
+    }
+
+    public Optional<User> getByEmail(String username) {
+        return userDao.selectUserByEmail(username);
     }
 }
