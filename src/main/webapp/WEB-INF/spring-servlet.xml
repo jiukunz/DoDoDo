@@ -57,7 +57,17 @@
     </bean>
 
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-            <property name="host" value="10.29.2.40"/>
+        <property name="host" value="pro.turbo-smtp.com"/>
+        <property name="username" value="wangdengwu@wangdengwu.com"/>
+        <property name="password" value="g9d8qV6Y"/>
+        <property name="protocol" value="smtp"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">false</prop>
+                <prop key="mail.smtp.quitwait">false</prop>
+            </props>
+        </property>
     </bean>
 
     <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
