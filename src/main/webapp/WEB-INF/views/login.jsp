@@ -21,7 +21,7 @@
         <div class="error message">${error}</div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
         <div class="form-bottom clearfix">
-            <a class="pull-left forgot" href="">Forgot Password</a>
+            <a class="pull-left forgot" href="/forgotten/password">Forgotten Password</a>
             <a class="pull-right signup" href="/register">Sign up</a>
         </div>
     </form>
