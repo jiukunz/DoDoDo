@@ -3,7 +3,6 @@ package com.thoughtworks.spring.jpa.tomcat.controllers;
 import com.thoughtworks.spring.jpa.tomcat.controllers.mappers.UserMapper;
 import com.thoughtworks.spring.jpa.tomcat.controllers.views.UserForm;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
-import com.thoughtworks.spring.jpa.tomcat.exceptions.EmailNotUniqueException;
 import com.thoughtworks.spring.jpa.tomcat.services.RegisterService;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +17,8 @@ import java.security.NoSuchAlgorithmException;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 public class RegisterControllerTest {
@@ -53,6 +53,7 @@ public class RegisterControllerTest {
     public void shouldDirectToRegistrationSuccessPageWhenSignUpSuccess() throws NoSuchAlgorithmException {
         UserForm userForm = getValidUserForm();
         when(result.hasErrors()).thenReturn(false);
+        when(registerService.register(any(User.class))).thenReturn(true);
         String actual = registerController.processRegistration(userForm, result, model);
         assertThat(actual, is("registrationSuccess"));
     }
@@ -74,9 +75,9 @@ public class RegisterControllerTest {
 
 
     @Test
-    public void shouldDirectToRegistrationPageWhenEmailHasBeenRegistered() throws NoSuchAlgorithmException, EmailNotUniqueException {
+    public void shouldDirectToRegistrationPageWhenEmailHasBeenRegistered() throws NoSuchAlgorithmException {
         UserForm userForm = getPasswordInValidUserForm();
-        doThrow(new EmailNotUniqueException()).when(registerService).register(any(User.class));
+        when(registerService.register(any(User.class))).thenReturn(false);
         String actual = registerController.processRegistration(userForm, result, model);
         assertThat(actual, is("registration"));
     }

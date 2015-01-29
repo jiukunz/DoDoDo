@@ -44,4 +44,16 @@ public class UserDao {
         }
         return false;
     }
+
+    @Transactional
+    public boolean updatePassword(String id, String password) {
+        Long pk = Long.parseLong(id);
+        User user = em.find(User.class, pk);
+        if(user != null && user.getStatus().equals("active")) {
+            user.setPassword(password);
+            em.merge(user);
+            return true;
+        }
+        return false;
+    }
 }

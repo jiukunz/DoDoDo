@@ -3,7 +3,6 @@ package com.thoughtworks.spring.jpa.tomcat.services.impl;
 import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.dao.UserDao;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
-import com.thoughtworks.spring.jpa.tomcat.exceptions.EmailNotUniqueException;
 import com.thoughtworks.spring.jpa.tomcat.services.EmailService;
 import com.thoughtworks.spring.jpa.tomcat.services.RegisterService;
 import org.junit.Before;
@@ -39,7 +38,7 @@ public class RegisterServiceImplTest {
     }
 
     @Test
-    public void shouldPersistUserWhenRegistrationSuccess() throws EmailNotUniqueException, NoSuchAlgorithmException {
+    public void shouldPersistUserWhenRegistrationSuccess() throws NoSuchAlgorithmException {
         User user = getUser();
         when(userDao.selectUserByEmail(anyString())).thenReturn(Optional.<User>absent());
         registerService.register(user);
@@ -47,8 +46,8 @@ public class RegisterServiceImplTest {
         verify(emailService).sendConfirmEmail(user);
     }
 
-    @Test(expected = EmailNotUniqueException.class)
-    public void shouldThrowEmailNotUniqueExceptionWhenEmailHasBeenRegistered() throws EmailNotUniqueException, NoSuchAlgorithmException {
+    @Test
+    public void shouldThrowEmailNotUniqueExceptionWhenEmailHasBeenRegistered() throws NoSuchAlgorithmException {
         User user = getUser();
         when(userDao.selectUserByEmail(anyString())).thenReturn(Optional.of(new User()));
         registerService.register(user);

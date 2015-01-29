@@ -21,6 +21,7 @@ import java.util.Map;
 public class EmailServiceImpl implements EmailService {
     private static final String FROM = "dododo4seahorse@163.com";
     private static final String REGISTRATION_CONFIRMATION_VM = "registration-confirmation.vm";
+    private static final String RESET_PASSWORD_VM = "reset-password.vm";
     @Autowired
     private JavaMailSender mailSender;
     @Autowired
@@ -34,10 +35,10 @@ public class EmailServiceImpl implements EmailService {
                 message.setFrom(FROM);
                 message.setSubject("Confirm Your Registration");
                 Map model = new HashMap();
-                model.put("userName", user.getFirstName()+user.getLastName());
+                model.put("userName", user.getFirstName() + " " + user.getLastName());
                 model.put("code", user.getId());
                 String text = VelocityEngineUtils.mergeTemplateIntoString(
-                    velocityEngine, REGISTRATION_CONFIRMATION_VM, "UTF-8", model);
+                        velocityEngine, REGISTRATION_CONFIRMATION_VM, "UTF-8", model);
                 message.setText(text, true);
             }
         };
@@ -45,7 +46,21 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public void sendRecoveryEmail(User user) {
-
+    public void sendRecoveryEmail(final User user) {
+        MimeMessagePreparator preparator = new MimeMessagePreparator() {
+            public void prepare(MimeMessage mimeMessage) throws Exception {
+                MimeMessageHelper message = new MimeMessageHelper(mimeMessage);
+                message.setTo(user.getEmail());
+                message.setFrom(FROM);
+                message.setSubject("Reset Your Password");
+                Map model = new HashMap();
+                model.put("userName", user.getFirstName() + " " + user.getLastName());
+                model.put("code", user.getId());
+                String text = VelocityEngineUtils.mergeTemplateIntoString(
+                        velocityEngine, RESET_PASSWORD_VM, "UTF-8", model);
+                message.setText(text, true);
+            }
+        };
+        this.mailSender.send(preparator);
     }
 }

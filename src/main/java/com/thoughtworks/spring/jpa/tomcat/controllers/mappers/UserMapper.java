@@ -15,15 +15,16 @@ public class UserMapper {
     PasswordEncoding passwordEncoding;
 
     public User Mapper(UserForm userForm) throws NoSuchAlgorithmException {
-        User user = new User();
-        user.setFirstName(userForm.getFirstName());
-        user.setLastName(userForm.getLastName());
-        user.setEmail(userForm.getEmail());
-        user.setPassword(passwordEncoding.encode2hex(userForm.getPassword()));
-
         java.util.Date date = new java.util.Date();
-        user.setCreateDate(new Timestamp(date.getTime()));
-        user.setModifyDate(new Timestamp(date.getTime()));
+
+        User user = new User()
+                .withFirstName(userForm.getFirstName())
+                .withLastName(userForm.getLastName())
+                .withEmail(userForm.getEmail())
+                .withPassword(passwordEncoding.encode2hex(userForm.getPassword()))
+                .withCreateDate(new Timestamp(date.getTime()))
+                .withModifyDate(new Timestamp(date.getTime()))
+                .withStatus("inactive");
         return user;
     }
 }

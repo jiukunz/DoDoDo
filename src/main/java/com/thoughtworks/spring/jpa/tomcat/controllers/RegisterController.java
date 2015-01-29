@@ -3,7 +3,6 @@ package com.thoughtworks.spring.jpa.tomcat.controllers;
 import com.thoughtworks.spring.jpa.tomcat.controllers.mappers.UserMapper;
 import com.thoughtworks.spring.jpa.tomcat.controllers.views.UserForm;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
-import com.thoughtworks.spring.jpa.tomcat.exceptions.EmailNotUniqueException;
 import com.thoughtworks.spring.jpa.tomcat.services.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -41,17 +40,15 @@ public class RegisterController {
                                       BindingResult result,
                                       Model model) throws NoSuchAlgorithmException {
 
-        if (result.hasErrors() || !userForm.getPassword().equals(userForm.getConfirmPassword())){
-            model.addAttribute("error", messageSource.getMessage("register.register_failed",null, Locale.US));
+        if (result.hasErrors() || !userForm.getPassword().equals(userForm.getConfirmPassword())) {
+            model.addAttribute("error", messageSource.getMessage("register.register_failed", null, Locale.US));
             model.addAttribute("userForm", userForm);
             return "registration";
         }
 
-        try {
-            User user = userMapper.Mapper(userForm);
-            registerService.register(user);
-        }catch (EmailNotUniqueException e){
-            model.addAttribute("error", e.getMessage());
+        User user = userMapper.Mapper(userForm);
+        if (!registerService.register(user)) {
+            model.addAttribute("error", messageSource.getMessage("register.already_registered", new Object[]{user.getEmail()}, Locale.US));
             return "registration";
         }
         return "registrationSuccess";

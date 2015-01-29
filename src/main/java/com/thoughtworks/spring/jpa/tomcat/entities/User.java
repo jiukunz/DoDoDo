@@ -20,6 +20,41 @@ public class User implements Serializable{
     private Timestamp modifyDate;
     private String status = "inactive";
 
+    public User withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public User withPassword(String password) {
+        this.password = password;
+        return this;
+    }
+
+    public User withFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    public User withLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public User withCreateDate(Timestamp createDate) {
+        this.createDate = createDate;
+        return this;
+    }
+
+    public User withModifyDate(Timestamp modifyDate) {
+        this.modifyDate = modifyDate;
+        return this;
+    }
+
+    public User withStatus(String status) {
+        this.status = status;
+        return this;
+    }
+
     public Long getId() {
         return id;
     }
