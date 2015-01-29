@@ -28,7 +28,7 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLoginPage () {
-        return "login";
+        return "login.html";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -42,7 +42,7 @@ public class LoginController {
         }
         else {
             model.addAttribute("error", messageSource.getMessage("login.login_failed", null, Locale.US));
-            return "login";
+            return "login.html";
         }
     }
 

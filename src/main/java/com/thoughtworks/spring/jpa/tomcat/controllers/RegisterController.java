@@ -32,7 +32,7 @@ public class RegisterController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String viewRegistration() {
-        return "registration";
+        return "registration.html";
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -43,14 +43,14 @@ public class RegisterController {
         if (result.hasErrors() || !userForm.getPassword().equals(userForm.getConfirmPassword())) {
             model.addAttribute("error", messageSource.getMessage("register.register_failed", null, Locale.US));
             model.addAttribute("userForm", userForm);
-            return "registration";
+            return "registration.html";
         }
 
         User user = userMapper.Mapper(userForm);
         if (!registerService.register(user)) {
             model.addAttribute("error", messageSource.getMessage("register.already_registered", new Object[]{user.getEmail()}, Locale.US));
-            return "registration";
+            return "registration.html";
         }
-        return "registrationSuccess";
+        return "registrationSuccess.html";
     }
 }
