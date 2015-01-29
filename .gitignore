@@ -4,3 +4,7 @@ target/
 node_modules/
 bower_components/
 .sass-cache/
+spring-jpa-tomcat.ipr
+spring-jpa-tomcat.iws
+logfile
+.gradle
