@@ -19,7 +19,7 @@ import java.util.Map;
  */
 @Service
 public class EmailServiceImpl implements EmailService {
-    private static final String FROM = "admin@dododo.com";
+    private static final String FROM = "dododo4seahorse@163.com";
     private static final String REGISTRATION_CONFIRMATION_VM = "registration-confirmation.vm";
     @Autowired
     private JavaMailSender mailSender;

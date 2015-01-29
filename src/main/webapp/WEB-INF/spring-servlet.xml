@@ -57,9 +57,10 @@
     </bean>
 
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="pro.turbo-smtp.com"/>
-        <property name="username" value="wangdengwu@wangdengwu.com"/>
-        <property name="password" value="g9d8qV6Y"/>
+        <property name="host" value="smtp.163.com"/>
+        <property name="port" value="25"/>
+        <property name="username" value="dododo4seahorse@163.com"/>
+        <property name="password" value="Hello!234"/>
         <property name="protocol" value="smtp"/>
         <property name="javaMailProperties">
             <props>
@@ -90,6 +91,4 @@
         <property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
         <property name="order" value="1"/>
     </bean>
-
-    <mvc:resources mapping="/assets/**" location="/assets/" />
 </beans>
