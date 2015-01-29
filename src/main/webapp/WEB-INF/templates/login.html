@@ -1,10 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" trimDirectiveWhitespaces="true" %>
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8"/>
     <title>Login</title>
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/css/libs/bootstrap.min.css"/>
     <link rel="stylesheet" href="/assets/css/login.css"/>
 </head>
 <body>
@@ -17,7 +16,7 @@
         <h3 class="signin-heading">Login to Globe Images</h3>
         <input class="form-group form-control" name="username" type="text" placeholder="Email"/>
         <input class="form-group form-control" name="password" type="password" placeholder="Password"/>
-        <div class="error message">${error}</div>
+        <p class="error message" th:text="${error}">There are something wrong with server, please hold on.</p>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
         <div class="form-bottom clearfix">
             <a class="pull-left forgot" href="/forgotten/password">Forgotten Password</a>

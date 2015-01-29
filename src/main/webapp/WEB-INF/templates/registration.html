@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>signup page</title>
+    <link rel="stylesheet" href="/assets/css/libs/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/css/login.css"/>
+</head>
+<body>
+
+<main class="content">
+    <header class="login-header">
+        <i class="logo"></i>
+        <h1>Globe Images</h1>
+    </header>
+
+    <form class="form-login" method="post" role="form">
+        <h3 class="signin-heading">Sign up with Email</h3>
+        <p class="error message" th:text="${error}">There are something wrong with server, please hold on.</p>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <input class="form-control first-name" type="text" placeholder="First name" name="firstName" required="required"/>
+                <span id="firstName-error" class="error"></span>
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" type="text" placeholder="Last name" name="lastName" required="required"/>
+                <span id="lastName-error" class="error"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="email" placeholder="Email Address" name="email" required="required"/>
+            <span id="email-error" class="error"></span>
+        </div>
+        <div class="form-group">
+            <input class="form-control password" type="password" placeholder="Password" name="password" required="required"/>
+            <span id="password-error" class="error"></span>
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" placeholder="Confirm Password" name="confirmPassword" required="required"/>
+            <span id="confirmPassword-error" class="error"></span>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+    </form>
+</main>
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script>
+    $(function(){
+        $('form').validate({
+            rules:{
+                firstName: "required",
+                lastName: "required",
+                email:{
+                    required: true,
+                    email: true
+                },
+                password:{
+                    required: true,
+                    minlength: 5
+                },
+                confirmPassword:{
+                    required: true,
+                    minlength: 5,
+                    equalTo: ".password"
+                }
+            },
+            messages:{
+                firstName: "Please enter your first name.",
+                lastName: "Please enter your last name.",
+                email: "Please enter a valid email address",
+                password: {
+                    required : "Please provide a password.",
+                    minlength: "Your password must be at least 5 characters long."
+                },
+                confirmPassword:{
+                    required: "Please provide a password.",
+                    minlength: "Your password must be at least 5 characters long.",
+                    equalTo: "Please enter the same password as above."
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
