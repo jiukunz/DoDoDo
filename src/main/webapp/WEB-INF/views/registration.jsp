@@ -1,35 +1,52 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/assets/css/registration.css"/>
+    <link rel="stylesheet" href="/assets/css/libs/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/css/login.css"/>
 </head>
 <body>
-<div class="register-container centered">
-    <h2>Sign up with Email</h2>
-    <div class="register-group">
-        <form class="register-form col-lg-4 col-lg-offset-4" method="post" action="/register" commandName="userForm">
-            <p class="error">${error}</p>
-            <input class="form-control first-name" type="text" placeholder="First name" name="firstName" required value="${userForm.firstName}"/>
-            <span id="firstName-error" class="error"></span>
-            <input class="form-control" type="text" placeholder="Last name" name="lastName" required value="${userForm.lastName}"/>
-            <span id="lastName-error" class="error"></span>
+
+<main class="content">
+    <header class="login-header">
+        <i class="logo"></i>
+        <h1>Globe Images</h1>
+    </header>
+    <form class="form-login" role="form" method="post" action="/register" commandName="userForm">
+        <h3 class="signin-heading">Sign up with Email</h3>
+        <p class="error">${error}</p>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <input class="form-control first-name" type="text" placeholder="First name" name="firstName" required value="${userForm.firstName}"/>
+                <span id="firstName-error" class="error"></span>
+            </div>
+            <div class="col-md-6">
+                <input class="form-control" type="text" placeholder="Last name" name="lastName" required value="${userForm.lastName}"/>
+                <span id="lastName-error" class="error"></span>
+            </div>
+        </div>
+        <div class="form-group">
             <input class="form-control" type="email" placeholder="Email Address" name="email" required value="${userForm.email}"/>
             <span id="email-error" class="error"></span>
+        </div>
+        <div class="form-group">
             <input class="form-control password" type="password" placeholder="Password" name="password" required/>
             <span id="password-error" class="error"></span>
+        </div>
+        <div class="form-group">
             <input class="form-control" type="password" placeholder="Confirm Password" name="confirmPassword" required/>
             <span id="confirmPassword-error" class="error"></span>
-            <button class="btn btn-primary form-control" type="submit">Sign Up</button>
-        </form>
-    </div>
-</div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+    </form>
+</main>
 <script src="/assets/js/jquery.js"></script>
 <script src="/assets/js/jquery.validate.min.js"></script>
 <script>
     $(document).ready(function(){
-        $('.register-form').validate({
+        $('form').validate({
             rules:{
                 firstName: "required",
                 lastName: "required",

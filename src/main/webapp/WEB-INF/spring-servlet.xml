@@ -57,7 +57,7 @@
     </bean>
 
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-            <property name="host" value="10.29.3.36"/>
+            <property name="host" value="10.29.2.40"/>
     </bean>
 
     <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
