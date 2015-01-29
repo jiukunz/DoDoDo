@@ -1,7 +1,17 @@
-@import "compass/css3";
 @import "variables";
 
 html, body {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: $basic-font-size;
+    color: $gray-darker;
+}
+
+.info{
+    color: $color-info;
+}
+.warning{
+    color: $color-warning;
+}
+.error{
+    color: $color-danger;
 }

@@ -20,24 +20,19 @@
         <div class="row form-group">
             <div class="col-md-6">
                 <input class="form-control first-name" type="text" placeholder="First name" name="firstName" required value="${userForm.firstName}"/>
-                <span id="firstName-error" class="error"></span>
             </div>
             <div class="col-md-6">
                 <input class="form-control" type="text" placeholder="Last name" name="lastName" required value="${userForm.lastName}"/>
-                <span id="lastName-error" class="error"></span>
             </div>
         </div>
         <div class="form-group">
             <input class="form-control" type="email" placeholder="Email Address" name="email" required value="${userForm.email}"/>
-            <span id="email-error" class="error"></span>
         </div>
         <div class="form-group">
             <input class="form-control password" type="password" placeholder="Password" name="password" required/>
-            <span id="password-error" class="error"></span>
         </div>
         <div class="form-group">
             <input class="form-control" type="password" placeholder="Confirm Password" name="confirmPassword" required/>
-            <span id="confirmPassword-error" class="error"></span>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
     </form>
@@ -45,7 +40,7 @@
 <script src="/assets/js/jquery.js"></script>
 <script src="/assets/js/jquery.validate.min.js"></script>
 <script>
-    $(document).ready(function(){
+    $(function(){
         $('form').validate({
             rules:{
                 firstName: "required",

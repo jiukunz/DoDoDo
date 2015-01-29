@@ -1,5 +1,4 @@
-@import "basic/_variables";
-@import "basic/_common";
+@import "basic/common";
 
 .content {
     margin: 80px auto 80px;
@@ -25,18 +24,18 @@
 
 
 .form-login {
-    border: 2px solid #ccc;
+    border: 2px solid $border-gray;
     padding: $basic-width*2;
     @include border-radius(5px);
     .signin-heading {
         font-size: 1.3rem;
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: $basic-width*3;
     }
     .form-control {
         font-size: 1rem;
         height: auto;
-        padding: 10px;
+        padding: $basic-width;
     }
     button {
         margin-top: $basic-width*3;
@@ -44,4 +43,8 @@
     .form-bottom {
         margin-top: $basic-width*1.5;
     }
+}
+
+.message {
+    font-size: .9rem;
 }

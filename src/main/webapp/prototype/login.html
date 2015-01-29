@@ -16,20 +16,15 @@
 
     <form class="form-login" method="post" role="form">
         <h3 class="signin-heading">Login to Globe Images</h3>
-        <div class="form-group">
-            <input class="form-control" name="username" type="text" placeholder="Email"/>
-        </div>
-        <div class="form-group">
-            <input class="form-control" name="password" type="password" placeholder="Password"/>
-        </div>
-        <!--<div class="">${error}</div>-->
+        <input class="form-group form-control" name="username" type="text" placeholder="Email"/>
+        <input class="form-group form-control" name="password" type="password" placeholder="Password"/>
+        <p class="error message">${error}</p>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
         <div class="form-bottom clearfix">
             <a class="pull-left forgot" href="">Forgot Password</a>
             <a class="pull-right signup" href="register">Sign up</a>
         </div>
     </form>
-
 </main>
 </body>
 </html>

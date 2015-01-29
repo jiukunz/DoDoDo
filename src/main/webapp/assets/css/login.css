@@ -1,6 +1,19 @@
 html, body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
+  color: #222222;
+}
+
+.info {
+  color: #5bc0de;
+}
+
+.warning {
+  color: #f0ad4e;
+}
+
+.error {
+  color: #d9534f;
 }
 
 .content {
@@ -48,4 +61,8 @@ html, body {
 }
 .form-login .form-bottom {
   margin-top: 15px;
+}
+
+.message {
+  font-size: .9rem;
 }
