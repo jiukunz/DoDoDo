@@ -1,6 +1,7 @@
 package com.thoughtworks.spring.jpa.tomcat.services;
 
 import com.google.common.base.Optional;
+import com.thoughtworks.spring.jpa.tomcat.commons.UserStatus;
 import com.thoughtworks.spring.jpa.tomcat.dao.UserDao;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import com.thoughtworks.spring.jpa.tomcat.helpers.PasswordEncoding;
@@ -13,7 +14,6 @@ import java.util.Objects;
 @Component
 public class LoginService {
 
-    public static final String ACTIVE = "active";
     @Autowired
     UserDao userDao;
 
@@ -29,6 +29,6 @@ public class LoginService {
     }
 
     public Boolean validateUserStatus(Optional<User> optionalUser) {
-        return Objects.equals(optionalUser.get().getStatus(), ACTIVE);
+        return Objects.equals(optionalUser.get().getStatus(), UserStatus.ACTIVE.name());
     }
 }

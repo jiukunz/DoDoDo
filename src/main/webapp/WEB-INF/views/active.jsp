@@ -11,6 +11,6 @@
     <title>Active</title>
 </head>
 <body>
-  Actived! you can go to <a href="/login">login</a>.
+Activated! you can go to <a href="/login">login</a>.
 </body>
 </html>
