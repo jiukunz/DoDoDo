@@ -17,14 +17,10 @@ public class PictureDao {
     @PersistenceContext(name = "postgres")
     private EntityManager em;
 
-    public Optional<Picture> parsePictureById(int id){
-        TypedQuery<Picture> query = em.createQuery(
-                "SELECT p FROM Picture p WHERE p.id=:id", Picture.class);
-        query.setParameter("id",id);
-
-        List<Picture> resultList = query.getResultList();
-        if (resultList.size() > 0) {
-            return Optional.of(resultList.get(0));
+    public Optional<Picture> parsePictureById(String id){
+        Picture picture = em.find(Picture.class, id);
+        if (picture!=null) {
+            return Optional.of(picture);
         }
         return Optional.absent();
     }

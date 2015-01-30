@@ -26,13 +26,13 @@ public class PictureControllerTest {
     @Mock
     private PictureService pictureService;
 
-    private int pictureId;
+    private String pictureId;
     private Map<String, String> pictureInformation;
 
     @Before
     public void setUp(){
         initMocks(this);
-        pictureId = 1;
+        pictureId = "111111";
         pictureInformation = new HashMap<>();
         pictureInformation.put("name", "picture1");
         pictureInformation.put("description","This is a picture");

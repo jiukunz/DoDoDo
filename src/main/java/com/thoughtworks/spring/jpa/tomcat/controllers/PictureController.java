@@ -29,7 +29,7 @@ public class PictureController {
     }
 
     @RequestMapping(value = "/data", method = RequestMethod.GET)
-    public @ResponseBody Map<String,String> getPictureInformation(@RequestParam int pictureId){
+    public @ResponseBody Map<String,String> getPictureInformation(@RequestParam String pictureId){
         Map<String,String> pictureInformation = pictureService.getPictureInformation(pictureId);
 
         return pictureInformation;

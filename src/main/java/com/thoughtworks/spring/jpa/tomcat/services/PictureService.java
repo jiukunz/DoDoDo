@@ -16,12 +16,11 @@ public class PictureService {
     @Autowired
     private PictureDao pictureDao;
 
-    public Map<String, String> getPictureInformation(int pictureId){
+    public Map<String, String> getPictureInformation(String pictureId){
         Picture picture =  pictureDao.parsePictureById(pictureId).get();
-
         Map<String, String> pictureInformation = new HashMap<>();
-        pictureInformation.put("name",picture.getPictureName());
-        pictureInformation.put("description",picture.getPictureDescription());
+        pictureInformation.put("name",picture.getCaption());
+        pictureInformation.put("description",picture.getKeyword());
         return pictureInformation;
     }
 }

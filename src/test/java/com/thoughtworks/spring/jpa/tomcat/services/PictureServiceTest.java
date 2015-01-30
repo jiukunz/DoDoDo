@@ -28,15 +28,15 @@ public class PictureServiceTest {
 
     private Optional<Picture> optionalPicture;
     private Picture picture;
-    private int pictureId;
+    private String pictureId;
 
     @Before
     public void setUp(){
         initMocks(this);
-        pictureId = 1;
+        pictureId = "111111";
         picture = new Picture();
-        picture.setPictureName("picture2");
-        picture.setPictureDescription("Another picture");
+        picture.setCaption("picture2");
+        picture.setKeyword("Another picture");
         optionalPicture = Optional.of(picture);
     }
 
