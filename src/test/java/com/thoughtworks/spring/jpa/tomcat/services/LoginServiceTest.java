@@ -1,6 +1,7 @@
 package com.thoughtworks.spring.jpa.tomcat.services;
 
 import com.google.common.base.Optional;
+import com.thoughtworks.spring.jpa.tomcat.commons.UserStatus;
 import com.thoughtworks.spring.jpa.tomcat.dao.UserDao;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import com.thoughtworks.spring.jpa.tomcat.helpers.PasswordEncoding;
@@ -58,7 +59,7 @@ public class LoginServiceTest {
 
     @Test
     public void shouldReturnFalseWhenUserIsInactive() throws Exception {
-        user.setStatus("inactive");
+        user.setStatus(UserStatus.INACTIVE.name());
 
         Boolean actual = loginService.validateUserStatus(optionalUser);
         Boolean expect = false;
@@ -68,7 +69,7 @@ public class LoginServiceTest {
 
     @Test
     public void shouldReturnTrueWhenUserIsActive() throws Exception {
-        user.setStatus("active");
+        user.setStatus(UserStatus.ACTIVE.name());
 
         Boolean actual = loginService.validateUserStatus(optionalUser);
 
