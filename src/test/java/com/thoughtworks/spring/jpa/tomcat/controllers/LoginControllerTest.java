@@ -49,7 +49,7 @@ public class LoginControllerTest {
 
     @Test
     public void shouldReturnLoginWhenLoginInvalidate() throws Exception {
-        when(loginService.validateUser(password, optionalUser)).thenReturn(false);
+        when(loginService.validateUserPassword(password, optionalUser)).thenReturn(false);
 
         String actualUrl = loginController.login(username, password, httpSession, model);
         String expectUrl = "login";
@@ -60,7 +60,8 @@ public class LoginControllerTest {
     @Test
     public void shouldReturnHomeWhenLoginValidate() throws Exception {
         when(loginService.getByEmail(username)).thenReturn(optionalUser);
-        when(loginService.validateUser(password, optionalUser)).thenReturn(true);
+        when(loginService.validateUserPassword(password, optionalUser)).thenReturn(true);
+        when(loginService.validateUserStatus(optionalUser)).thenReturn(true);
 
         String actualUrl = loginController.login(username, password, httpSession, model);
         String expectUrl = "redirect:/home";

@@ -13,17 +13,22 @@ import java.util.Objects;
 @Component
 public class LoginService {
 
+    public static final String ACTIVE = "active";
     @Autowired
     UserDao userDao;
 
     @Autowired
     PasswordEncoding passwordEncoding;
 
-    public boolean validateUser(String password, Optional<User> userOptional) throws NoSuchAlgorithmException {
+    public boolean validateUserPassword(String password, Optional<User> userOptional) throws NoSuchAlgorithmException {
         return userOptional.isPresent() && Objects.equals(userOptional.get().getPassword(), passwordEncoding.encode2hex(password));
     }
 
     public Optional<User> getByEmail(String username) {
         return userDao.selectUserByEmail(username);
+    }
+
+    public Boolean validateUserStatus(Optional<User> optionalUser) {
+        return Objects.equals(optionalUser.get().getStatus(), ACTIVE);
     }
 }

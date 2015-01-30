@@ -39,7 +39,7 @@ public class LoginServiceTest {
     public void shouldReturnTrueWhenUserIsCorrect() throws Exception {
         user.setPassword(password);
         when(passwordEncoding.encode2hex(password)).thenReturn(password);
-        Boolean actual = loginService.validateUser(password, optionalUser);
+        Boolean actual = loginService.validateUserPassword(password, optionalUser);
         Boolean expect = true;
 
         assertThat(actual, is(expect));
@@ -50,9 +50,28 @@ public class LoginServiceTest {
         user.setPassword(password);
         when(passwordEncoding.encode2hex(password)).thenReturn(password);
         String incorrectPassword = "111111";
-        Boolean actual = loginService.validateUser(incorrectPassword, optionalUser);
+        Boolean actual = loginService.validateUserPassword(incorrectPassword, optionalUser);
         Boolean expect = false;
 
         assertThat(actual, is(expect));
+    }
+
+    @Test
+    public void shouldReturnFalseWhenUserIsInactive() throws Exception {
+        user.setStatus("inactive");
+
+        Boolean actual = loginService.validateUserStatus(optionalUser);
+        Boolean expect = false;
+
+        assertThat(actual, is(expect));
+    }
+
+    @Test
+    public void shouldReturnTrueWhenUserIsActive() throws Exception {
+        user.setStatus("active");
+
+        Boolean actual = loginService.validateUserStatus(optionalUser);
+
+        assertThat(actual, is(true));
     }
 }
