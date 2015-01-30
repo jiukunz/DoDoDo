@@ -4,6 +4,10 @@ html, body {
   color: #222222;
 }
 
+body {
+  padding: 10px 15px;
+}
+
 .info {
   color: #5bc0de;
 }
@@ -18,6 +22,8 @@ html, body {
 
 .logo {
   background-image: url("../img/logo.jpeg");
+  background-position: center;
+  background-size: cover;
   width: 39px;
   height: 39px;
 }
@@ -29,15 +35,15 @@ html, body {
 
 .login-header {
   position: relative;
-  padding-left: 39px;
+  padding-left: 49px;
   margin-bottom: 20px;
 }
 .login-header .logo {
   position: absolute;
   left: 0;
   top: 0;
-  width: 39px;
-  height: 39px;
+  width: 49px;
+  height: 49px;
   background-color: red;
 }
 .login-header h1 {

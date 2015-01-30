@@ -5,6 +5,9 @@ html, body {
     font-size: $basic-font-size;
     color: $gray-darker;
 }
+body {
+    padding: $basic-width $basic-width*1.5;
+}
 
 .info{
     color: $color-info;
@@ -18,6 +21,8 @@ html, body {
 
 .logo {
     background-image: url("../img/logo.jpeg");
+    background-position: center;
+    background-size: cover;
     width: 39px;
     height: 39px;
 }

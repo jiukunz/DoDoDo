@@ -1,5 +1,61 @@
 @import "basic/common";
 
-.header {
+.logo-box {
+    position: relative;
+    padding-left: 69px + $basic-width;
+    .logo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 69px;
+        height: 69px;
+    }
+    h1 {
+        text-align: center;
+        text-shadow: 0 1px 1px #111;
+    }
+}
+header {
     height: 80px;
+    border-bottom: 1px solid $border-gray;
+    position: relative;
+    ul {
+        position: absolute;
+        bottom: $basic-width;
+        right: $basic-width;
+        @include horizontal-list($basic-width);
+    }
+    li.splite {
+        border-left: 1px solid $border-gray;
+        width: 1px;
+        height: 20px;
+        padding: 0;
+    }
+    li.login-user {
+
+    }
+    i {
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+    }
+    .user-img {
+        width: 30px;
+        height: 30px;
+        display: block;
+        @include border-radius($basic-width*3);
+
+        background-image: url("../img/logo.jpeg");
+        background-position: center;
+        background-size: cover;
+    }
+
+}
+
+
+.content {
+    .head {
+        padding: $basic-width 0;
+
+    }
 }

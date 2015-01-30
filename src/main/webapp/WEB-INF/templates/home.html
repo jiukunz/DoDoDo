@@ -7,36 +7,65 @@
     <link rel="stylesheet" href="/assets/css/home.css"/>
 </head>
 <body>
-<header class="header clearfix">
-    <div class="login-header pull-left">
+<header class="clearfix">
+    <div class="logo-box pull-left">
         <i class="logo"></i>
         <h1>Globe Images</h1>
     </div>
 
-    <div class="pull-right">
-        <ul>
-            <li><span></span><a>Home</a></li>
-            <li><span></span><a>My Picture</a></li>
-            <li><span></span><a>Upload</a></li>
-            <li><span></span><a>Shopping car</a></li>
-            <li class="popbox">
-                <span></span>
-                <a class='open' href='#'>User</a>
-                <div class='collapse'>
-                    <div class='box'>
-                        <button>Edit Profile</button>
-                        <button id="logout">Logout</button>
-                    </div>
+    <ul class="pull-right">
+        <li>
+            <i class="user-img"></i>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <i class="user-img"></i>
+            <a href="#">My Picture</a>
+        </li>
+        <li>
+            <i class="user-img"></i>
+            <a href="#">Upload</a>
+        </li>
+        <li>
+            <i class="user-img"></i>
+            <a href="#">Shopping car</a>
+        </li>
+        <li class="splite"></li>
+        <li class="login-user popbox">
+            <i class="user-img"></i>
+            <a class="open" href="#">User</a>
+            <div class="collapse">
+                <div class="box">
+                    <button>Edit Profile</button>
+                    <button id="logout">Logout</button>
                 </div>
-            </li>
-        </ul>
-    </div>
+            </div>
+        </li>
+    </ul>
 </header>
-<main class="">
-    <h1>It's home page.</h1>
+<main class="content">
+    <section class="head">
+        <h3>Home</h3>
+        <div class="search-box">
+            <input type="text" placeholder="Search"/>
+        </div>
+    </section>
+    <section class="">
+        <div>
+            <h4>Featured Pictures</h4>
+            <a href="">View xxx</a>
+        </div>
+        <div></div>
+    </section>
+    <section class="">
+        <div>
+            <h4>New Pictures</h4>
+            <a href="">View xxx</a>
+        </div>
+    </section>
 </main>
 
-<script src='/assets/js/popbox.js'></script>
-<script src='/assets/js/headerHelpers.js'></script>
+<!--<script src='/assets/js/popbox.js'></script>-->
+<!--<script src='/assets/js/headerHelpers.js'></script>-->
 </body>
 </html>
