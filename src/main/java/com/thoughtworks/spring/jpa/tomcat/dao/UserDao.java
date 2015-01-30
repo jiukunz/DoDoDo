@@ -8,12 +8,14 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Component
 public class UserDao {
     @PersistenceContext(name = "postgres")
     private EntityManager em;
+    private java.util.Date date = new java.util.Date();
 
     @Transactional
     public void persist(User user) {
@@ -39,6 +41,7 @@ public class UserDao {
         User user = em.find(User.class, pk);
         if(user!=null){
             user.setStatus("active");
+            user.setModifyDate(new Timestamp(date.getTime()));
             em.merge(user);
             return true;
         }
@@ -51,6 +54,7 @@ public class UserDao {
         User user = em.find(User.class, pk);
         if(user != null && user.getStatus().equals("active")) {
             user.setPassword(password);
+            user.setModifyDate(new Timestamp(date.getTime()));
             em.merge(user);
             return true;
         }

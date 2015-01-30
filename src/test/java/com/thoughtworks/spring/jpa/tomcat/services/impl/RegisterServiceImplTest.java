@@ -54,14 +54,14 @@ public class RegisterServiceImplTest {
     }
 
     public User getUser() {
-        User user = new User();
-        user.setFirstName("Jiukun");
-        user.setLastName("Zhang");
-        user.setEmail("jkzhang@gmail.com");
-        user.setPassword("123456");
         java.util.Date date = new java.util.Date();
-        user.setCreateDate(new Timestamp(date.getTime()));
-        user.setModifyDate(new Timestamp(date.getTime()));
+        User user = new User()
+                .withFirstName("Jiukun")
+                .withLastName("Zhang")
+                .withEmail("jkzhang@gmail.com")
+                .withPassword("123456")
+                .withCreateDate(new Timestamp(date.getTime()))
+                .withModifyDate(new Timestamp(date.getTime()));
         return user;
     }
 }

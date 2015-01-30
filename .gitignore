@@ -8,3 +8,4 @@ spring-jpa-tomcat.ipr
 spring-jpa-tomcat.iws
 logfile
 .gradle
+.DS_Store
