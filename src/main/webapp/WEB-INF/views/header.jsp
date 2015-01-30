@@ -15,7 +15,7 @@
             <ul>
                 <li><span></span><a>Home</a></li>
                 <li><span></span><a>My Picture</a></li>
-                <li><span></span><a>Upload</a></li>
+                <li><span></span><a href="/upload">Upload</a></li>
                 <li><span></span><a>Shopping car</a></li>
                 <li class="popbox">
                     <span></span>
