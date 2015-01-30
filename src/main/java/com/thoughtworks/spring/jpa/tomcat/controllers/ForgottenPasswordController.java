@@ -28,8 +28,9 @@ public class ForgottenPasswordController {
     @RequestMapping(method = RequestMethod.POST)
     public String forgottenPassword(@RequestParam(value = "email", required = true) String email,
                                     Model model) {
-        if(registerService.validateUserEmail(email)){
-            model.addAttribute("error", messageSource.getMessage("reset.email_not_registered",new Object[]{email}, Locale.US));
+        if (!registerService.validateUserEmail(email)) {
+            model.addAttribute("error", messageSource.getMessage("reset.email_not_registered", new Object[]{email}, Locale.US));
+            return "forgotten/password";
         }
         return "resetEmailSend";
     }
