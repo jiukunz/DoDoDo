@@ -46,7 +46,7 @@ public class RegisterControllerTest {
     @Test
     public void shouldDirectToRegistrationPage() {
         String actual = registerController.viewRegistration();
-        assertThat(actual, is("registration"));
+        assertThat(actual, is("registration.html"));
     }
 
     @Test
@@ -55,7 +55,7 @@ public class RegisterControllerTest {
         when(result.hasErrors()).thenReturn(false);
         when(registerService.register(any(User.class))).thenReturn(true);
         String actual = registerController.processRegistration(userForm, result, model);
-        assertThat(actual, is("registrationSuccess"));
+        assertThat(actual, is("registrationSuccess.html"));
     }
 
     @Test
@@ -63,14 +63,14 @@ public class RegisterControllerTest {
         UserForm userForm = getInValidUserForm();
         when(result.hasErrors()).thenReturn(true);
         String actual = registerController.processRegistration(userForm, result, model);
-        assertThat(actual, is("registration"));
+        assertThat(actual, is("registration.html"));
     }
 
     @Test
     public void shouldDirectToRegistrationPageWhenComfirmPasswordNotEqualsPassword() throws NoSuchAlgorithmException {
         UserForm userForm = getPasswordInValidUserForm();
         String actual = registerController.processRegistration(userForm, result, model);
-        assertThat(actual, is("registration"));
+        assertThat(actual, is("registration.html"));
     }
 
 
@@ -79,7 +79,7 @@ public class RegisterControllerTest {
         UserForm userForm = getPasswordInValidUserForm();
         when(registerService.register(any(User.class))).thenReturn(false);
         String actual = registerController.processRegistration(userForm, result, model);
-        assertThat(actual, is("registration"));
+        assertThat(actual, is("registration.html"));
     }
 
     public UserForm getValidUserForm() {

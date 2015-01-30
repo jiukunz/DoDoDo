@@ -1,6 +1,7 @@
 package com.thoughtworks.spring.jpa.tomcat.dao;
 
 import com.google.common.base.Optional;
+import com.thoughtworks.spring.jpa.tomcat.commons.UserStatus;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,7 +41,7 @@ public class UserDao {
         Long pk=Long.parseLong(id);
         User user = em.find(User.class, pk);
         if(user!=null){
-            user.setStatus("active");
+            user.setStatus(UserStatus.ACTIVE.name());
             user.setModifyDate(new Timestamp(date.getTime()));
             em.merge(user);
             return true;
@@ -52,7 +53,7 @@ public class UserDao {
     public boolean updatePassword(String id, String password) {
         Long pk = Long.parseLong(id);
         User user = em.find(User.class, pk);
-        if(user != null && user.getStatus().equals("active")) {
+        if(user != null && user.getStatus().equals(UserStatus.ACTIVE.name())) {
             user.setPassword(password);
             user.setModifyDate(new Timestamp(date.getTime()));
             em.merge(user);

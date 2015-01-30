@@ -52,7 +52,7 @@ public class LoginControllerTest {
         when(loginService.validateUserPassword(password, optionalUser)).thenReturn(false);
 
         String actualUrl = loginController.login(username, password, httpSession, model);
-        String expectUrl = "login";
+        String expectUrl = "login.html";
 
         assertThat(actualUrl, is(expectUrl));
     }

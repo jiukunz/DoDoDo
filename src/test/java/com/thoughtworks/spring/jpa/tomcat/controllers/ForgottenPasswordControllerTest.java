@@ -40,7 +40,7 @@ public class ForgottenPasswordControllerTest {
         String email = "jkzhang@gmail.com";
         when(registerService.validateUserEmail(anyString())).thenReturn(false);
         String actual = forgottenPasswordController.forgottenPassword(email, model);
-        assertThat(actual, is("forgotten/password"));
+        assertThat(actual, is("forgottenPassword"));
 
     }
     @Test

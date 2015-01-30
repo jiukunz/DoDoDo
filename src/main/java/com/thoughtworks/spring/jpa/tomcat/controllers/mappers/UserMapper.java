@@ -1,5 +1,6 @@
 package com.thoughtworks.spring.jpa.tomcat.controllers.mappers;
 
+import com.thoughtworks.spring.jpa.tomcat.commons.UserStatus;
 import com.thoughtworks.spring.jpa.tomcat.controllers.views.UserForm;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
 import com.thoughtworks.spring.jpa.tomcat.helpers.PasswordEncoding;
@@ -24,7 +25,7 @@ public class UserMapper {
                 .withPassword(passwordEncoding.encode2hex(userForm.getPassword()))
                 .withCreateDate(new Timestamp(date.getTime()))
                 .withModifyDate(new Timestamp(date.getTime()))
-                .withStatus("inactive");
+                .withStatus(UserStatus.INACTIVE.name());
         return user;
     }
 }
