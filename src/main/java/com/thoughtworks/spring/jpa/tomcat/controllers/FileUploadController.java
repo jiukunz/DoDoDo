@@ -20,6 +20,11 @@ public class FileUploadController {
     @Autowired
     FileUploadService fileUploadService;
 
+    @RequestMapping(method= RequestMethod.GET)
+    public String showPage(){
+        return "upload.html";
+    }
+
     @RequestMapping(method= RequestMethod.POST)
     public @ResponseBody String processUpload(@RequestParam MultipartFile file) throws IOException {
         String key=fileUploadService.uploadFile(file.getInputStream());
