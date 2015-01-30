@@ -16,7 +16,7 @@
                 <li><a>Home</a></li>
                 <li><a>My Picture</a></li>
                 <li><a href="/upload">Upload</a></li>
-                <li><a href="/shopping_car">Shopping car</a></li>
+                <li><a href="/shopping_car">Shopping Car</a></li>
                 <li class="popbox">
                     <a class='open' href='#'>User</a>
                     <div class='collapse'>
