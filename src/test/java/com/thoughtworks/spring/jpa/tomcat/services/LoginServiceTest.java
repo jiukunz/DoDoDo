@@ -12,6 +12,7 @@ import org.mockito.Mock;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
@@ -74,5 +75,21 @@ public class LoginServiceTest {
         Boolean actual = loginService.validateUserStatus(optionalUser);
 
         assertThat(actual, is(true));
+    }
+
+    @Test
+    public void shouldReturnLOGIN_LOGIN_FAILEDWhenUserIsIncorrect() throws Exception {
+        when(loginService.validateUserPassword(anyString(),optionalUser)).thenReturn(false);
+        String actual = loginService.getErrorMessage(anyString(), optionalUser);
+
+        assertThat(actual, is("login.login_failed"));
+    }
+
+    @Test
+    public void shouldReturnLOGIN_ACCOUNT_INACTIVEWhenUserIsInactive() throws Exception {
+        when(loginService.validateUserStatus(optionalUser)).thenReturn(false);
+        String actual = loginService.getErrorMessage(anyString(), optionalUser);
+
+        assertThat(actual, is("login.account_inactive"));
     }
 }

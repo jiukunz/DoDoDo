@@ -41,7 +41,8 @@ public class LoginController {
             return "redirect:/home";//TODO: finish homePage by 8k
         }
         else {
-            model.addAttribute("error", messageSource.getMessage("login.login_failed", null, Locale.US));
+            String errorMessage = loginService.getErrorMessage(password,userOptional);
+            model.addAttribute("error", messageSource.getMessage(errorMessage, null, Locale.US));
             return "login.html";
         }
     }

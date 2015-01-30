@@ -14,6 +14,8 @@ import java.util.Objects;
 @Component
 public class LoginService {
 
+    public static final String LOGIN_LOGIN_FAILED = "login.login_failed";
+    public static final String LOGIN_ACCOUNT_INACTIVE = "login.account_inactive";
     @Autowired
     UserDao userDao;
 
@@ -30,5 +32,15 @@ public class LoginService {
 
     public Boolean validateUserStatus(Optional<User> optionalUser) {
         return Objects.equals(optionalUser.get().getStatus(), UserStatus.ACTIVE.name());
+    }
+
+    public String getErrorMessage(String password, Optional<User> userOptional) throws NoSuchAlgorithmException {
+        if (!validateUserPassword(password,userOptional)) {
+            return LOGIN_LOGIN_FAILED;
+        }
+        if (!validateUserStatus(userOptional)) {
+            return LOGIN_ACCOUNT_INACTIVE;
+        }
+        return null;
     }
 }
