@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 
@@ -27,14 +28,14 @@ public class EditProfileController {
         return "profile";
     }
 
-//    @RequestMapping(method = RequestMethod.POST)
-//    public String saveEditedProfile(@RequestParam(value = "firstName", required = true) String firstName,
-//                                    @RequestParam(value = "lastName", required = true) String lastName, HttpSession httpSession){
-//        String userId = (String) httpSession.getAttribute(Constants.LOGIN_KEY);
-//        User user = new User(userId, firstName, lastName);
-//
-//        profileService.updateUserInformation(user);
-//
-//        return "home";
-//    }
+    @RequestMapping(method = RequestMethod.POST)
+    public String saveEditedProfile(@RequestParam(value = "firstName", required = true) String firstName,
+                                    @RequestParam(value = "lastName", required = true) String lastName, HttpSession httpSession){
+        Long userId = Long.parseLong((String) httpSession.getAttribute(Constants.LOGIN_KEY));
+        User user = new User(userId, firstName, lastName);
+
+        editProfileService.updateUserInformation(user);
+
+        return "home";
+    }
 }

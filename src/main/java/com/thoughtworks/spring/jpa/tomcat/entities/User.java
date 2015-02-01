@@ -20,6 +20,17 @@ public class User implements Serializable{
     private Timestamp modifyDate;
     private String status = "inactive";
 
+    public User(){
+
+    }
+
+    public User(Long userId, String firstName, String lastName) {
+        id = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+
     public User withEmail(String email) {
         this.email = email;
         return this;

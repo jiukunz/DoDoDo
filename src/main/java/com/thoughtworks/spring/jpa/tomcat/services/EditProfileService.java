@@ -14,4 +14,7 @@ public class EditProfileService {
         return userDao.selectUserById(userId).get();
     }
 
+    public void updateUserInformation(User user) {
+        userDao.updateUserInformation(user);
+    }
 }
