@@ -2,21 +2,28 @@
 <html>
 <head>
     <title>Edit Profile</title>
-    <link rel="stylesheet" href="/assets/css/profile.css" />
+    <%--<link rel="stylesheet" href="/assets/css/profile.css" />--%>
+    <link rel="stylesheet" href="/assets/css/libs/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/css/login.css"/>
 </head>
 <body>
-<div class="container">
-    <form class="profile-form" method="post">
-        <label>Hi, ${user.email}</label>
+<main class="content">
+    <header class="login-header">
+        <i class="logo"></i>
+        <h1>Hi, ${user.email}</h1>
+    </header>
+    <form class="form-login" method="post" role="form">
+        <h3 class="signin-heading">Please edit your profile.</h3>
         <label>First Name</label>
-        <input type="text" value=${user.firstName} name="firstName" />
+        <input class="form-group form-control" name="firstName" type="text" value=${user.firstName} />
         <label>Last Name</label>
-        <input type="text" value=${user.lastName} name="lastName" />
+        <input class="form-group form-control" name="lastName" type="text" value=${user.lastName} />
 
-        <input type="submit" name="save" value="Save" class="profile-save"/>
-        <input type="button" name="cancle" value="Cancle" onclick="window.location.href='/home'" />
+            <button type="submit" class=" btn-sm btn-primary form-control">Save</button>
+            <button type="button" class=" btn-sm btn-primary form-control" onclick="window.location.href='/home'" >Cancle</button>
+        </div>
     </form>
-</div>
+</main>
 
 </body>
 </html>
