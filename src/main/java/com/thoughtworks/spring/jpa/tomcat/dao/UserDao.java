@@ -36,6 +36,17 @@ public class UserDao {
         return Optional.absent();
     }
 
+    public Optional<User> selectUserById(String userId){
+        Long id = Long.parseLong(userId);
+        TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.id=:id", User.class);
+        query.setParameter("id", id);
+
+        List<User> resultList = query.getResultList();
+        if(resultList.size() > 0)
+            return Optional.of(resultList.get(0));
+        return Optional.absent();
+    }
+
     @Transactional
     public boolean active(String id) {
         Long pk=Long.parseLong(id);

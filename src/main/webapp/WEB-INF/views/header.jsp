@@ -21,7 +21,7 @@
                     <a class='open' href='#'>User</a>
                     <div class='collapse'>
                         <div class='box'>
-                            <button>Edit Profile</button>
+                            <a class="editProfile" href="/profile">Edit Profile</a>
                             <button id="logout">Logout</button>
                         </div>
                     </div>
