@@ -79,15 +79,16 @@ public class LoginServiceTest {
 
     @Test
     public void shouldReturnLOGIN_LOGIN_FAILEDWhenUserIsIncorrect() throws Exception {
-        when(loginService.validateUserPassword(anyString(),optionalUser)).thenReturn(false);
-        String actual = loginService.getErrorMessage(anyString(), optionalUser);
+
+        when(passwordEncoding.encode2hex(password)).thenReturn(password);
+        String actual = loginService.getErrorMessage(password, optionalUser);
 
         assertThat(actual, is("login.login_failed"));
     }
 
     @Test
     public void shouldReturnLOGIN_ACCOUNT_INACTIVEWhenUserIsInactive() throws Exception {
-        when(loginService.validateUserStatus(optionalUser)).thenReturn(false);
+        when(passwordEncoding.encode2hex(password)).thenReturn(password);
         String actual = loginService.getErrorMessage(anyString(), optionalUser);
 
         assertThat(actual, is("login.account_inactive"));
