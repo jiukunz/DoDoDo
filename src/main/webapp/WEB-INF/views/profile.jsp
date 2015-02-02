@@ -11,7 +11,6 @@
     <header class="login-header">
         <i class="logo"></i>
         <h1>Hi, ${user.email}</h1>
-        <h2>hello${status}</h2>
     </header>
     <form class="form-login" method="post" role="form">
         <h3 class="signin-heading">Please edit your profile.</h3>
