@@ -60,7 +60,7 @@ public class LoginServiceTest {
 
     @Test
     public void shouldReturnFalseWhenUserIsInactive() throws Exception {
-        user.setStatus(UserStatus.INACTIVE.name());
+        user.setStatus(UserStatus.INACTIVE.toString());
 
         Boolean actual = loginService.validateUserStatus(optionalUser);
         Boolean expect = false;
@@ -70,7 +70,7 @@ public class LoginServiceTest {
 
     @Test
     public void shouldReturnTrueWhenUserIsActive() throws Exception {
-        user.setStatus(UserStatus.ACTIVE.name());
+        user.setStatus(UserStatus.ACTIVE.toString());
 
         Boolean actual = loginService.validateUserStatus(optionalUser);
 

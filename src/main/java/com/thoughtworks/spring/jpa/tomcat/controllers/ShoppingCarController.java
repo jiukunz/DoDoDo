@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ShoppingCarController {
     @RequestMapping(method = RequestMethod.GET)
     public String showShoppingCar(){
-        return "shoppingCar.html";
+        return "shoppingCar";
     }
 }

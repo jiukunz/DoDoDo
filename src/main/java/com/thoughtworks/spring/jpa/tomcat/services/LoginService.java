@@ -32,7 +32,7 @@ public class LoginService {
     }
 
     public Boolean validateUserStatus(Optional<User> optionalUser) {
-        return Objects.equals(optionalUser.get().getStatus(), UserStatus.ACTIVE.name());
+        return Objects.equals(optionalUser.get().getStatus(), UserStatus.ACTIVE.toString());
     }
 
     public String getErrorMessage(String password, Optional<User> userOptional) throws NoSuchAlgorithmException {

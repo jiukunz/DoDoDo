@@ -25,7 +25,7 @@ public class UserMapper {
                 .withPassword(passwordEncoding.encode2hex(userForm.getPassword()))
                 .withCreateDate(new Timestamp(date.getTime()))
                 .withModifyDate(new Timestamp(date.getTime()))
-                .withStatus(UserStatus.INACTIVE.name());
+                .withStatus(UserStatus.INACTIVE.toString());
         return user;
     }
 }

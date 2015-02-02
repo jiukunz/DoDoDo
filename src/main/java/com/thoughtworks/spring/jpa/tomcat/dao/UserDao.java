@@ -52,7 +52,7 @@ public class UserDao {
         Long pk=Long.parseLong(id);
         User user = em.find(User.class, pk);
         if(user!=null){
-            user.setStatus(UserStatus.ACTIVE.name());
+            user.setStatus(UserStatus.ACTIVE.toString());
             user.setModifyDate(new Timestamp(date.getTime()));
             em.merge(user);
             return true;
@@ -64,7 +64,7 @@ public class UserDao {
     public boolean updatePassword(String id, String password) {
         Long pk = Long.parseLong(id);
         User user = em.find(User.class, pk);
-        if(user != null && user.getStatus().equals(UserStatus.ACTIVE.name())) {
+        if(user != null && user.getStatus().equals(UserStatus.ACTIVE.toString())) {
             user.setPassword(password);
             user.setModifyDate(new Timestamp(date.getTime()));
             em.merge(user);

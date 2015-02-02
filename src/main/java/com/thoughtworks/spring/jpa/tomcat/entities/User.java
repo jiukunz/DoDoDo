@@ -1,5 +1,7 @@
 package com.thoughtworks.spring.jpa.tomcat.entities;
 
+import com.thoughtworks.spring.jpa.tomcat.commons.UserStatus;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -18,7 +20,7 @@ public class User implements Serializable{
     private String lastName;
     private Timestamp createDate;
     private Timestamp modifyDate;
-    private String status = "inactive";
+    private String status = UserStatus.INACTIVE.toString();
 
     public User(){
 
