@@ -3,11 +3,10 @@ package com.thoughtworks.spring.jpa.tomcat.dao;
 import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import java.util.List;
 
 /**
  * Created by qnxu on 1/27/15.
@@ -23,5 +22,10 @@ public class PictureDao {
             return Optional.of(picture);
         }
         return Optional.absent();
+    }
+
+    @Transactional
+    public void insertPicInfo(Picture pictureEntity) {
+        em.persist(pictureEntity);
     }
 }

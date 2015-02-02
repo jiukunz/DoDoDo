@@ -18,6 +18,7 @@ public class LoginService {
     public static final String LOGIN_ACCOUNT_INACTIVE = "login.account_inactive";
     @Autowired
     UserDao userDao;
+    private User loginUser;
 
     @Autowired
     PasswordEncoding passwordEncoding;
@@ -42,5 +43,13 @@ public class LoginService {
             return LOGIN_ACCOUNT_INACTIVE;
         }
         return null;
+    }
+
+    public void persistUser(User user) {
+        loginUser = user;
+    }
+
+    public User getLoginUser () {
+        return loginUser;
     }
 }

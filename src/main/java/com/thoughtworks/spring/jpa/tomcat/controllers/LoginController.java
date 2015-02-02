@@ -37,6 +37,7 @@ public class LoginController {
                          HttpSession httpSession, Model model) throws NoSuchAlgorithmException, IOException {
         Optional<User> userOptional = loginService.getByEmail(username);
         if (loginService.validateUserPassword(password, userOptional) && loginService.validateUserStatus(userOptional)) {
+            loginService.persistUser(userOptional.get());
             httpSession.setAttribute(Constants.LOGIN_KEY, userOptional.get().getId().toString());
             return "redirect:/home";//TODO: finish homePage by 8k
         }
