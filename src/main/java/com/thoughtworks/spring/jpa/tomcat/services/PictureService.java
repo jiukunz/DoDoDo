@@ -16,11 +16,9 @@ public class PictureService {
     @Autowired
     private PictureDao pictureDao;
 
-    public Map<String, String> getPictureInformation(String pictureId){
+    public Picture findPicture(String pictureId){
         Picture picture =  pictureDao.parsePictureById(pictureId).get();
-        Map<String, String> pictureInformation = new HashMap<>();
-        pictureInformation.put("name",picture.getCaption());
-        pictureInformation.put("description",picture.getKeyword());
-        return pictureInformation;
+
+        return picture;
     }
 }

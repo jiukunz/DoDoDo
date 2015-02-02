@@ -10,11 +10,11 @@
   <div class="anchor">
     <ul>
       <li><a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">
-        <img class="smallImage" alt="1"  src="/assets/img/smalltw1.jpg"/></a>
+        <img class="smallImage" alt="cfqhscDiSN8eo_cq_1"  src="/assets/img/smalltw1.jpg"/></a>
       </li>
       <li>
         <a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">
-          <img class="smallImage" alt="2" src="/assets/img/smalltw2.jpg"/>
+          <img class="smallImage" alt="cfqhscDiSN8eo_cq_2" src="/assets/img/smalltw2.jpg"/>
         </a>
       </li>
     </ul>
@@ -28,8 +28,10 @@
       <%--</div>--%>
 
       <div class="pictureInformation">
-          商品名:<p class="pictureName"></p>
-          商品描述:<p class="pictureDescription"></p>
+          Caption:<p class="pictureCaption"></p>
+          Keyword:<p class="pictureKeyword"></p>
+          Location:<p class="pictureLocation"></p>
+          Price:<p class="picturePrice"></p>
         <button type="button">Add Cart</button>
       </div>
 
@@ -43,8 +45,12 @@
       $(".smallImage").on("click", function(){
         $.ajax('/picture/data',{
           success: function(response){
-              $(".pictureName").text(response.name);
-              $(".pictureDescription").text(response.description);
+              $(".pictureCaption").text(response.caption);
+              $(".pictureKeyword").text(response.keyword);
+              $(".pictureLocation").text(response.location);
+              $(".picturePrice").text(response.price);
+
+//              console.log(response.caption);
           },
           data: {"pictureId": this.alt}
         });

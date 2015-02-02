@@ -35,22 +35,17 @@ public class PictureServiceTest {
         initMocks(this);
         pictureId = "111111";
         picture = new Picture();
-        picture.setCaption("picture2");
-        picture.setKeyword("Another picture");
+        picture.setCaption("jiukun");
         optionalPicture = Optional.of(picture);
     }
 
     @Test
     public void shouldReturnPictureInformationWhenInputId(){
         when(pictureDao.parsePictureById(pictureId)).thenReturn(optionalPicture);
-        Map<String, String> pictureInformation = pictureService.getPictureInformation(pictureId);
-        Map<String, String> expectInformation = new HashMap<String, String>(){
-            {
-                put("name", "picture2");
-                put("description", "Another picture");
-            }
-        };
 
-        assertThat(pictureInformation, is(expectInformation));
+        picture = pictureService.findPicture(pictureId);
+        String expectCaption = "jiukun";
+
+        assertThat(picture.getCaption(), is(expectCaption));
     }
 }

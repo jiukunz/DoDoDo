@@ -29,14 +29,15 @@ public class PictureControllerTest {
     private String pictureId;
     private Map<String, String> pictureInformation;
 
+    private Picture picture;
+
     @Before
     public void setUp(){
         initMocks(this);
         pictureId = "111111";
-        pictureInformation = new HashMap<>();
-        pictureInformation.put("name", "picture1");
-        pictureInformation.put("description","This is a picture");
 
+        picture = new Picture();
+        picture.setCaption("picture1");
     }
 
     @Test
@@ -47,16 +48,11 @@ public class PictureControllerTest {
 
     @Test
     public void shoudReturnInformationWhenInputPictureId(){
-        when(pictureService.getPictureInformation(pictureId)).thenReturn(pictureInformation);
+        when(pictureService.findPicture(pictureId)).thenReturn(picture);
+        picture = pictureController.getPictureInformation(pictureId);
 
-        Map<String, String> expectResult = new HashMap<String, String>(){
-            {
-                put("name", "picture1");
-                put("description", "This is a picture");
-            }
+        String expectResult = "picture1";
 
-        };
-
-        assertThat(pictureInformation, is(expectResult));
+        assertThat(picture.getCaption(), is(expectResult));
     }
 }
