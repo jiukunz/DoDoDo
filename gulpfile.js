@@ -10,9 +10,9 @@ gulp.task('connect', function () {
     var connect = require('connect');
     var app = connect()
         .use(require('connect-livereload')({ port: 35729 }))
-        .use('/', connect.static('src/main/webapp/WEB-INF/templates'))
+        .use('/', connect.static('src/main/webapp/prototype'))
         .use('/assets', connect.static('src/main/webapp/assets'))
-        .use(connect.directory('src/main/webapp/WEB-INF/templates'));
+        .use(connect.directory('src/main/webapp/prototype'));
 
     require('http').createServer(app)
         .listen(9000)
@@ -51,7 +51,7 @@ gulp.task('scripts', function () {
 
 
 
-gulp.task('watch', ['connect', 'serve', 'styles'], function () {
+gulp.task('watch', ['serve', 'styles'], function () {
     var server = $.livereload();
 
     gulp.watch('src/main/webapp/assets/sass/**/*.scss', ['styles']);
