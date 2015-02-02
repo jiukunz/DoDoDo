@@ -74,13 +74,13 @@ public class UserDao {
     }
 
     @Transactional
-    public void updateUserInformation(User user) {
+    public int updateUserInformation(User user) {
         TypedQuery<User> query = em.createQuery("UPDATE User u SET u.firstName = :firstName , u.lastName = :lastName" +
             " WHERE u.id = :id", User.class);
         query.setParameter("firstName", user.getFirstName());
         query.setParameter("lastName", user.getLastName());
         query.setParameter("id", user.getId());
 
-        query.executeUpdate();
+        return query.executeUpdate();
     }
 }

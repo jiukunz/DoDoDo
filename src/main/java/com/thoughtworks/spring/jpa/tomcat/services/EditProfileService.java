@@ -14,7 +14,10 @@ public class EditProfileService {
         return userDao.selectUserById(userId).get();
     }
 
-    public void updateUserInformation(User user) {
-        userDao.updateUserInformation(user);
+    public boolean updateUserInformation(User user) {
+        int updateCounts  = userDao.updateUserInformation(user);
+        if(updateCounts >= 0)
+            return true;
+        return false;
     }
 }

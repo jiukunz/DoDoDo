@@ -31,8 +31,8 @@ public class EditProfileController {
     @RequestMapping(method = RequestMethod.POST)
     public String saveEditedProfile(@RequestParam(value = "firstName", required = true) String firstName,
                                     @RequestParam(value = "lastName", required = true) String lastName, HttpSession httpSession){
-        Long userId = Long.parseLong((String) httpSession.getAttribute(Constants.LOGIN_KEY));
-        User user = new User(userId, firstName, lastName);
+        String userId = (String)httpSession.getAttribute(Constants.LOGIN_KEY);
+        User user = new User(Long.parseLong(userId), firstName, lastName);
 
         editProfileService.updateUserInformation(user);
 
