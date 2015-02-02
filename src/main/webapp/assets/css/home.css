@@ -6,6 +6,7 @@ html, body {
 
 body {
   padding: 10px 15px;
+  min-width: 1024px;
 }
 
 .info {
@@ -49,44 +50,22 @@ header {
   border-bottom: 1px solid #ccc;
   position: relative;
 }
-header ul {
-  position: absolute;
-  bottom: 10px;
+header ul.nav {
   right: 10px;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-  *zoom: 1;
+  overflow: visible;
 }
-header ul li {
-  list-style-image: none;
-  list-style-type: none;
-  margin-left: 0;
-  white-space: nowrap;
-  float: left;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-header ul li:first-child {
-  padding-left: 0;
-}
-header ul li:last-child {
-  padding-right: 0;
-}
-header ul li.last {
-  padding-right: 0;
-}
-header li.splite {
+header li.split {
   border-left: 1px solid #ccc;
   width: 1px;
-  height: 20px;
+  height: 80px;
   padding: 0;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 header i {
   text-align: center;
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 10px;
 }
 header .user-img {
   width: 30px;
@@ -98,6 +77,21 @@ header .user-img {
   background-image: url("../img/logo.jpeg");
   background-position: center;
   background-size: cover;
+}
+header .login-user:hover .user-profile {
+  display: block;
+}
+header .user-profile {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+}
+header .user-profile a {
+  display: block;
 }
 
 .content .head {

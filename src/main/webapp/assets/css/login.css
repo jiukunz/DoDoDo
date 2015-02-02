@@ -6,6 +6,7 @@ html, body {
 
 body {
   padding: 10px 15px;
+  min-width: 1024px;
 }
 
 .info {

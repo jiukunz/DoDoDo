@@ -16,32 +16,30 @@
     }
 }
 header {
-    height: 80px;
+    height: $basic-width*8;
     border-bottom: 1px solid $border-gray;
     position: relative;
-    ul {
-        position: absolute;
-        bottom: $basic-width;
+    ul.nav {
         right: $basic-width;
-        @include horizontal-list($basic-width);
+//        @include horizontal-list();
+        overflow: visible;// override overflow:hidden;
     }
-    li.splite {
+    li.split {
         border-left: 1px solid $border-gray;
         width: 1px;
-        height: 20px;
+        height: $basic-width*8;
         padding: 0;
-    }
-    li.login-user {
-
+        margin-left: 20px;
+        margin-right: 20px;
     }
     i {
         text-align: center;
         display: block;
-        margin: 0 auto;
+        margin: 0 auto $basic-width;
     }
     .user-img {
-        width: 30px;
-        height: 30px;
+        width: $basic-width*3;
+        height: $basic-width*3;
         display: block;
         @include border-radius($basic-width*3);
 
@@ -49,7 +47,26 @@ header {
         background-position: center;
         background-size: cover;
     }
+    .login-user {
 
+        &:hover {
+            .user-profile {
+                display: block;
+            }
+        }
+    }
+    .user-profile {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        top: 100%;
+        right: 0;
+        background-color: #ffffff;
+        a {
+            display: block;
+        }
+        border: 1px solid #ccc;
+    }
 }
 
 
