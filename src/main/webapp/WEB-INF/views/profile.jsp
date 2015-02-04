@@ -25,5 +25,22 @@
     </form>
 </main>
 
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script>
+    $(function(){
+      $('form').validate({
+         rules:{
+             firstName: "required",
+             lastName: "required"
+         },
+          messages: {
+              firstName: "Please enter your first name",
+              lastName: "Please enter your last name"
+          }
+      });
+    });
+</script>
+
 </body>
 </html>

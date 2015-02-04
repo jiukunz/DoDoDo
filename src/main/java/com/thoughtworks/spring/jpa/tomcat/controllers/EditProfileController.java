@@ -21,7 +21,6 @@ public class EditProfileController {
     @RequestMapping(method = RequestMethod.GET)
     public String showProfilePage(HttpSession httpSession, Model model){
         String userId = (String) httpSession.getAttribute(Constants.LOGIN_KEY);
-
         User user = editProfileService.getUserById(userId);
         model.addAttribute("user", user);
 
@@ -33,9 +32,9 @@ public class EditProfileController {
                                     @RequestParam(value = "lastName", required = true) String lastName, HttpSession httpSession){
         String userId = (String)httpSession.getAttribute(Constants.LOGIN_KEY);
         User user = new User(Long.parseLong(userId), firstName, lastName);
-
         editProfileService.updateUserInformation(user);
 
         return "home";
     }
+
 }
