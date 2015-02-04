@@ -5,9 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Created by qnxu on 1/27/15.
  */
@@ -17,7 +14,7 @@ public class PictureService {
     private PictureDao pictureDao;
 
     public Picture findPicture(String pictureId){
-        Picture picture =  pictureDao.parsePictureById(pictureId).get();
+        Picture picture =  pictureDao.getPicById(pictureId).get();
 
         return picture;
     }

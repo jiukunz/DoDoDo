@@ -16,7 +16,7 @@ public class PictureDao {
     @PersistenceContext(name = "postgres")
     private EntityManager em;
 
-    public Optional<Picture> parsePictureById(String id){
+    public Optional<Picture> getPicById(String id){
         Picture picture = em.find(Picture.class, id);
         if (picture!=null) {
             return Optional.of(picture);

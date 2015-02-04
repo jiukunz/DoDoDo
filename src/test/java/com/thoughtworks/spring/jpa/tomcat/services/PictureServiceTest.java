@@ -8,9 +8,6 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.mock;
@@ -41,7 +38,7 @@ public class PictureServiceTest {
 
     @Test
     public void shouldReturnPictureInformationWhenInputId(){
-        when(pictureDao.parsePictureById(pictureId)).thenReturn(optionalPicture);
+        when(pictureDao.getPicById(pictureId)).thenReturn(optionalPicture);
 
         picture = pictureService.findPicture(pictureId);
         String expectCaption = "jiukun";
