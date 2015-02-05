@@ -24,16 +24,25 @@
     <bean id="myTxManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="emf"/>
     </bean>
-
-    <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="url" value="${flyway.url}"/>
-        <property name="driverClassName" value="${flyway.driver}"/>
-        <property name="username" value="${flyway.user}"/>
-        <property name="password" value="${flyway.password}"/>
-    </bean>
-
     <!-- Use @Transaction annotations for managing transactions -->
     <tx:annotation-driven transaction-manager="myTxManager"/>
 
+    <beans profile="dev">
+        <bean id="dataSource"
+              class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="url" value="${flyway.url}"/>
+            <property name="driverClassName" value="${flyway.driver}"/>
+            <property name="username" value="${flyway.user}"/>
+            <property name="password" value="${flyway.password}"/>
+        </bean>
+    </beans>
+    <beans profile="prod">
+        <bean id="dataSource"
+              class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="url" value="${flyway.prod.url}"/>
+            <property name="driverClassName" value="${flyway.driver}"/>
+            <property name="username" value="${flyway.prod.user}"/>
+            <property name="password" value="${flyway.prod.password}"/>
+        </bean>
+    </beans>
 </beans>
