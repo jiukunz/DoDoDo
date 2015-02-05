@@ -10,7 +10,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-    <context:property-placeholder location="/WEB-INF/flyway.properties"
+    <context:property-placeholder location="/WEB-INF/flyway_${spring.profiles.active}.properties"
                                   xmlns:context="http://www.springframework.org/schema/context"/>
 
     <!-- Add JPA support -->
@@ -27,22 +27,11 @@
     <!-- Use @Transaction annotations for managing transactions -->
     <tx:annotation-driven transaction-manager="myTxManager"/>
 
-    <beans profile="dev">
-        <bean id="dataSource"
-              class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-            <property name="url" value="${flyway.url}"/>
-            <property name="driverClassName" value="${flyway.driver}"/>
-            <property name="username" value="${flyway.user}"/>
-            <property name="password" value="${flyway.password}"/>
-        </bean>
-    </beans>
-    <beans profile="prod">
-        <bean id="dataSource"
-              class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-            <property name="url" value="${flyway.prod.url}"/>
-            <property name="driverClassName" value="${flyway.driver}"/>
-            <property name="username" value="${flyway.prod.user}"/>
-            <property name="password" value="${flyway.prod.password}"/>
-        </bean>
-    </beans>
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="${flyway.url}"/>
+        <property name="driverClassName" value="${flyway.driver}"/>
+        <property name="username" value="${flyway.user}"/>
+        <property name="password" value="${flyway.password}"/>
+    </bean>
 </beans>
