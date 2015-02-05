@@ -1,6 +1,7 @@
 package com.thoughtworks.spring.jpa.tomcat.services.impl;
 
 import com.google.common.base.Function;
+import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
 import com.thoughtworks.spring.jpa.tomcat.dao.ShoppingCarDao;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
@@ -24,7 +25,11 @@ public class ShoppingCarServiceImpl implements ShoppingCarService {
 
     @Override
     public ArrayList<Picture> getPicListByUserId(String userId) {
-        List<ShoppingCar> shoppingCar = shoppingCarDao.getShoppingCarByUserId(userId).get();
+        List<ShoppingCar> shoppingCar = new ArrayList<>();
+        Optional<List<ShoppingCar>> shoppingCarByUserId = shoppingCarDao.getShoppingCarByUserId(userId);
+        if(shoppingCarByUserId.isPresent()) {
+            shoppingCar = shoppingCarByUserId.get();
+        }
 
         ArrayList<Picture> pictures = newArrayList(transform(shoppingCar, new Function<ShoppingCar, Picture>() {
             @Override
