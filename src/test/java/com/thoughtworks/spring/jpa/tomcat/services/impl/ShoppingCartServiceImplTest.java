@@ -1,6 +1,7 @@
 package com.thoughtworks.spring.jpa.tomcat.services.impl;
 
 import com.google.common.base.Optional;
+import com.google.common.collect.ImmutableList;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
 import com.thoughtworks.spring.jpa.tomcat.dao.ShoppingCartDao;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
@@ -44,7 +45,7 @@ public class ShoppingCartServiceImplTest {
         Picture picture = new Picture();
         picture.setId("123456");
         when(pictureDao.getPicById(anyString())).thenReturn(Optional.of(picture));
-        ArrayList<Picture> picListByUserId = shoppingCartService.getPicListByUserId(userId);
+        ImmutableList<Picture> picListByUserId = shoppingCartService.getPicListByUserId(userId);
         assertThat(picListByUserId.get(0).getId(), is(picture.getId()));
     }
 
@@ -53,7 +54,7 @@ public class ShoppingCartServiceImplTest {
         String userId = "1";
         when(shoppingCartDao.getShoppingCarByUserId(anyString())).thenReturn(Optional.<List<ShoppingCart>>absent());
         when(pictureDao.getPicById(anyString())).thenReturn(Optional.<Picture>absent());
-        ArrayList<Picture> picListByUserId = shoppingCartService.getPicListByUserId(userId);
+        ImmutableList<Picture> picListByUserId = shoppingCartService.getPicListByUserId(userId);
         assertThat(picListByUserId.size(), is(0));
     }
 }

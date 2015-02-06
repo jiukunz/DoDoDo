@@ -2,6 +2,9 @@ package com.thoughtworks.spring.jpa.tomcat.services.impl;
 
 import com.google.common.base.Function;
 import com.google.common.base.Optional;
+import com.google.common.base.Predicate;
+import com.google.common.collect.FluentIterable;
+import com.google.common.collect.ImmutableList;
 import com.thoughtworks.spring.jpa.tomcat.commons.AddShoppingCartStatus;
 import com.thoughtworks.spring.jpa.tomcat.commons.json.ShoppingCartResponse;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
@@ -15,9 +18,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.google.common.collect.Collections2.transform;
-import static com.google.common.collect.Lists.newArrayList;
-
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Autowired
@@ -26,21 +26,33 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     PictureDao pictureDao;
 
     @Override
-    public ArrayList<Picture> getPicListByUserId(String userId) {
+    public ImmutableList<Picture> getPicListByUserId(String userId) {
         List<ShoppingCart> shoppingCart = new ArrayList<>();
         Optional<List<ShoppingCart>> shoppingCartByUserId = shoppingCartDao.getShoppingCarByUserId(userId);
         if (shoppingCartByUserId.isPresent()) {
             shoppingCart = shoppingCartByUserId.get();
         }
 
-        ArrayList<Picture> pictures = newArrayList(transform(shoppingCart, new Function<ShoppingCart, Picture>() {
-            @Override
-            public Picture apply(ShoppingCart shoppingCar) {
-                return pictureDao.getPicById(shoppingCar.getPicId()).get();
-            }
-        }));
+        ImmutableList<Picture> pictures = getPictures(shoppingCart);
 
         return pictures;
+    }
+
+    private ImmutableList<Picture> getPictures(List<ShoppingCart> shoppingCart) {
+        return FluentIterable.from(shoppingCart)
+                .filter(new Predicate<ShoppingCart>() {
+                    @Override
+                    public boolean apply(ShoppingCart shoppingCart) {
+                        return pictureDao.getPicById(shoppingCart.getPicId()).isPresent();
+                    }
+                })
+                .transform(new Function<ShoppingCart, Picture>() {
+                    @Override
+                    public Picture apply(ShoppingCart shoppingCart) {
+                        return pictureDao.getPicById(shoppingCart.getPicId()).get();
+                    }
+                })
+                .toList();
     }
 
     @Override

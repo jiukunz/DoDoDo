@@ -44,6 +44,7 @@
     <definition name="shoppingCart" extends="layout.definition">
         <put-attribute name="title" value="Shopping Cart" />
         <put-attribute name="body" value="/WEB-INF/views/shoppingCart.jsp" />
+        <put-attribute name="css" value="/WEB-INF/views/includes/css-shopping-cart.jsp" />
     </definition>
 </tiles-definitions>
 

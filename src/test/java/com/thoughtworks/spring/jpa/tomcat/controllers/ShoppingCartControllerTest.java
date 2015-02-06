@@ -1,5 +1,6 @@
 package com.thoughtworks.spring.jpa.tomcat.controllers;
 
+import com.google.common.collect.ImmutableList;
 import com.thoughtworks.spring.jpa.tomcat.commons.Constants;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
 import com.thoughtworks.spring.jpa.tomcat.services.ShoppingCartService;
@@ -11,7 +12,6 @@ import org.springframework.context.MessageSource;
 import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -30,7 +30,6 @@ public class ShoppingCartControllerTest {
 
     HttpSession httpSession;
     Model model;
-
     @Before
     public void setUp() throws Exception {
         initMocks(this);
@@ -39,10 +38,29 @@ public class ShoppingCartControllerTest {
     }
 
     @Test
-    public void shouldShowShoppingCarList() {
+    public void shouldReturnShoppingCartWhenShoppingCarListIsEmpty() {
         when(httpSession.getAttribute(Constants.LOGIN_KEY)).thenReturn("1234");
-        when(shoppingCartService.getPicListByUserId(anyString())).thenReturn(new ArrayList<Picture>());
+        ImmutableList<Picture> picList = null;
+        when(shoppingCartService.getPicListByUserId(anyString())).thenReturn(picList);
+
         String actual = shoppingCartController.showShoppingCar(httpSession, model);
         assertThat(actual, is("shoppingCart"));
+    }
+
+    @Test
+    public void shouldReturnShoppingCartWhenShoppingCarListIsNotEmpty() {
+        when(httpSession.getAttribute(Constants.LOGIN_KEY)).thenReturn("1234");
+        ImmutableList<Picture> picList = getPictures();
+        when(shoppingCartService.getPicListByUserId(anyString())).thenReturn(picList);
+
+        String actual = shoppingCartController.showShoppingCar(httpSession, model);
+        assertThat(actual, is("shoppingCart"));
+    }
+
+    private ImmutableList<Picture> getPictures() {
+        Picture picture = new Picture();
+        picture.setId("1234567");
+        picture.setPrice(124);
+        return new ImmutableList.Builder<Picture>().add(picture).build();
     }
 }

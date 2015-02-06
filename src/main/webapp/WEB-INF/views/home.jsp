@@ -46,4 +46,19 @@
 
 </div>
 
+<button id="addToCart">add to cart</button>
+<script>
+    $("#addToCart").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "/shopping-cart/add",
+            data:{"picture_id":111111},
+            success: function(data){
+                if(console){
+                    console.log(data);
+                }
+            }
+        });
+    });
+</script>
 
