@@ -27,14 +27,12 @@ public class EditProfileControllerTest {
 
     private HttpSession httpSession;
     private Model model;
-    private User user;
 
     @Before
     public void setUp(){
         initMocks(this);
         httpSession = mock(HttpSession.class);
         model = mock(Model.class);
-        user = mock(User.class);
     }
 
     @Test

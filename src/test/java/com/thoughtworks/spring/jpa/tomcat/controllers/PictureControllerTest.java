@@ -1,6 +1,5 @@
 package com.thoughtworks.spring.jpa.tomcat.controllers;
 
-import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
 import com.thoughtworks.spring.jpa.tomcat.services.PictureService;
 import org.junit.Before;
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -27,10 +25,6 @@ public class PictureControllerTest {
 
     private HttpSession httpSession;
     private Model model;
-    private Optional<List<Picture>> picListOptional;
-
-    private String pictureId;
-    private Map<String, String> pictureInformation;
 
     private Picture picture;
 
@@ -39,8 +33,6 @@ public class PictureControllerTest {
         initMocks(this);
         httpSession = mock(HttpSession.class);
         model = mock(Model.class);
-
-        pictureId = "111111";
 
         picture = new Picture();
         picture.setCaption("picture1");
@@ -56,13 +48,4 @@ public class PictureControllerTest {
         assertThat(pageUrl, is("picture"));
     }
 
-    @Test
-    public void shoudReturnInformationWhenInputPictureId(){
-        when(pictureService.findPicture(pictureId)).thenReturn(picture);
-        picture = pictureController.getPictureInformation(pictureId);
-
-        String expectResult = "picture1";
-
-        assertThat(picture.getCaption(), is(expectResult));
-    }
 }

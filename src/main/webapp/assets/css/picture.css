@@ -1,6 +1,11 @@
 .picInfo{
     width:200px;
-    height: 400px;
+    height: 300px;
     display: block;
     float: left;
+}
+
+.picInfo img{
+    width:170px;
+    height: 200px;
 }

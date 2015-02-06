@@ -10,44 +10,28 @@
     </div>
 </section>
 
-<div class="anchor">
-    <h3>Featured Pictures</h3>
+<section class="featured-picture">
+    <h4>Featured Pictures</h4>
+    <a href="/home">View More Featured Pictures</a>
+
     <p>${error}</p>
     <ul>
         <c:forEach var="picList" items="${picList}">
             <li class="picInfo">
                 <a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">
-                    <img class="smallImage" src="http://7u2rkn.com1.z0.glb.clouddn.com/${picList.id}" alt="${picList.id}" style="width: 150px"/>
+                    <img class="smallImage" src="http://7u2rkn.com1.z0.glb.clouddn.com/${picList.id}" alt="${picList.id}" />
                 </a>
                 <p>Caption: <c:out value="${picList.caption}"/></p>
                 <p>$<c:out value="${picList.price}"/></p>
             </li>
         </c:forEach>
     </ul>
-</div>
+</section>
 
-<%--<section class="featured-picture">--%>
-    <%--<h4>Featured Pictures</h4>--%>
-    <%--<a href="/home">View More Featured Pictures</a>--%>
-
-    <%--<p>${error}</p>--%>
-    <%--<ul>--%>
-        <%--<c:forEach var="picList" items="${picList}">--%>
-            <%--<li>--%>
-                <%--<a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">--%>
-                    <%--<img class="smallImage" src="http://7u2rkn.com1.z0.glb.clouddn.com/${picList.id}" alt="${picList.id}" style="width: 150px"/>--%>
-                <%--</a>--%>
-                <%--<p>Caption: <c:out value="${picList.caption}"/></p>--%>
-                <%--<p>$<c:out value="${picList.price}"/></p>--%>
-            <%--</li>--%>
-        <%--</c:forEach>--%>
-    <%--</ul>--%>
-<%--</section>--%>
-
-<%--<section class="new-picture">--%>
-    <%--<h4>New Pictures</h4>--%>
-    <%--<a href="/home">View More New Pictures</a>--%>
-<%--</section>--%>
+<section class="new-picture">
+    <h4>New Pictures</h4>
+    <a href="/home">View More New Pictures</a>
+</section>
 
 <div id="pictureContent" style="display: none">
     <img class="biggerImage" src="" />
