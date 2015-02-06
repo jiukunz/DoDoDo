@@ -50,10 +50,8 @@ public class PictureControllerTest {
     public void shouldDirectToPicturePage(){
         List<Picture> picList = mock(List.class);
         String userId = "1";
-        picListOptional = Optional.of(picList);
 
-
-        when(pictureService.getPicturesByUserId(userId)).thenReturn(picListOptional);
+        when(pictureService.getPicturesByUserId(userId)).thenReturn(picList);
         String pageUrl = pictureController.showPicturePage(httpSession, model);
         assertThat(pageUrl, is("picture"));
     }

@@ -32,7 +32,7 @@
         </li>
         <li class="split"></li>
         <li class="login-user">
-            <a class="open" href="#">
+            <a class="open" href="/home">
                 <i class="user-img"></i>
                 <span>User</span>
             </a>

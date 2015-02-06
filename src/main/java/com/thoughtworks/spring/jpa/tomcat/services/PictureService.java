@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,9 +27,14 @@ public class PictureService {
         }
     }
 
-    public Optional<List<Picture>> getPicturesByUserId(String userId) {
+    public List<Picture> getPicturesByUserId(String userId) {
+        List<Picture> pictures = new ArrayList<>();
         Optional<List<Picture>> picListOptional = pictureDao.getPicturesByUserId(userId);
 
-        return picListOptional;
+        if(picListOptional.isPresent()){
+            pictures = picListOptional.get();
+        }
+
+        return pictures;
     }
 }

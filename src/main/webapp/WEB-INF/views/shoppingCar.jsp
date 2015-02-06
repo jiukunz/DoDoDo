@@ -17,19 +17,19 @@
 
     <ul class="nav nav-pills pull-right">
         <li>
-            <a href="#">
+            <a href="/home">
                 <i class="user-img"></i>
                 <span>Home</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/picture">
                 <i class="user-img"></i>
                 <span>My Picture</span>
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/upload">
                 <i class="user-img"></i>
                 <span>Upload</span>
             </a>
@@ -42,13 +42,13 @@
         </li>
         <li class="split"></li>
         <li class="login-user">
-            <a class="open" href="#">
+            <a class="open" href="/home">
                 <i class="user-img"></i>
                 <span>User</span>
             </a>
             <div class="user-profile">
-                <a class="btn" href="#">Edit Profile</a>
-                <a class="btn" href="#" id="logout">Logout</a>
+                <a class="btn" href="/profile">Edit Profile</a>
+                <a class="btn" href="/logout" id="logout">Logout</a>
             </div>
         </li>
     </ul>

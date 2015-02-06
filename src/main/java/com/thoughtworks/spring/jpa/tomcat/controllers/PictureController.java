@@ -25,11 +25,11 @@ public class PictureController {
     public String showPicturePage(HttpSession httpSession, Model model){
         String userId = (String) httpSession.getAttribute(Constants.LOGIN_KEY);
 
-        Optional<List<Picture>> picListOptional = pictureService.getPicturesByUserId(userId);
-//        if(! picListOptional.equals(Optional.absent()))
-//            model.addAttribute("picError","NO uploading pictures");
-//        else
-//            model.addAttribute("picInfo", picListOptional.get());
+        List<Picture> picList = pictureService.getPicturesByUserId(userId);
+        if(picList.size() == 0){
+            model.addAttribute("error",  "Please upload picture first");
+        }
+        model.addAttribute("picList", picList);
 
         return "picture";
     }
