@@ -9,7 +9,7 @@
         <c:forEach var="picList" items="${picList}">
             <li>
                 <a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">
-                    <img src="http://7u2rkn.com1.z0.glb.clouddn.com/${picList.id}" alt="${picList.id}" style="width: 150px"/>
+                    <img class="smallImage" src="http://7u2rkn.com1.z0.glb.clouddn.com/${picList.id}" alt="${picList.id}" style="width: 150px"/>
                 </a>
                 <p>Caption: <c:out value="${picList.caption}"/></p>
                 <p>Location: <c:out value="${picList.location}"/></p>
@@ -21,10 +21,7 @@
 </div>
 
   <div id="pictureContent" style="display: none">
-      <%--<img class="loading" src="/assets/img/loadingAnimation.gif" />--%>
-      <%--<div class="imageContent">--%>
-      <img class="biggerImage" src="/assets/img/picture1.jpg" />
-      <%--</div>--%>
+      <img class="biggerImage" src="" />
 
       <div class="pictureInformation">
           Caption:<p class="pictureCaption"></p>

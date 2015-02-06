@@ -20,11 +20,7 @@ public class PictureService {
     public Picture findPicture(String pictureId){
         Optional<Picture> pictureOptional =  pictureDao.getPicById(pictureId);
 
-        if(pictureOptional.equals(Optional.absent())){
-            return new Picture("0",Long.parseLong("0"),"caption","location","keyword",0);
-        }else{
-            return pictureOptional.get();
-        }
+        return pictureOptional.get();
     }
 
     public List<Picture> getPicturesByUserId(String userId) {
