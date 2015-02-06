@@ -1,8 +1,10 @@
-@import "basic/common";
+@import "basic/variables";
+@import "basic/mixin";
 
 main {
     .category {
         border-bottom: 1px solid $border-gray;
+        overflow-y: hidden;
         h3 {
             margin: 20px auto;
         }

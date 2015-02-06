@@ -1,8 +1,10 @@
-@import "basic/common";
+@import "common";
 @import "header";
 @import "main";
 
-// structure
+main form {
+    overflow-y: hidden;
+}
 
 .items {
     .column {
@@ -41,9 +43,9 @@
     }
 }
 
-
 .totals {
-    margin: $unit-width*2 auto;
+    margin-top: $unit-width*2;
+    margin-bottom: $unit-width*2;
     font-size: 1.4rem;
 }
 
