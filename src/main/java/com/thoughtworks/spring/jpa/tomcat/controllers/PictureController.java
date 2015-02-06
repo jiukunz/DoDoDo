@@ -34,10 +34,10 @@ public class PictureController {
         return "picture";
     }
 
-    @RequestMapping(value = "/data", method = RequestMethod.GET)
-    public @ResponseBody Picture getPictureInformation(@RequestParam String pictureId){
-        Picture picture = pictureService.findPicture(pictureId);
-
-        return picture;
-    }
+//    @RequestMapping(value = "/data", method = RequestMethod.GET)
+//    public @ResponseBody Picture getPictureInformation(@RequestParam String pictureId){
+//        Picture picture = pictureService.findPicture(pictureId);
+//
+//        return picture;
+//    }
 }

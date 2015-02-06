@@ -33,4 +33,14 @@ public class PictureService {
 
         return pictures;
     }
+
+    public List<Picture> getAllPictures() {
+        List<Picture> allPictures = new ArrayList<>();
+        Optional<List<Picture>> picListOptional = pictureDao.getAllPictures();
+
+        if(picListOptional.isPresent()){
+            allPictures = picListOptional.get();
+        }
+        return allPictures;
+    }
 }

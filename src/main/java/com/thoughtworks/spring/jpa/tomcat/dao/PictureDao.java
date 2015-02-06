@@ -46,4 +46,16 @@ public class PictureDao {
         }
 
     }
+
+    public Optional<List<Picture>> getAllPictures() {
+        TypedQuery<Picture> query = em.createQuery("SELECT p FROM Picture p", Picture.class);
+        List<Picture> allPicList = query.getResultList();
+
+        if(allPicList.isEmpty()){
+            return Optional.absent();
+        }else {
+            return Optional.of(allPicList);
+        }
+    }
+
 }

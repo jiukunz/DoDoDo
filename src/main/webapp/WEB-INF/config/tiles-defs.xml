@@ -16,6 +16,8 @@
     <definition name="home" extends="layout.definition">
         <put-attribute name="title" value="Globle Images"/>
         <put-attribute name="body" value="/WEB-INF/views/home.jsp"/>
+        <put-attribute name="script" value="/WEB-INF/views/includes/script-home.jsp"/>
+        <put-attribute name="css" value="/WEB-INF/views/includes/css-home.jsp" />
     </definition>
 
     <definition name="upload" extends="layout.definition">
