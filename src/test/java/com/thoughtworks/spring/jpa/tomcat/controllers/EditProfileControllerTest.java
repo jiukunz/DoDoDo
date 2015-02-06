@@ -1,11 +1,9 @@
 package com.thoughtworks.spring.jpa.tomcat.controllers;
 
 import com.thoughtworks.spring.jpa.tomcat.commons.Constants;
-import com.thoughtworks.spring.jpa.tomcat.entities.User;
-import com.thoughtworks.spring.jpa.tomcat.services.EditProfileService;
+import com.thoughtworks.spring.jpa.tomcat.services.impl.EditProfileServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.ui.Model;
@@ -14,7 +12,6 @@ import javax.servlet.http.HttpSession;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -23,7 +20,7 @@ public class EditProfileControllerTest {
     @InjectMocks
     private EditProfileController editProfileController;
     @Mock
-    private EditProfileService editProfileService;
+    private EditProfileServiceImpl editProfileService;
 
     private HttpSession httpSession;
     private Model model;
@@ -49,6 +46,6 @@ public class EditProfileControllerTest {
         when(httpSession.getAttribute(Constants.LOGIN_KEY)).thenReturn(userId);
 
         String pageUrl = editProfileController.saveEditedProfile(firstName, lastName, httpSession);
-        assertThat(pageUrl.equals("home"), is(true));
+        assertThat(pageUrl.equals("redirect:/home"), is(true));
     }
 }

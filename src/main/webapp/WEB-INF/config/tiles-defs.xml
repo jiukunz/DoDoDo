@@ -31,6 +31,7 @@
         <put-attribute name="title" value="My Pictures" />
         <put-attribute name="body" value="/WEB-INF/views/picture.jsp" />
         <put-attribute name="script" value="/WEB-INF/views/includes/script-picture.jsp" />
+        <put-attribute name="css" value="/WEB-INF/views/includes/css-picture.jsp" />
     </definition>
 
     <definition name="profile" extends="layout.definition">

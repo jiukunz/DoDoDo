@@ -2,7 +2,7 @@ package com.thoughtworks.spring.jpa.tomcat.controllers;
 
 import com.thoughtworks.spring.jpa.tomcat.commons.Constants;
 import com.thoughtworks.spring.jpa.tomcat.entities.User;
-import com.thoughtworks.spring.jpa.tomcat.services.EditProfileService;
+import com.thoughtworks.spring.jpa.tomcat.services.impl.EditProfileServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(value = "/profile")
 public class EditProfileController {
     @Autowired
-    private EditProfileService editProfileService;
+    private EditProfileServiceImpl editProfileService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String showProfilePage(HttpSession httpSession, Model model){
@@ -34,7 +34,7 @@ public class EditProfileController {
         User user = new User(Long.parseLong(userId), firstName, lastName);
         editProfileService.updateUserInformation(user);
 
-        return "home";
+        return "redirect:/home";
     }
 
 }

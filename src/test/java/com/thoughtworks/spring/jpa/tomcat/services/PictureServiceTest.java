@@ -3,6 +3,7 @@ package com.thoughtworks.spring.jpa.tomcat.services;
 import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
+import com.thoughtworks.spring.jpa.tomcat.services.impl.PictureServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -19,7 +20,7 @@ import static org.mockito.MockitoAnnotations.initMocks;
  */
 public class PictureServiceTest {
     @InjectMocks
-    private PictureService pictureService;
+    private PictureServiceImpl pictureService;
     @Mock
     private PictureDao pictureDao;
 

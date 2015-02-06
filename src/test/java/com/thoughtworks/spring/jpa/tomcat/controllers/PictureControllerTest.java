@@ -1,7 +1,7 @@
 package com.thoughtworks.spring.jpa.tomcat.controllers;
 
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
-import com.thoughtworks.spring.jpa.tomcat.services.PictureService;
+import com.thoughtworks.spring.jpa.tomcat.services.impl.PictureServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -21,7 +21,7 @@ public class PictureControllerTest {
     @InjectMocks
     private PictureController pictureController;
     @Mock
-    private PictureService pictureService;
+    private PictureServiceImpl pictureService;
 
     private HttpSession httpSession;
     private Model model;

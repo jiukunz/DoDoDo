@@ -2,7 +2,7 @@ package com.thoughtworks.spring.jpa.tomcat.controllers;
 
 import com.thoughtworks.spring.jpa.tomcat.commons.Constants;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
-import com.thoughtworks.spring.jpa.tomcat.services.PictureService;
+import com.thoughtworks.spring.jpa.tomcat.services.impl.PictureServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/picture")
 public class PictureController {
     @Autowired
-    private PictureService pictureService;
+    private PictureServiceImpl pictureService;
 
     @RequestMapping( method = RequestMethod.GET)
     public String showPicturePage(HttpSession httpSession, Model model){
