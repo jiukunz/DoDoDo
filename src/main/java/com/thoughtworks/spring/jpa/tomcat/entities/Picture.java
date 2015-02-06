@@ -26,6 +26,17 @@ public class Picture implements Serializable{
     private Timestamp createDate;
     private Timestamp modifyDate;
 
+    public Picture(){}
+
+    public Picture(String id, Long user_id, String caption, String location, String keyword, Integer price){
+        this.id = id;
+        this.user_id = user_id;
+        this.caption = caption;
+        this.location = location;
+        this.keyword = keyword;
+        this.price = price;
+    }
+
     public Timestamp getCreateDate() {
         return createDate;
     }

@@ -25,7 +25,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="/shopping_car">
                 <i class="user-img"></i>
                 <span>Shopping car</span>
             </a>
