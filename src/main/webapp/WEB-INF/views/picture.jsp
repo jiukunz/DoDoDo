@@ -11,12 +11,12 @@
         <ul>
             <c:forEach var="picList" items="${picList}">
                 <li class="picInfo">
-                    <a href="#">
-                        <img src="http://7u2rkn.com1.z0.glb.clouddn.com/${picList.id}" alt="${picList.id}" style="width: 150px"/>
-                    </a>
+                    <img src="http://7u2rkn.com1.z0.glb.clouddn.com/${picList.id}" alt="${picList.id}" style="width: 150px"/>
                     <p>Caption: <c:out value="${picList.caption}"/></p>
                     <p>Location: <c:out value="${picList.location}"/></p>
                     <p>$<c:out value="${picList.price}"/></p>
+                    <button class="picDelete" type="button">Delete</button>
+                    <button class="picEdit" type="button">Edit</button>
                 </li>
             </c:forEach>
         </ul>

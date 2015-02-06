@@ -1,4 +1,4 @@
-package com.thoughtworks.spring.jpa.tomcat.services;
+package com.thoughtworks.spring.jpa.tomcat.services.impl;
 
 import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.dao.UserDao;
