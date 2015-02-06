@@ -1,6 +1,7 @@
 .idea/
 spring-jpa-tomcat.iml
 target/
+src/main/webapp/WEB-INF/flyway.properties
 node_modules/
 bower_components/
 .sass-cache/
