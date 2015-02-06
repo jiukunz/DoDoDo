@@ -7,6 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.swing.text.html.Option;
+import java.util.List;
 
 /**
  * Created by qnxu on 1/27/15.
@@ -27,5 +30,20 @@ public class PictureDao {
     @Transactional
     public void insertPicInfo(Picture pictureEntity) {
         em.persist(pictureEntity);
+    }
+
+    public Optional<List<Picture>> getPicturesByUserId(String id) {
+        Long user_id = Long.parseLong(id);
+
+        TypedQuery<Picture> query = em.createQuery("SELECT pic FROM Picture pic WHERE pic.user_id=:user_id", Picture.class);
+        query.setParameter("user_id", user_id);
+        List<Picture> picList = query.getResultList();
+
+        if (picList.isEmpty()) {
+            return Optional.absent();
+        }else{
+            return Optional.of(picList);
+        }
+
     }
 }

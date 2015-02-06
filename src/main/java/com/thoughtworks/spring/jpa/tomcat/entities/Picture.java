@@ -17,6 +17,7 @@ public class Picture implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     private String id;
+    @Column(name = "user_id")
     private Long user_id;
     private String caption;
     private String location;

@@ -4,11 +4,11 @@
   <div class="anchor">
     <ul>
       <li><a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">
-        <img class="smallImage" alt="cfqhscDiSN8eo_cq_1"  src="/assets/img/smalltw1.jpg"/></a>
+        <img class="smallImage" alt="aebc5914-cc1d-43ec-a031-51bf3721b517"  src="/assets/img/smalltw1.jpg"/></a>
       </li>
       <li>
         <a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">
-          <img class="smallImage" alt="cfqhscDiSN8eo_cq_2" src="/assets/img/smalltw2.jpg"/>
+          <img class="smallImage" alt="aebc5914-cc1d-43ec-a031-51bf3721b517" src="/assets/img/smalltw2.jpg"/>
         </a>
       </li>
     </ul>

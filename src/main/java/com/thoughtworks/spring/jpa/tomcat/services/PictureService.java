@@ -15,12 +15,16 @@ public class PictureService {
     private PictureDao pictureDao;
 
     public Picture findPicture(String pictureId){
-        Picture picture =  pictureDao.getPicById(pictureId).get();
+        Optional<Picture> pictureOptional =  pictureDao.getPicById(pictureId);
 
-        if(picture.equals(Optional.absent())){
+        if(pictureOptional.equals(Optional.absent())){
             return new Picture("0",Long.parseLong("0"),"caption","location","keyword",0);
+        }else{
+            return pictureOptional.get();
         }
+    }
 
-        return picture;
+    public void getPicturesByUserId(String userId) {
+        pictureDao.getPicturesByUserId(userId);
     }
 }
