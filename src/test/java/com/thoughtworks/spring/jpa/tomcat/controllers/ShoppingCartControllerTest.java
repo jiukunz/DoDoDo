@@ -43,6 +43,6 @@ public class ShoppingCartControllerTest {
         when(httpSession.getAttribute(Constants.LOGIN_KEY)).thenReturn("1234");
         when(shoppingCartService.getPicListByUserId(anyString())).thenReturn(new ArrayList<Picture>());
         String actual = shoppingCartController.showShoppingCar(httpSession, model);
-        assertThat(actual, is("shoppingCar"));
+        assertThat(actual, is("shoppingCart"));
     }
 }
