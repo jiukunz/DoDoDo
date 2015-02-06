@@ -237,6 +237,7 @@
         </dependency>
 
     </dependencies>
+
     <build>
         <finalName>spring-jpa-tomcat</finalName>
         <plugins>
@@ -307,7 +308,49 @@
                                 </goals>
                                 <configuration>
                                     <executable>./prepare_db.sh</executable>
-                                    <executable>cp src/main/webapp/WEB-INF/flyway_dev.properties src/main/webapp/WEB-INF/flyway.properties</executable>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.coderplus.maven.plugins</groupId>
+                        <artifactId>copy-rename-maven-plugin</artifactId>
+                        <version>1.0</version>
+                        <executions>
+                            <execution>
+                                <id>copy-file</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>copy</goal>
+                                </goals>
+                                <configuration>
+                                    <sourceFile>src/main/webapp/WEB-INF/flyway_dev.properties</sourceFile>
+                                    <destinationFile>src/main/webapp/WEB-INF/flyway.properties</destinationFile>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.coderplus.maven.plugins</groupId>
+                        <artifactId>copy-rename-maven-plugin</artifactId>
+                        <version>1.0</version>
+                        <executions>
+                            <execution>
+                                <id>copy-file</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>copy</goal>
+                                </goals>
+                                <configuration>
+                                    <sourceFile>src/main/webapp/WEB-INF/flyway_prod.properties</sourceFile>
+                                    <destinationFile>src/main/webapp/WEB-INF/flyway.properties</destinationFile>
                                 </configuration>
                             </execution>
                         </executions>
