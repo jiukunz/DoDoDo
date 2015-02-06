@@ -307,6 +307,7 @@
                                 </goals>
                                 <configuration>
                                     <executable>./prepare_db.sh</executable>
+                                    <executable>cp src/main/webapp/WEB-INF/flyway_dev.properties src/main/webapp/WEB-INF/flyway.properties</executable>
                                 </configuration>
                             </execution>
                         </executions>
