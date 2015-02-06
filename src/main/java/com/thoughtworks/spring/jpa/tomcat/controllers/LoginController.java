@@ -48,10 +48,10 @@ public class LoginController {
         }
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
-    public @ResponseBody String postLogout(HttpSession httpSession)
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String postLogout(HttpSession httpSession)
     {
         httpSession.removeAttribute(Constants.LOGIN_KEY);
-        return "ok";
+        return "redirect:/home";
     }
 }

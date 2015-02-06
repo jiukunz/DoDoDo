@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
 
+import java.util.List;
+
 /**
  * Created by qnxu on 1/27/15.
  */
@@ -24,7 +26,9 @@ public class PictureService {
         }
     }
 
-    public void getPicturesByUserId(String userId) {
-        pictureDao.getPicturesByUserId(userId);
+    public Optional<List<Picture>> getPicturesByUserId(String userId) {
+        Optional<List<Picture>> picListOptional = pictureDao.getPicturesByUserId(userId);
+
+        return picListOptional;
     }
 }

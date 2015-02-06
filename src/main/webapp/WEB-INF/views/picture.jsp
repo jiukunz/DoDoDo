@@ -15,6 +15,10 @@
 
   </div>
 
+
+<h1>${picError}</h1>
+<h2>info:${picInfo.caption}</h2>
+
   <div id="pictureContent" style="display: none">
       <%--<img class="loading" src="/assets/img/loadingAnimation.gif" />--%>
       <%--<div class="imageContent">--%>

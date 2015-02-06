@@ -38,7 +38,7 @@
             </a>
             <div class="user-profile">
                 <a class="btn" href="/profile">Edit Profile</a>
-                <a class="btn" href="#" id="logout">Logout</a>
+                <a class="btn" href="/logout" id="logout">Logout</a>
             </div>
         </li>
     </ul>
