@@ -1,11 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-  <title>Picture</title>
-  <link rel="stylesheet" href="/assets/css/thickbox.css" />
-
-</head>
-<body>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 
   <div class="anchor">
     <ul>
@@ -36,29 +30,3 @@
       </div>
 
   </div>
-
-
-  <script type="text/javascript" src="/assets/js/jquery.js"></script>
-  <script type="text/javascript" src="/assets/js/thickbox.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $(".smallImage").on("click", function(){
-        $.ajax('/picture/data',{
-          success: function(response){
-              $(".pictureCaption").text(response.caption);
-              $(".pictureKeyword").text(response.keyword);
-              $(".pictureLocation").text(response.location);
-              $(".picturePrice").text(response.price);
-
-//              console.log(response.caption);
-          },
-          data: {"pictureId": this.alt}
-        });
-
-      });
-    });
-
-  </script>
-
-</body>
-</html>

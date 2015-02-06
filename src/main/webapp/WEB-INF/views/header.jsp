@@ -1,32 +1,45 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" trimDirectiveWhitespaces="true" %>
-<div class="container">
-    <div class="header">
-        <div class="header-right">
-            <ul>
-                <li>
-                    <img class="logo" src="../../assets/img/logo.jpeg">
-                </li>
-                <li>
-                    <span>Globe Images</span>
-                </li>
-            </ul>
-        </div>
-        <div class="header-left">
-            <ul>
-                <li><a>Home</a></li>
-                <li><a>My Picture</a></li>
-                <li><a href="/upload">Upload</a></li>
-                <li><a href="/shopping_car">Shopping Car</a></li>
-                <li class="popbox">
-                    <a class='open' href='#'>User</a>
-                    <div class='collapse'>
-                        <div class='box'>
-                            <a class="editProfile" href="/profile">Edit Profile</a>
-                            <button id="logout">Logout</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+<header class="clearfix">
+    <div class="logo-box pull-left">
+        <i class="logo"></i>
+        <h1>Globe Images</h1>
     </div>
-</div>
+
+    <ul class="nav nav-pills pull-right">
+        <li>
+            <a href="/home">
+                <i class="user-img"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="/picture">
+                <i class="user-img"></i>
+                <span>My Picture</span>
+            </a>
+        </li>
+        <li>
+            <a href="/upload">
+                <i class="user-img"></i>
+                <span>Upload</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="user-img"></i>
+                <span>Shopping car</span>
+            </a>
+        </li>
+        <li class="split"></li>
+        <li class="login-user">
+            <a class="open" href="#">
+                <i class="user-img"></i>
+                <span>User</span>
+            </a>
+            <div class="user-profile">
+                <a class="btn" href="/profile">Edit Profile</a>
+                <a class="btn" href="#" id="logout">Logout</a>
+            </div>
+        </li>
+    </ul>
+</header>

@@ -2,7 +2,7 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
-	
+
 <tiles-definitions>
     <definition name="layout.definition" template="/WEB-INF/views/layout.jsp">
         <put-attribute name="header" value="/WEB-INF/views/header.jsp"/>
@@ -23,6 +23,13 @@
         <put-attribute name="body" value="/WEB-INF/templates/upload.html"/>
         <put-attribute name="script" value="/WEB-INF/views/includes/script-upload.jsp"/>
         <put-attribute name="css" value="/WEB-INF/views/includes/css-upload.jsp"/>
+    </definition>
+
+    <definition name="picture" extends="layout.definition">
+        <put-attribute name="title" value="My Pictures" />
+        <put-attribute name="body" value="/WEB-INF/views/picture.jsp" />
+        <put-attribute name="script" value="/WEB-INF/views/includes/script-picture.jsp" />
+        <put-attribute name="css" value="/WEB-INF/views/includes/css-picture.jsp" />
     </definition>
 </tiles-definitions>
 
