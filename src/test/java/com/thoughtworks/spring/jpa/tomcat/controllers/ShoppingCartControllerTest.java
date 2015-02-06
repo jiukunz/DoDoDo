@@ -2,7 +2,7 @@ package com.thoughtworks.spring.jpa.tomcat.controllers;
 
 import com.thoughtworks.spring.jpa.tomcat.commons.Constants;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
-import com.thoughtworks.spring.jpa.tomcat.services.ShoppingCarService;
+import com.thoughtworks.spring.jpa.tomcat.services.ShoppingCartService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -20,11 +20,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-public class ShoppingCarControllerTest {
+public class ShoppingCartControllerTest {
     @InjectMocks
-    ShoppingCarController shoppingCarController;
+    ShoppingCartController shoppingCartController;
     @Mock
-    ShoppingCarService shoppingCarService;
+    ShoppingCartService shoppingCartService;
     @Mock
     MessageSource messageSource;
 
@@ -41,8 +41,8 @@ public class ShoppingCarControllerTest {
     @Test
     public void shouldShowShoppingCarList() {
         when(httpSession.getAttribute(Constants.LOGIN_KEY)).thenReturn("1234");
-        when(shoppingCarService.getPicListByUserId(anyString())).thenReturn(new ArrayList<Picture>());
-        String actual = shoppingCarController.showShoppingCar(httpSession, model);
+        when(shoppingCartService.getPicListByUserId(anyString())).thenReturn(new ArrayList<Picture>());
+        String actual = shoppingCartController.showShoppingCar(httpSession, model);
         assertThat(actual, is("shoppingCar"));
     }
 }

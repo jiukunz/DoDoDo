@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "shopping_car")
-public class ShoppingCar {
+public class ShoppingCart {
     @Id
     @GeneratedValue(generator = "user_seq_gen")
     @SequenceGenerator(name = "user_seq_gen", sequenceName = "USER_ID_GENERATOR")
@@ -16,6 +16,26 @@ public class ShoppingCar {
     private String picId;
     private Timestamp createDate;
     private Timestamp modifyDate;
+
+    public ShoppingCart withUserId(Long userId) {
+        this.userId = userId;
+        return this;
+    }
+
+    public ShoppingCart withPicId(String picId) {
+        this.picId = picId;
+        return this;
+    }
+
+    public ShoppingCart withCreateDate(Timestamp createDate) {
+        this.createDate = createDate;
+        return this;
+    }
+
+    public ShoppingCart withModifyDate(Timestamp modifyDate) {
+        this.modifyDate = modifyDate;
+        return this;
+    }
 
     public Long getUserId() {
         return userId;
@@ -48,4 +68,6 @@ public class ShoppingCar {
     public void setModifyDate(Timestamp modifyDate) {
         this.modifyDate = modifyDate;
     }
+
+
 }

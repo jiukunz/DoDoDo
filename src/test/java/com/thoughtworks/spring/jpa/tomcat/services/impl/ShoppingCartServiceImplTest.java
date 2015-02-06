@@ -2,10 +2,10 @@ package com.thoughtworks.spring.jpa.tomcat.services.impl;
 
 import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
-import com.thoughtworks.spring.jpa.tomcat.dao.ShoppingCarDao;
+import com.thoughtworks.spring.jpa.tomcat.dao.ShoppingCartDao;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
-import com.thoughtworks.spring.jpa.tomcat.entities.ShoppingCar;
-import com.thoughtworks.spring.jpa.tomcat.services.ShoppingCarService;
+import com.thoughtworks.spring.jpa.tomcat.entities.ShoppingCart;
+import com.thoughtworks.spring.jpa.tomcat.services.ShoppingCartService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -20,12 +20,12 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-public class ShoppingCarServiceImplTest {
+public class ShoppingCartServiceImplTest {
 
     @InjectMocks
-    ShoppingCarService shoppingCarService = new ShoppingCarServiceImpl();
+    ShoppingCartService shoppingCartService = new ShoppingCartServiceImpl();
     @Mock
-    ShoppingCarDao shoppingCarDao;
+    ShoppingCartDao shoppingCartDao;
     @Mock
     PictureDao pictureDao;
 
@@ -37,23 +37,23 @@ public class ShoppingCarServiceImplTest {
     @Test
     public void shouldGetPicListByUserId() {
         String userId = "1";
-        List<ShoppingCar> shoppingCarList = new ArrayList<>();
-        ShoppingCar car = new ShoppingCar();
-        shoppingCarList.add(car);
-        when(shoppingCarDao.getShoppingCarByUserId(anyString())).thenReturn(Optional.of(shoppingCarList));
+        List<ShoppingCart> shoppingCartList = new ArrayList<>();
+        ShoppingCart car = new ShoppingCart();
+        shoppingCartList.add(car);
+        when(shoppingCartDao.getShoppingCarByUserId(anyString())).thenReturn(Optional.of(shoppingCartList));
         Picture picture = new Picture();
         picture.setId("123456");
         when(pictureDao.getPicById(anyString())).thenReturn(Optional.of(picture));
-        ArrayList<Picture> picListByUserId = shoppingCarService.getPicListByUserId(userId);
+        ArrayList<Picture> picListByUserId = shoppingCartService.getPicListByUserId(userId);
         assertThat(picListByUserId.get(0).getId(), is(picture.getId()));
     }
 
     @Test
     public void shouldReturnEmptyListWhenShoppingCarIsEmpty() {
         String userId = "1";
-        when(shoppingCarDao.getShoppingCarByUserId(anyString())).thenReturn(Optional.<List<ShoppingCar>>absent());
+        when(shoppingCartDao.getShoppingCarByUserId(anyString())).thenReturn(Optional.<List<ShoppingCart>>absent());
         when(pictureDao.getPicById(anyString())).thenReturn(Optional.<Picture>absent());
-        ArrayList<Picture> picListByUserId = shoppingCarService.getPicListByUserId(userId);
+        ArrayList<Picture> picListByUserId = shoppingCartService.getPicListByUserId(userId);
         assertThat(picListByUserId.size(), is(0));
     }
 }

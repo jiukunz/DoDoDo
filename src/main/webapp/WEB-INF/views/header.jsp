@@ -25,9 +25,9 @@
             </a>
         </li>
         <li>
-            <a href="/shopping_car">
+            <a href="/shopping-cart">
                 <i class="user-img"></i>
-                <span>Shopping car</span>
+                <span>Shopping cart</span>
             </a>
         </li>
         <li class="split"></li>
