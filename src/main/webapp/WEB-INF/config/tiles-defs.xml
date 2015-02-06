@@ -31,5 +31,12 @@
         <put-attribute name="script" value="/WEB-INF/views/includes/script-picture.jsp" />
         <put-attribute name="css" value="/WEB-INF/views/includes/css-picture.jsp" />
     </definition>
+
+    <definition name="profile" extends="layout.definition">
+        <put-attribute name="title" value="Edit Profiles" />
+        <put-attribute name="body" value="/WEB-INF/views/profile.jsp" />
+        <put-attribute name="script" value="/WEB-INF/views/includes/script-profile.jsp" />
+        <put-attribute name="css" value="/WEB-INF/views/includes/css-profile.jsp" />
+    </definition>
 </tiles-definitions>
 
