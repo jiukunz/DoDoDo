@@ -1,15 +1,23 @@
 @import "variables";
+@import "mixin";
 
+// reset tag style
 html, body {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: $basic-font-size;
     color: $gray-darker;
 }
 body {
-    padding: $basic-width $basic-width*1.5;
+    padding: $unit-width $unit-width*1.5;
     min-width: 1024px;
 }
+ul,dl {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
+// define class style
 .info{
     color: $color-info;
 }
@@ -26,4 +34,8 @@ body {
     background-size: cover;
     width: 39px;
     height: 39px;
+}
+
+.center {
+    @include center();
 }

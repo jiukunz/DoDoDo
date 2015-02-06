@@ -1,0 +1,49 @@
+@import "basic/common";
+@import "header";
+@import "main";
+
+// structure
+
+.items {
+    .column {
+        display: inline-block;
+    }
+    &>li {
+        padding: $unit-width 0;
+        border-bottom: 1px solid $border-gray;
+        .checker {
+            margin: auto;
+            width: 30px;
+            vertical-align: middle;
+        }
+        .image-info {
+            vertical-align: middle;
+            width: 400px;
+            margin-right: $unit-width;
+            .img {
+                margin: auto $unit-width;
+                width: $unit-width*10;
+                height: $unit-width*10;
+            }
+            .infos {
+                dt, dd {
+                    float: left;
+                }
+                dt {
+                    margin-right: $unit-width;
+                    clear: left;
+                }
+            }
+        }
+        .price {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+
+.totals {
+    margin: $unit-width*2 auto;
+    font-size: 1.4rem;
+}
+

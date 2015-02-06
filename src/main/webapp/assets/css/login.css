@@ -9,6 +9,12 @@ body {
   min-width: 1024px;
 }
 
+ul, dl {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .info {
   color: #5bc0de;
 }
@@ -27,6 +33,12 @@ body {
   background-size: cover;
   width: 39px;
   height: 39px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .content {
@@ -69,11 +81,6 @@ body {
   height: auto;
   padding: 10px;
 }
-
-.form-login label{
-    display: block;
-}
-
 .form-login button {
   margin-top: 30px;
 }

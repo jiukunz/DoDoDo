@@ -7,7 +7,7 @@
 .login-header {
     position: relative;
     padding-left: 49px;
-    margin-bottom: $basic-width*2;
+    margin-bottom: $unit-width*2;
     .logo {
         position: absolute;
         left: 0;
@@ -25,23 +25,23 @@
 
 .form-login {
     border: 2px solid $border-gray;
-    padding: $basic-width*2;
+    padding: $unit-width*2;
     @include border-radius(5px);
     .signin-heading {
         font-size: 1.3rem;
         text-align: center;
-        margin-bottom: $basic-width*3;
+        margin-bottom: $unit-width*3;
     }
     .form-control {
         font-size: 1rem;
         height: auto;
-        padding: $basic-width;
+        padding: $unit-width;
     }
     button {
-        margin-top: $basic-width*3;
+        margin-top: $unit-width*3;
     }
     .form-bottom {
-        margin-top: $basic-width*1.5;
+        margin-top: $unit-width*1.5;
     }
 }
 

@@ -1,78 +1,9 @@
 @import "basic/common";
+@import "header";
+@import "main";
 
-.logo-box {
-    position: relative;
-    padding-left: 69px + $basic-width;
-    .logo {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 69px;
-        height: 69px;
-    }
-    h1 {
-        text-align: center;
-        text-shadow: 0 1px 1px #111;
-    }
-}
-header {
-    height: $basic-width*8;
-    border-bottom: 1px solid $border-gray;
-    position: relative;
-    ul.nav {
-        right: $basic-width;
-//        @include horizontal-list();
-        overflow: visible;// override overflow:hidden;
-    }
-    li.split {
-        border-left: 1px solid $border-gray;
-        width: 1px;
-        height: $basic-width*8;
-        padding: 0;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-    i {
-        text-align: center;
-        display: block;
-        margin: 0 auto $basic-width;
-    }
-    .user-img {
-        width: $basic-width*3;
-        height: $basic-width*3;
-        display: block;
-        @include border-radius($basic-width*3);
-
-        background-image: url("../img/logo.jpeg");
-        background-position: center;
-        background-size: cover;
-    }
-    .login-user {
-
-        &:hover {
-            .user-profile {
-                display: block;
-            }
-        }
-    }
-    .user-profile {
-        display: none;
-        position: absolute;
-        z-index: 2;
-        top: 100%;
-        right: 0;
-        background-color: #ffffff;
-        a {
-            display: block;
-        }
-        border: 1px solid #ccc;
-    }
-}
-
-
-.content {
-    .head {
-        padding: $basic-width 0;
-
+main {
+    .category {
+        padding: $unit-width 0;
     }
 }

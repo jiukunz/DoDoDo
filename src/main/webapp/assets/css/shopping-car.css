@@ -199,6 +199,40 @@ main .category h3 {
   margin: 20px auto;
 }
 
-main .category {
+.items .column {
+  display: inline-block;
+}
+.items > li {
   padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+.items > li .checker {
+  margin: auto;
+  width: 30px;
+  vertical-align: middle;
+}
+.items > li .image-info {
+  vertical-align: middle;
+  width: 400px;
+  margin-right: 10px;
+}
+.items > li .image-info .img {
+  margin: auto 10px;
+  width: 100px;
+  height: 100px;
+}
+.items > li .image-info .infos dt, .items > li .image-info .infos dd {
+  float: left;
+}
+.items > li .image-info .infos dt {
+  margin-right: 10px;
+  clear: left;
+}
+.items > li .price {
+  font-size: 1.3rem;
+}
+
+.totals {
+  margin: 20px auto;
+  font-size: 1.4rem;
 }
