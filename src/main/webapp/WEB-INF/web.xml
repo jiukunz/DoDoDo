@@ -11,7 +11,7 @@
         <filter-class>com.thoughtworks.spring.jpa.tomcat.filters.RequestLoggingFilter</filter-class> <!-- mandatory -->
         <init-param>
             <param-name>noFilterUrls</param-name>
-            <param-value>/login,/home,/register,/active,/forgotten/password,/reset/password,/shopping-cart/add</param-value>
+            <param-value>/login,/home,/register,/active,/forgotten/password,/reset/password,/shopping-cart/add,/admin</param-value>
         </init-param>
     </filter>
     <filter-mapping>

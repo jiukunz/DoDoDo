@@ -15,8 +15,6 @@
                     <p>Caption: <c:out value="${picList.caption}"/></p>
                     <p>Location: <c:out value="${picList.location}"/></p>
                     <p>$<c:out value="${picList.price}"/></p>
-                    <button class="picDelete" type="button">Delete</button>
-                    <button class="picEdit" type="button">Edit</button>
                 </li>
             </c:forEach>
         </ul>

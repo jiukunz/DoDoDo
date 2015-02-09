@@ -15,12 +15,4 @@ $(document).ready(function(){
 
     });
 
-    $(".picDelete").on("click", function(){
-        var image = $(this).closest(".picInfo").find("img")
-        alert(image.alt);
-    });
-
-    $(".picEdit").on("click", function(){
-        alert("edit");
-    });
 });
