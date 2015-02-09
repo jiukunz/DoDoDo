@@ -29,20 +29,26 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     public ImmutableList<Picture> getPicListByUserId(String userId) {
         List<ShoppingCart> shoppingCart = new ArrayList<>();
         Optional<List<ShoppingCart>> shoppingCartByUserId = shoppingCartDao.getShoppingCarByUserId(userId);
-        if (shoppingCartByUserId.isPresent()) {
-            shoppingCart = shoppingCartByUserId.get();
+        ImmutableList<Picture> pictures = null;
+        if (shoppingCartByUserId.equals(Optional.<List<ShoppingCart>>absent())) {
+            return pictures;
         }
 
-        ImmutableList<Picture> pictures = getPictures(shoppingCart);
+        shoppingCart = shoppingCartByUserId.get();
+
+        pictures = getFilteredPictures(shoppingCart);
 
         return pictures;
     }
 
-    private ImmutableList<Picture> getPictures(List<ShoppingCart> shoppingCart) {
+    private ImmutableList<Picture> getFilteredPictures(List<ShoppingCart> shoppingCart) {
         return FluentIterable.from(shoppingCart)
                 .filter(new Predicate<ShoppingCart>() {
                     @Override
                     public boolean apply(ShoppingCart shoppingCart) {
+                        if (pictureDao.getPicById(shoppingCart.getPicId()).equals(Optional.<Picture>absent())) {
+                            shoppingCartDao.delete(shoppingCart);
+                        }
                         return pictureDao.getPicById(shoppingCart.getPicId()).isPresent();
                     }
                 })

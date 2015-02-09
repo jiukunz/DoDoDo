@@ -17,6 +17,14 @@ public class ShoppingCart {
     private Timestamp createDate;
     private Timestamp modifyDate;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public ShoppingCart withUserId(Long userId) {
         this.userId = userId;
         return this;

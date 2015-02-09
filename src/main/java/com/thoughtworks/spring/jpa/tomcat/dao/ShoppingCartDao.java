@@ -33,4 +33,10 @@ public class ShoppingCartDao {
 
         return Optional.absent();
     }
+
+    @Transactional
+    public void delete(ShoppingCart shoppingCart) {
+        ShoppingCart shoppingCartToBeRemoved = em.getReference(ShoppingCart.class, shoppingCart.getId());
+        em.remove(shoppingCartToBeRemoved);
+    }
 }
