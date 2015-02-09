@@ -29,7 +29,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     public ImmutableList<Picture> getPicListByUserId(String userId) {
         List<ShoppingCart> shoppingCart = new ArrayList<>();
         Optional<List<ShoppingCart>> shoppingCartByUserId = shoppingCartDao.getShoppingCarByUserId(userId);
-        ImmutableList<Picture> pictures = null;
+        ImmutableList<Picture> pictures = new ImmutableList.Builder<Picture>().build();
         if (shoppingCartByUserId.equals(Optional.<List<ShoppingCart>>absent())) {
             return pictures;
         }

@@ -40,7 +40,7 @@ public class ShoppingCartControllerTest {
     @Test
     public void shouldReturnShoppingCartWhenShoppingCarListIsEmpty() {
         when(httpSession.getAttribute(Constants.LOGIN_KEY)).thenReturn("1234");
-        ImmutableList<Picture> picList = null;
+        ImmutableList<Picture> picList = new ImmutableList.Builder<Picture>().build();
         when(shoppingCartService.getPicListByUserId(anyString())).thenReturn(picList);
 
         String actual = shoppingCartController.showShoppingCar(httpSession, model);

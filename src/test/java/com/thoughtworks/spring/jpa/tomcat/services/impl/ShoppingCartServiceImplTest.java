@@ -17,7 +17,6 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
@@ -55,7 +54,7 @@ public class ShoppingCartServiceImplTest {
     public void shouldReturnEmptyListWhenShoppingCarIsEmpty() {
         when(shoppingCartDao.getShoppingCarByUserId(anyString())).thenReturn(Optional.<List<ShoppingCart>>absent());
         ImmutableList<Picture> picListByUserId = shoppingCartService.getPicListByUserId(userId);
-        assertThat(picListByUserId, is(nullValue()));
+        assertThat(picListByUserId.size(), is(0));
     }
 
     @Test

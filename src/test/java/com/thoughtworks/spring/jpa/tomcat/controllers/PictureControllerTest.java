@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -24,7 +24,7 @@ public class PictureControllerTest {
     private PictureServiceImpl pictureService;
 
     private HttpSession httpSession;
-    private Model model;
+    private ModelMap modelMap;
 
     private Picture picture;
 
@@ -32,7 +32,7 @@ public class PictureControllerTest {
     public void setUp(){
         initMocks(this);
         httpSession = mock(HttpSession.class);
-        model = mock(Model.class);
+        modelMap = mock(ModelMap.class);
 
         picture = new Picture();
         picture.setCaption("picture1");
@@ -44,7 +44,7 @@ public class PictureControllerTest {
         String userId = "1";
 
         when(pictureService.getPicturesByUserId(userId)).thenReturn(picList);
-        String pageUrl = pictureController.showPicturePage(httpSession, model);
+        String pageUrl = pictureController.showPicturePage(httpSession, modelMap);
         assertThat(pageUrl, is("picture"));
     }
 
