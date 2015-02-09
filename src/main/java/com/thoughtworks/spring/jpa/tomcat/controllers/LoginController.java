@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -37,7 +36,6 @@ public class LoginController {
                          HttpSession httpSession, Model model) throws NoSuchAlgorithmException, IOException {
         Optional<User> userOptional = loginService.getByEmail(username);
         if (loginService.validateUserPassword(password, userOptional) && loginService.validateUserStatus(userOptional)) {
-            loginService.persistUser(userOptional.get());
             httpSession.setAttribute(Constants.LOGIN_KEY, userOptional.get().getId().toString());
             return "redirect:/home";//TODO: finish homePage by 8k
         }

@@ -32,7 +32,6 @@ public class FileUploadController {
         String key=fileUploadService.uploadFile(file.getInputStream());
         if(key!=null){
             fileUploadService.insertPicInfoToDb(key, loginService.getLoginUser().getId());
-            //TODO save key and other info to DB
             return key;
         }
         return "failed";

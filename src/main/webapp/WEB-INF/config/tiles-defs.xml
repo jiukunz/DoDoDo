@@ -22,7 +22,7 @@
 
     <definition name="upload" extends="layout.definition">
         <put-attribute name="title" value="Globle Images"/>
-        <put-attribute name="body" value="/WEB-INF/templates/upload.html"/>
+        <put-attribute name="body" value="/WEB-INF/views/upload.jsp"/>
         <put-attribute name="script" value="/WEB-INF/views/includes/script-upload.jsp"/>
         <put-attribute name="css" value="/WEB-INF/views/includes/css-upload.jsp"/>
     </definition>
