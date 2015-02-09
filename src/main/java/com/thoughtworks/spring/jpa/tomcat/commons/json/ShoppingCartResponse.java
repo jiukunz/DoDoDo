@@ -1,15 +1,15 @@
 package com.thoughtworks.spring.jpa.tomcat.commons.json;
 
-import com.thoughtworks.spring.jpa.tomcat.commons.AddShoppingCartStatus;
+import com.thoughtworks.spring.jpa.tomcat.commons.ShoppingCartStatus;
 
 public class ShoppingCartResponse {
-    AddShoppingCartStatus status;
+    ShoppingCartStatus status;
 
-    public AddShoppingCartStatus getStatus() {
+    public ShoppingCartStatus getStatus() {
         return status;
     }
 
-    public void setStatus(AddShoppingCartStatus status) {
+    public void setStatus(ShoppingCartStatus status) {
         this.status = status;
     }
 }

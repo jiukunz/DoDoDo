@@ -9,4 +9,6 @@ public interface ShoppingCartService {
     ImmutableList<Picture> getPicListByUserId(String userId);
 
     ShoppingCartResponse addShoppingCar(ShoppingCart shoppingCart);
+
+    ShoppingCartResponse deleteShoppingCart(ShoppingCart shoppingCart);
 }

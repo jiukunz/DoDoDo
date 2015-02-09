@@ -1,7 +1,7 @@
 
 package com.thoughtworks.spring.jpa.tomcat.controllers;
 
-import com.thoughtworks.spring.jpa.tomcat.commons.AddShoppingCartStatus;
+import com.thoughtworks.spring.jpa.tomcat.commons.ShoppingCartStatus;
 import com.thoughtworks.spring.jpa.tomcat.commons.Constants;
 import com.thoughtworks.spring.jpa.tomcat.commons.json.ShoppingCartResponse;
 import com.thoughtworks.spring.jpa.tomcat.controllers.mappers.ShoppingCartMapper;
@@ -51,19 +51,35 @@ public class ShoppingCartController {
         Object userId = httpSession.getAttribute(Constants.LOGIN_KEY);
         ShoppingCartResponse shoppingCartResponse = new ShoppingCartResponse();
         if (null == userId) {
-            shoppingCartResponse.setStatus(AddShoppingCartStatus.NOT_LOGIN);
+            shoppingCartResponse.setStatus(ShoppingCartStatus.NOT_LOGIN);
             return shoppingCartResponse;
         }
 
-        ShoppingCart shoppingCart = shoppingCartMapper.mapper((String)userId, picture_id);
+        ShoppingCart shoppingCart = shoppingCartMapper.mapper((String) userId, picture_id);
         shoppingCartResponse = shoppingCartService.addShoppingCar(shoppingCart);
+
+        return shoppingCartResponse;
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public @ResponseBody ShoppingCartResponse deleteShoppingCar(HttpSession httpSession,
+           @RequestParam(value = "picture_id", required = true) String picture_id) {
+        Object userId = httpSession.getAttribute(Constants.LOGIN_KEY);
+        ShoppingCartResponse shoppingCartResponse = new ShoppingCartResponse();
+        if (null == userId) {
+            shoppingCartResponse.setStatus(ShoppingCartStatus.NOT_LOGIN);
+            return shoppingCartResponse;
+        }
+
+        ShoppingCart shoppingCart = shoppingCartMapper.mapper((String) userId, picture_id);
+        shoppingCartResponse = shoppingCartService.deleteShoppingCart(shoppingCart);
 
         return shoppingCartResponse;
     }
 
     private int getTotalPrice(List<Picture> picList) {
         int totalPrice = 0;
-        if(picList.isEmpty()) {
+        if (picList.isEmpty()) {
             return totalPrice;
         }
         for (Picture picture : picList) {

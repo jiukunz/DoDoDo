@@ -5,7 +5,7 @@ import com.google.common.base.Optional;
 import com.google.common.base.Predicate;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableList;
-import com.thoughtworks.spring.jpa.tomcat.commons.AddShoppingCartStatus;
+import com.thoughtworks.spring.jpa.tomcat.commons.ShoppingCartStatus;
 import com.thoughtworks.spring.jpa.tomcat.commons.json.ShoppingCartResponse;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
 import com.thoughtworks.spring.jpa.tomcat.dao.ShoppingCartDao;
@@ -66,12 +66,24 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         ShoppingCartResponse shoppingCartResponse = new ShoppingCartResponse();
 
         if (Optional.absent().equals(pictureDao.getPicById(shoppingCart.getPicId()))) {
-            shoppingCartResponse.setStatus(AddShoppingCartStatus.PICTURE_NOT_EXIT);
+            shoppingCartResponse.setStatus(ShoppingCartStatus.PICTURE_NOT_EXIT);
+            return shoppingCartResponse;
         }
 
         shoppingCartDao.persist(shoppingCart);
+        shoppingCartResponse.setStatus(ShoppingCartStatus.SUCCESS);
 
         return shoppingCartResponse;
 
+    }
+
+    @Override
+    public ShoppingCartResponse deleteShoppingCart(ShoppingCart shoppingCart) {
+        ShoppingCartResponse shoppingCartResponse = new ShoppingCartResponse();
+
+        shoppingCartDao.delete(shoppingCart);
+        shoppingCartResponse.setStatus(ShoppingCartStatus.SUCCESS);
+
+        return shoppingCartResponse;
     }
 }
