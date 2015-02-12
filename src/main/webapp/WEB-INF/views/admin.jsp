@@ -5,5 +5,7 @@
 </head>
 <body>
 Admin
+<p>RegisteredUserCount: ${registeredUserCount}</p>
+<p>ActiveUserCount: ${activeUserCount}</p>
 </body>
 </html>

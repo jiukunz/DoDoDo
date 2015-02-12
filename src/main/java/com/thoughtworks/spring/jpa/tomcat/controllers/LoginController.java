@@ -40,7 +40,7 @@ public class LoginController {
             return "redirect:/home";//TODO: finish homePage by 8k
         }else if(username.equals("admin") && password.equals("admin")){
 
-            return "redirect:/admin";
+            return "redirect:/home";
         } else {
             String errorMessage = loginService.getErrorMessage(password,userOptional);
             model.addAttribute("error", messageSource.getMessage(errorMessage, null, Locale.US));

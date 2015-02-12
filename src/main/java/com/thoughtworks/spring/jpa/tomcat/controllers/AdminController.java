@@ -15,8 +15,13 @@ public class AdminController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String showAdminPage(Model model){
+        int registeredUserCount = adminService.getRegisteredUserCount();
+        int activeUserCount = adminService.getActiveUserCount();
 
-        return "/admin";
+        model.addAttribute("registeredUserCount", registeredUserCount);
+        model.addAttribute("activeUserCount", activeUserCount);
+
+        return "admin";
     }
 
 

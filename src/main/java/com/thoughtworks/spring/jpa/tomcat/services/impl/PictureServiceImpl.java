@@ -4,7 +4,6 @@ import com.google.common.base.Optional;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
 import com.thoughtworks.spring.jpa.tomcat.services.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import com.thoughtworks.spring.jpa.tomcat.dao.PictureDao;
 import org.springframework.stereotype.Service;
 
@@ -41,11 +40,22 @@ public class PictureServiceImpl implements PictureService{
     @Override
     public List<Picture> getAllPictures() {
         List<Picture> allPictures = new ArrayList<>();
-        Optional<List<Picture>> picListOptional = pictureDao.getAllPictures();
+        Optional<List<Picture>> picListOptional = pictureDao.getFirstTenFeaturedPictures();
 
         if(picListOptional.isPresent()){
             allPictures = picListOptional.get();
         }
         return allPictures;
+    }
+
+    @Override
+    public List<Picture> getNewPictures() {
+        List<Picture> newPictures = new ArrayList<>();
+        Optional<List<Picture>> newPicListOptional = pictureDao.getFirstTenNewPictures();
+
+        if(newPicListOptional.isPresent()){
+            newPictures = newPicListOptional.get();
+        }
+        return newPictures;
     }
 }

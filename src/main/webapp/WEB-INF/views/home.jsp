@@ -12,7 +12,7 @@
 
 <section class="featured-picture">
     <h4>Featured Pictures</h4>
-    <a href="/home">View More Featured Pictures</a>
+    <a href="/feature-pictures">View More Featured Pictures</a>
 
     <p>${error}</p>
     <ul>
@@ -30,7 +30,20 @@
 
 <section class="new-picture">
     <h4>New Pictures</h4>
-    <a href="/home">View More New Pictures</a>
+    <a href="/new-pictures">View More New Pictures</a>
+
+    <p>${error}</p>
+    <ul>
+        <c:forEach var="newPic" items="${newPicList}">
+            <li class="picInfo">
+                <a class="thickbox" href="#TB_inline?height=300&amp;width=600&amp;inlineId=pictureContent">
+                    <img class="smallImage" src="http://7u2rkn.com1.z0.glb.clouddn.com/${newPic.id}" alt="${newPic.id}" />
+                </a>
+                <p>Caption: <c:out value="${newPic.caption}"/></p>
+                <p>$<c:out value="${newPic.price}"/></p>
+            </li>
+        </c:forEach>
+    </ul>
 </section>
 
 <div id="pictureContent" style="display: none">

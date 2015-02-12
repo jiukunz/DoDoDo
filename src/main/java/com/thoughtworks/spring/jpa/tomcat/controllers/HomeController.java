@@ -22,6 +22,10 @@ public class HomeController {
     public String showHomePage (Model model) {
         List<Picture> allPictures = pictureService.getAllPictures();
         model.addAttribute("picList", allPictures);
+
+        List<Picture> newPictures = pictureService.getNewPictures();
+        model.addAttribute("size", newPictures.size());
+        model.addAttribute("newPicList", newPictures);
         return "home";
     }
 

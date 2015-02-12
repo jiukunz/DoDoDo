@@ -11,9 +11,6 @@ import javax.persistence.TypedQuery;
 import javax.swing.text.html.Option;
 import java.util.List;
 
-/**
- * Created by qnxu on 1/27/15.
- */
 @Component
 public class PictureDao {
     @PersistenceContext(name = "postgres")
@@ -47,9 +44,9 @@ public class PictureDao {
 
     }
 
-    public Optional<List<Picture>> getAllPictures() {
+    public Optional<List<Picture>> getFirstTenFeaturedPictures() {
         TypedQuery<Picture> query = em.createQuery("SELECT p FROM Picture p", Picture.class);
-        List<Picture> allPicList = query.getResultList();
+        List<Picture> allPicList = query.setMaxResults(10).getResultList();
 
         if(allPicList.isEmpty()){
             return Optional.absent();
@@ -58,4 +55,14 @@ public class PictureDao {
         }
     }
 
+    public Optional<List<Picture>> getFirstTenNewPictures() {
+        TypedQuery<Picture> query = em.createQuery("SELECT p FROM Picture p ORDER BY p.createDate DESC", Picture.class);
+        List<Picture> newPicList = query.setMaxResults(10).getResultList();
+
+        if(newPicList.isEmpty()){
+            return Optional.absent();
+        }else{
+            return Optional.of(newPicList);
+        }
+    }
 }

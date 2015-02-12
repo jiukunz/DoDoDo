@@ -11,4 +11,6 @@ public interface PictureService {
     public Picture findPicture(String pictureId);
     public List<Picture> getPicturesByUserId(String userId);
     public List<Picture> getAllPictures();
+
+    public List<Picture> getNewPictures();
 }
