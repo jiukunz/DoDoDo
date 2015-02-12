@@ -20,10 +20,10 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String showHomePage (Model model) {
-        List<Picture> allPictures = pictureService.getAllPictures();
+        List<Picture> allPictures = pictureService.getFirstTenFeaturedPictures();
         model.addAttribute("picList", allPictures);
 
-        List<Picture> newPictures = pictureService.getNewPictures();
+        List<Picture> newPictures = pictureService.getFirstTenNewPictures();
         model.addAttribute("size", newPictures.size());
         model.addAttribute("newPicList", newPictures);
         return "home";

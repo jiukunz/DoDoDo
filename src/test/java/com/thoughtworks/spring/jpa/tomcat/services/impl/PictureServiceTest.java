@@ -59,7 +59,7 @@ public class PictureServiceTest {
 
         when(pictureDao.getFirstTenFeaturedPictures()).thenReturn(optionalAllPicList);
 
-        List<Picture> allPictures = pictureService.getAllPictures();
+        List<Picture> allPictures = pictureService.getFirstTenFeaturedPictures();
         assertThat(allPictures, is(optionalAllPicList.get()));
     }
 
@@ -69,7 +69,7 @@ public class PictureServiceTest {
 
         when(pictureDao.getFirstTenNewPictures()).thenReturn(optionalNewPicList);
 
-        List<Picture> newPictures = pictureService.getNewPictures();
+        List<Picture> newPictures = pictureService.getFirstTenNewPictures();
         assertThat(newPictures, is(pictureList));
     }
 }

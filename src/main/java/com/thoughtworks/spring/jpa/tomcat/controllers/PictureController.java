@@ -5,6 +5,7 @@ import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
 import com.thoughtworks.spring.jpa.tomcat.services.impl.PictureServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,12 +14,11 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("/picture")
 public class PictureController {
     @Autowired
     private PictureServiceImpl pictureService;
 
-    @RequestMapping( method = RequestMethod.GET)
+    @RequestMapping(value = "picture", method = RequestMethod.GET)
     public String showPicturePage(HttpSession httpSession, ModelMap modelMap){
         String userId = (String) httpSession.getAttribute(Constants.LOGIN_KEY);
 
@@ -30,4 +30,27 @@ public class PictureController {
 
         return "picture";
     }
+
+    @RequestMapping(value = "featuredPictures", method = RequestMethod.GET)
+    public String showAllFeaturedPictures(Model model){
+        List<Picture> featuredPicList = pictureService.getAllFeaturedPictures();
+        if(featuredPicList.size() == 0){
+            model.addAttribute("error", "No Featured Pictures");
+        }else{
+            model.addAttribute("featuredPicList", featuredPicList);
+        }
+        return "featuredPictures";
+    }
+
+    @RequestMapping(value = "newPictures", method = RequestMethod.GET)
+    public String showAllNewPictures(Model model){
+        List<Picture> newPicList = pictureService.getAllNewPictures();
+        if(newPicList.size() == 0){
+            model.addAttribute("error", "No New Pictures");
+        }else{
+            model.addAttribute("newPicList", newPicList);
+        }
+        return "newPictures";
+    }
+
 }

@@ -47,5 +47,20 @@
         <put-attribute name="css" value="/WEB-INF/views/includes/css-shopping-cart.jsp" />
     </definition>
 
+    <definition name="featuredPictures" extends="layout.definition">
+        <put-attribute name="title" value="Featured Pictures" />
+        <put-attribute name="body" value="/WEB-INF/views/featuredPictures.jsp" />
+        <put-attribute name="script" value="/WEB-INF/views/includes/script-picture.jsp" />
+        <put-attribute name="css" value="/WEB-INF/views/includes/css-picture.jsp" />
+    </definition>
+
+
+    <definition name="newPictures" extends="layout.definition">
+        <put-attribute name="title" value="New Pictures" />
+        <put-attribute name="body" value="/WEB-INF/views/newPictures.jsp" />
+        <put-attribute name="script" value="/WEB-INF/views/includes/script-picture.jsp" />
+        <put-attribute name="css" value="/WEB-INF/views/includes/css-picture.jsp" />
+    </definition>
+
 </tiles-definitions>
 

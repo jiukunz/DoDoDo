@@ -9,3 +9,13 @@
     width:170px;
     height: 200px;
 }
+
+.featured-picture{
+    margin: 20px auto 20px;
+    float: left;
+}
+
+.new-picture{
+    margin:20px auto 20px;
+    float: left;
+}

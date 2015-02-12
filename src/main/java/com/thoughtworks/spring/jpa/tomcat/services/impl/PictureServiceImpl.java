@@ -38,18 +38,18 @@ public class PictureServiceImpl implements PictureService{
     }
 
     @Override
-    public List<Picture> getAllPictures() {
-        List<Picture> allPictures = new ArrayList<>();
-        Optional<List<Picture>> picListOptional = pictureDao.getFirstTenFeaturedPictures();
+    public List<Picture> getFirstTenFeaturedPictures() {
+        List<Picture> featuredPicList = new ArrayList<>();
+        Optional<List<Picture>> featuredPicListOptional = pictureDao.getFirstTenFeaturedPictures();
 
-        if(picListOptional.isPresent()){
-            allPictures = picListOptional.get();
+        if(featuredPicListOptional.isPresent()){
+            featuredPicList = featuredPicListOptional.get();
         }
-        return allPictures;
+        return featuredPicList;
     }
 
     @Override
-    public List<Picture> getNewPictures() {
+    public List<Picture> getFirstTenNewPictures() {
         List<Picture> newPictures = new ArrayList<>();
         Optional<List<Picture>> newPicListOptional = pictureDao.getFirstTenNewPictures();
 
@@ -58,4 +58,28 @@ public class PictureServiceImpl implements PictureService{
         }
         return newPictures;
     }
+
+    @Override
+    public List<Picture> getAllFeaturedPictures() {
+        List<Picture> featuredPicList = new ArrayList<>();
+        Optional<List<Picture>> featuredPicListOptional = pictureDao.getAllFeaturedPictures();
+
+        if(featuredPicListOptional.isPresent()){
+            featuredPicList = featuredPicListOptional.get();
+        }
+        return featuredPicList;
+    }
+
+    @Override
+    public List<Picture> getAllNewPictures() {
+        List<Picture> newPicList = new ArrayList<>();
+        Optional<List<Picture>> newPicListOptional = pictureDao.getAllNewPictures();
+
+        if(newPicListOptional.isPresent()){
+            newPicList = newPicListOptional.get();
+        }
+        return newPicList;
+    }
+
+
 }

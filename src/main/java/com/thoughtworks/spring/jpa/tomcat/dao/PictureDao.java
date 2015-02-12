@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Queue;
 
 @Component
 public class PictureDao {
@@ -46,23 +47,45 @@ public class PictureDao {
 
     public Optional<List<Picture>> getFirstTenFeaturedPictures() {
         TypedQuery<Picture> query = em.createQuery("SELECT p FROM Picture p", Picture.class);
-        List<Picture> allPicList = query.setMaxResults(10).getResultList();
+        List<Picture> firstTenPicList = query.setMaxResults(10).getResultList();
 
-        if(allPicList.isEmpty()){
+        if(firstTenPicList.isEmpty()){
             return Optional.absent();
         }else {
-            return Optional.of(allPicList);
+            return Optional.of(firstTenPicList);
         }
     }
 
     public Optional<List<Picture>> getFirstTenNewPictures() {
         TypedQuery<Picture> query = em.createQuery("SELECT p FROM Picture p ORDER BY p.createDate DESC", Picture.class);
-        List<Picture> newPicList = query.setMaxResults(10).getResultList();
+        List<Picture> firstTenNewPicList = query.setMaxResults(10).getResultList();
 
-        if(newPicList.isEmpty()){
+        if(firstTenNewPicList.isEmpty()){
             return Optional.absent();
         }else{
-            return Optional.of(newPicList);
+            return Optional.of(firstTenNewPicList);
+        }
+    }
+
+    public Optional<List<Picture>> getAllFeaturedPictures() {
+        TypedQuery<Picture> query = em.createQuery("SELECT p FROM Picture p", Picture.class);
+        List<Picture> allFeaturedPicList = query.getResultList();
+
+        if(allFeaturedPicList.isEmpty()){
+            return Optional.absent();
+        }else {
+            return Optional.of(allFeaturedPicList);
+        }
+    }
+
+    public Optional<List<Picture>> getAllNewPictures(){
+        TypedQuery<Picture> query = em.createQuery("SELECT p FROM Picture p ORDER BY p.createDate DESC", Picture.class);
+        List<Picture> allNewPictures = query.getResultList();
+
+        if(allNewPictures.isEmpty()){
+            return Optional.absent();
+        }else{
+            return Optional.of(allNewPictures);
         }
     }
 }
