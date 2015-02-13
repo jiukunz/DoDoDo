@@ -12,7 +12,7 @@
 
 <section class="featured-picture">
     <h4>Featured Pictures</h4>
-    <a href="/featuredPictures">View More Featured Pictures</a>
+    <a href="/home/featuredPictures">View More Featured Pictures</a>
 
     <p>${error}</p>
     <ul>
@@ -30,7 +30,7 @@
 
 <section class="new-picture">
     <h4>New Pictures</h4>
-    <a href="/newPictures">View More New Pictures</a>
+    <a href="/home/newPictures">View More New Pictures</a>
 
     <p>${error}</p>
     <ul>

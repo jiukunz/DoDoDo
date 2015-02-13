@@ -14,11 +14,11 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-public class PictureController {
+public class MyPictureController {
     @Autowired
     private PictureServiceImpl pictureService;
 
-    @RequestMapping(value = "picture", method = RequestMethod.GET)
+    @RequestMapping(value = "myPicture", method = RequestMethod.GET)
     public String showPicturePage(HttpSession httpSession, ModelMap modelMap){
         String userId = (String) httpSession.getAttribute(Constants.LOGIN_KEY);
 
@@ -28,29 +28,7 @@ public class PictureController {
         }
         modelMap.addAttribute("picList", picList);
 
-        return "picture";
-    }
-
-    @RequestMapping(value = "featuredPictures", method = RequestMethod.GET)
-    public String showAllFeaturedPictures(Model model){
-        List<Picture> featuredPicList = pictureService.getAllFeaturedPictures();
-        if(featuredPicList.size() == 0){
-            model.addAttribute("error", "No Featured Pictures");
-        }else{
-            model.addAttribute("featuredPicList", featuredPicList);
-        }
-        return "featuredPictures";
-    }
-
-    @RequestMapping(value = "newPictures", method = RequestMethod.GET)
-    public String showAllNewPictures(Model model){
-        List<Picture> newPicList = pictureService.getAllNewPictures();
-        if(newPicList.size() == 0){
-            model.addAttribute("error", "No New Pictures");
-        }else{
-            model.addAttribute("newPicList", newPicList);
-        }
-        return "newPictures";
+        return "myPicture";
     }
 
 }

@@ -11,11 +11,13 @@
 }
 
 .featured-picture{
-    margin: 20px auto 20px;
+    width:1000px;
+    margin: 0 auto;
     float: left;
 }
 
 .new-picture{
-    margin:20px auto 20px;
+    width: 1000px;
+    margin:0 auto;
     float: left;
 }

@@ -17,9 +17,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-public class PictureControllerTest {
+public class MyPictureControllerTest {
     @InjectMocks
-    private PictureController pictureController;
+    private MyPictureController myPictureController;
     @Mock
     private PictureServiceImpl pictureService;
 
@@ -44,7 +44,7 @@ public class PictureControllerTest {
         String userId = "1";
 
         when(pictureService.getPicturesByUserId(userId)).thenReturn(picList);
-        String pageUrl = pictureController.showPicturePage(httpSession, modelMap);
+        String pageUrl = myPictureController.showPicturePage(httpSession, modelMap);
         assertThat(pageUrl, is("picture"));
     }
 

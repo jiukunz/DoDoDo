@@ -13,7 +13,7 @@
             </a>
         </li>
         <li>
-            <a href="/picture">
+            <a href="/myPicture">
                 <i class="user-img"></i>
                 <span>My Picture</span>
             </a>

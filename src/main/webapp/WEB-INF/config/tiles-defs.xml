@@ -27,9 +27,9 @@
         <put-attribute name="css" value="/WEB-INF/views/includes/css-upload.jsp"/>
     </definition>
 
-    <definition name="picture" extends="layout.definition">
+    <definition name="myPicture" extends="layout.definition">
         <put-attribute name="title" value="My Pictures" />
-        <put-attribute name="body" value="/WEB-INF/views/picture.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/myPicture.jsp" />
         <put-attribute name="script" value="/WEB-INF/views/includes/script-picture.jsp" />
         <put-attribute name="css" value="/WEB-INF/views/includes/css-picture.jsp" />
     </definition>
