@@ -2,6 +2,7 @@ package com.thoughtworks.spring.jpa.tomcat.controllers;
 
 import com.thoughtworks.spring.jpa.tomcat.commons.Constants;
 import com.thoughtworks.spring.jpa.tomcat.entities.Picture;
+import com.thoughtworks.spring.jpa.tomcat.services.PictureService;
 import com.thoughtworks.spring.jpa.tomcat.services.impl.PictureServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ import java.util.List;
 @Controller
 public class MyPictureController {
     @Autowired
-    private PictureServiceImpl pictureService;
+    private PictureService pictureService;
 
     @RequestMapping(value = "myPicture", method = RequestMethod.GET)
     public String showPicturePage(HttpSession httpSession, ModelMap modelMap){

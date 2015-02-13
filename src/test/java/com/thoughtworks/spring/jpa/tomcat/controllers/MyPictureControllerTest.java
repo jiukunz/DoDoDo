@@ -45,7 +45,7 @@ public class MyPictureControllerTest {
 
         when(pictureService.getUploadedPicListByUserId(userId)).thenReturn(picList);
         String pageUrl = myPictureController.showPicturePage(httpSession, modelMap);
-        assertThat(pageUrl, is("picture"));
+        assertThat(pageUrl, is("myPicture"));
     }
 
 }

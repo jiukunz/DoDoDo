@@ -91,7 +91,7 @@ public class PictureDao {
     }
 
     public Optional<List<Picture>> getPurchasedPicturesById(String userId) {
-//        TypedQuery<Picture> query = em.createQuery("SELECT p FROM Picture p", Picture.class);
+//        TypedQuery<Picture> query = em.createQuery("SELECT p FROM Picture p WHERE p", Picture.class);
 
         List<Picture> purchasedPictures = new ArrayList<>();
 
