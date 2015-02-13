@@ -21,3 +21,15 @@
     margin:0 auto;
     float: left;
 }
+
+.uploaded-picture{
+    width: 1000px;
+    margin: 0 auto;
+    float: left;
+}
+
+.purchased-picture{
+    width: 1000px;
+    margin: 0 auto;
+    float: left;
+}

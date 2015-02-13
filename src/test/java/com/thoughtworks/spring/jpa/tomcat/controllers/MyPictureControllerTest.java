@@ -43,7 +43,7 @@ public class MyPictureControllerTest {
         List<Picture> picList = mock(List.class);
         String userId = "1";
 
-        when(pictureService.getPicturesByUserId(userId)).thenReturn(picList);
+        when(pictureService.getUploadedPicListByUserId(userId)).thenReturn(picList);
         String pageUrl = myPictureController.showPicturePage(httpSession, modelMap);
         assertThat(pageUrl, is("picture"));
     }

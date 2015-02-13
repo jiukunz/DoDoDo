@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.swing.text.html.Option;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
@@ -86,6 +87,18 @@ public class PictureDao {
             return Optional.absent();
         }else{
             return Optional.of(allNewPictures);
+        }
+    }
+
+    public Optional<List<Picture>> getPurchasedPicturesById(String userId) {
+//        TypedQuery<Picture> query = em.createQuery("SELECT p FROM Picture p", Picture.class);
+
+        List<Picture> purchasedPictures = new ArrayList<>();
+
+        if(purchasedPictures.isEmpty()){
+            return Optional.absent();
+        }else{
+            return Optional.of(purchasedPictures);
         }
     }
 }

@@ -9,7 +9,9 @@ import java.util.List;
  */
 public interface PictureService {
     public Picture findPicture(String pictureId);
-    public List<Picture> getPicturesByUserId(String userId);
+
+    public List<Picture> getUploadedPicListByUserId(String userId);
+
     public List<Picture> getFirstTenFeaturedPictures();
 
     public List<Picture> getFirstTenNewPictures();
@@ -17,4 +19,6 @@ public interface PictureService {
     public List<Picture> getAllFeaturedPictures();
 
     public List<Picture> getAllNewPictures();
+
+    public List<Picture> getPurchasedPicListByUserId(String userId);
 }
