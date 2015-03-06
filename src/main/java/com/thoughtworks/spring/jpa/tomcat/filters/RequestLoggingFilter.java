@@ -14,14 +14,14 @@ import java.io.IOException;
 
 public class RequestLoggingFilter implements Filter {
 
-    public static final String NO_FILTER_URLS = "noFilterUrls";
+    public static final String NEED_FILTER_URLS = "needFilterUrls";
     public static final String LOGIN = "/login";
-    private String noFilterUrls;
+    private String needFilterUrls;
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        String initParameter = filterConfig.getInitParameter(NO_FILTER_URLS);
+        String initParameter = filterConfig.getInitParameter(NEED_FILTER_URLS);
         if(!Strings.isNullOrEmpty(initParameter)) {
-            noFilterUrls = initParameter;
+            needFilterUrls = initParameter;
         }
     }
 
@@ -31,8 +31,8 @@ public class RequestLoggingFilter implements Filter {
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
             HttpSession session = httpServletRequest.getSession();
         if (session != null) {
-            Iterable<String> noFilterUrl = Splitter.on(",").split(noFilterUrls);
-            if (!Iterables.contains(noFilterUrl,httpServletRequest.getRequestURI())) {
+            Iterable<String> needFilterUrl = Splitter.on(",").split(needFilterUrls);
+            if (Iterables.contains(needFilterUrl,httpServletRequest.getRequestURI())) {
                 String status = (String)session.getAttribute(Constants.LOGIN_KEY);
                 if (Strings.isNullOrEmpty(status)) {
                     httpServletResponse.sendRedirect(LOGIN);

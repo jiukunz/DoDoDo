@@ -10,8 +10,8 @@
         <filter-name>RequestLoggingFilter</filter-name> <!-- mandatory -->
         <filter-class>com.thoughtworks.spring.jpa.tomcat.filters.RequestLoggingFilter</filter-class> <!-- mandatory -->
         <init-param>
-            <param-name>noFilterUrls</param-name>
-            <param-value>/login,/home,/register,/active,/forgotten/password,/reset/password,/shopping-cart/add</param-value>
+            <param-name>needFilterUrls</param-name>
+            <param-value>/profile,/upload,/picture,/picture/data,/shopping_car,/shopping-cart/add,/shopping-cart/delete</param-value>
         </init-param>
     </filter>
     <filter-mapping>
